@@ -490,6 +490,16 @@ namespace libHitpan5.Model.DataModel
             sbQuery.AppendFormat("Delete from UnitCost{0}",sbWhere.ToString());
             return sbQuery.ToString();
         }
+
+        /// <summary>
+        /// 상품 검색 쿼리 작성
+        /// </summary>
+        /// <param name="goods">
+        /// 검색조건을 담은 VO
+        /// 검색조건이 없으면 null값 입력
+        /// </param>
+        /// <param name="IsLikeSearch"></param>
+        /// <returns></returns>
         public string SelectGoods(Goods goods,bool IsLikeSearch) 
         {
             IDictionary<string, string> dataDic = null;
@@ -508,6 +518,40 @@ namespace libHitpan5.Model.DataModel
             string query= GetSelectQuery(typeof(Goods),dataDic,IsLikeSearch,true);
             return query;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="goods">
+        /// 검색조건을 담은 VO
+        /// 검색조건이 없으면 null값 입력
+        /// </param>
+        /// <param name="IsLikeSearch"></param>
+        /// <returns></returns>
+        public string SelectGoodsTotalRowCount(Goods goods, bool IsLikeSearch)
+        {
+            IDictionary<string, string> dataDic = null;
+            if (goods != null)
+            {
+                dataDic = new Dictionary<string, string>();
+                foreach (var prop in typeof(Goods).GetProperties())
+                {
+                    if (prop.Name.ToLower() == "item" || goods[prop.Name] == null)
+                    {
+                        continue;
+                    }
+                    dataDic.Add(prop.Name, goods[prop.Name].ToString());
+                }
+            }
+            string where = string.Empty;
+            if (goods!=null)
+            {
+                where = MakeWhereBlock(typeof(Goods), dataDic, IsLikeSearch);
+            }             
+            string query = string.Format("select count(goodpk) as rowcount from goods {0}", where);
+            return query;
+        }
+
         public string SelectGoodsAndPartsAndUnitCost(Goods FinishedWork,bool UseLike) 
         {
             IDictionary<string,string> FinalGoodDic= new Dictionary<string,string>();
@@ -761,5 +805,71 @@ namespace libHitpan5.Model.DataModel
             return sbWhere.ToString();
         } //End of MakeWhereBlock
         #endregion
+
+        public string SelectGoodDetails(Goods param) 
+        {
+            StringBuilder sbDetail = new StringBuilder();
+            sbDetail.Append(" select *");
+            sbDetail.Append(" from");
+            sbDetail.Append(" goods");
+            sbDetail.Append(" inner join");
+            sbDetail.Append(" goodseller");
+            sbDetail.Append(" on");
+            sbDetail.Append(" goods.goodpk=goodseller.goodidx");
+            sbDetail.Append(" inner join");
+            sbDetail.Append(" companies");
+            sbDetail.Append(" on");
+            sbDetail.Append(" goodseller.selleridx=companies.companypk");
+            sbDetail.Append(" inner join");
+            sbDetail.Append(" unitcost");
+            sbDetail.Append(" on");
+            sbDetail.Append(" unitcost.goodidx = goods.goodpk");
+            sbDetail.Append(" ");
+
+            //where 블럭 만들기
+            IDictionary<string,string> dataDic= new Dictionary<string,string>();
+            foreach (var prop in typeof(Goods).GetProperties())
+	        {
+		        if (prop.Name=="item" || prop==null)
+	            {
+	                continue;
+	            }
+                dataDic.Add(prop.Name,param[prop.Name].ToString());
+	        }
+            sbDetail.Append(MakeWhereBlock(typeof(Goods),dataDic,false));
+            return sbDetail.ToString();
+        }
+
+        internal string InsertSeller(GoodSeller goodSeller)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal string InsertParts(Parts parts)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal string InsertUnitCost(UnitCost unitCost)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        internal string UpdateSeller(GoodSeller goodSeller)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal string UpdateParts(Parts parts)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal string UpdateUnitCost(UnitCost unitCost)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

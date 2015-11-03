@@ -72,7 +72,15 @@ namespace HitpanClientView.View.설정.사용자설정.관리정보설정
         private void frm관리정보설정_Load(object sender, EventArgs e)
         {          
             //세팅정보 채우기
-            this.commonSettings = frmMain.htpClientLib.settingInfo;
+            if (frmMain.htpClientLib.settingInfo!=null)
+            {
+                this.commonSettings = frmMain.htpClientLib.settingInfo;
+            }
+            else
+            {
+                this.commonSettings = new CommonSettinginfo();
+            }
+            
 
             #region pnSettings 채우기
             // 세팅정보 설정 콤보박스 하나하나의 높이
