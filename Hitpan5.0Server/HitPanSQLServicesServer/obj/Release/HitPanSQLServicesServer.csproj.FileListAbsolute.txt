@@ -1,0 +1,186 @@
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe.config
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.pdb
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.dll
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\SQLiteManager.dll
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\System.Data.SQLite.dll
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\SOAPManager.dll
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\nunit.framework.dll
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.xml
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\SQLiteManager.pdb
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\SOAPManager.pdb
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\nunit.framework.xml
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csprojResolveAssemblyReference.cache
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmMain.resources
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.Properties.Resources.resources
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csproj.GenerateResource.Cache
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.exe
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmMain.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.Properties.Resources.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csproj.GenerateResource.Cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe.config
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\SQLiteManager.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\System.Data.SQLite.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\SOAPManager.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.xml
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\SQLiteManager.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\bin\Release\SOAPManager.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csprojResolveAssemblyReference.cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.pdb
+G:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmViewQuery.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmViewQuery.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\LibCert\Cert2Spc.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\LibCert\CertMgr.Exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\LibCert\makecert.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\LibCert\PVKIMPRT.EXE
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe.config
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\certMakerLib.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SQLiteManager.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\System.Data.SQLite.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\certMakerLib.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.xml
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SQLiteManager.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csprojResolveAssemblyReference.cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmCertManager.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmMain.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmRegistServerUsers.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmViewQuery.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.Properties.Resources.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csproj.GenerateResource.Cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SOAPManager.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SOAPManager.pdb
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\LibCert\Cert2Spc.exe
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\LibCert\CertMgr.Exe
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\LibCert\makecert.exe
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\LibCert\PVKIMPRT.EXE
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe.config
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.pdb
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\certMakerLib.dll
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.dll
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SQLiteManager.dll
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\System.Data.SQLite.dll
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SOAPManager.dll
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\certMakerLib.pdb
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.xml
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SQLiteManager.pdb
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SOAPManager.pdb
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csprojResolveAssemblyReference.cache
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmCertManager.resources
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmMain.resources
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmRegistServerUsers.resources
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmViewQuery.resources
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.Properties.Resources.resources
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csproj.GenerateResource.Cache
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.exe
+G:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csprojResolveAssemblyReference.cache
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmMain.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.frmViewQuery.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.Properties.Resources.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.csproj.GenerateResource.Cache
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\doc\README_embedded.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\doc\WhatsNew.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\fbclient.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\fbembed.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\gbak.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\gds32.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\ib_util.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\icudt30.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\icuin30.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\icuuc30.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\IDPLicense.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\intl\fbintl.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\IPLicense.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\msvcp80.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\msvcr80.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\Readme.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\udf\fbudf.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\udf\fbudf.sql
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\udf\fbudf.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\udf\ib_udf.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\udf\ib_udf.sql
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\udf\ib_udf2.sql
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\doc\README_embedded.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\doc\WhatsNew.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\fbclient.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\fbembed.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\gbak.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\gds32.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\ib_util.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\icudt30.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\icuin30.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\icuuc30.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\IDPLicense.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\intl\fbintl.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\IPLicense.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\msvcp80.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\msvcr80.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\Readme.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\udf\fbudf.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\udf\fbudf.sql
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\udf\fbudf.txt
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\udf\ib_udf.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\udf\ib_udf.sql
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\udf\ib_udf2.sql
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Microsoft.Win32.TaskScheduler.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Newtonsoft.Json.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\PostgresSQLEngineX64\pg_dump.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\PostgresSQLEngineX64\pg_restore.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\PostgresSQLEngineX64\postgresqlx64.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\PostgresSQLEngineX64\psql.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\PostgresSQLEngineX86\postgresqlX86.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\firebird.msg
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\aliases.conf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\doc\Firebird-2.5-QuickStart.pdf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\doc\Firebird_v2.1.5.InstallationGuide.pdf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\doc\Firebird_v2.5.4.ReleaseNotes.pdf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\firebird.conf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\firebird.msg
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\intl\fbintl.conf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X64\Microsoft.VC80.CRT.manifest
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\aliases.conf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\doc\Firebird-2.5-QuickStart.pdf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\doc\Firebird_v2.1.5.InstallationGuide.pdf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\doc\Firebird_v2.5.4.ReleaseNotes.pdf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\firebird.conf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\firebird.log
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\firebird.msg
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\intl\fbintl.conf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\Firebird2.5.4X86\Microsoft.VC80.CRT.manifest
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\lib\pg_hba.conf
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe.config
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\HitPanSQLServicesServer.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\certMakerLib.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\WebServiceModule.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SOAPManager.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Npgsql.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\FirebirdSql.Data.FirebirdClient.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Microsoft.Win32.TaskScheduler.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Mono.Security.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\certMakerLib.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Newtonsoft.Json.xml
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\WebServiceModule.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\SOAPManager.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\Npgsql.xml
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\FirebirdSql.Data.FirebirdClient.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\de\Npgsql.resources.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\es\Npgsql.resources.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\fi\Npgsql.resources.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\fr\Npgsql.resources.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\ja\Npgsql.resources.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Release\zh-CN\Npgsql.resources.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Release\HitPanSQLServicesServer.pdb

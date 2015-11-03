@@ -1,0 +1,6 @@
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\wcf인증 테스트클라이언트\bin\Release\wcf인증 테스트클라이언트.exe.config
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\wcf인증 테스트클라이언트\bin\Release\wcf인증 테스트클라이언트.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\wcf인증 테스트클라이언트\bin\Release\wcf인증 테스트클라이언트.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\wcf인증 테스트클라이언트\obj\Release\wcf인증 테스트클라이언트.csprojResolveAssemblyReference.cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\wcf인증 테스트클라이언트\obj\Release\wcf인증 테스트클라이언트.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\wcf인증 테스트클라이언트\obj\Release\wcf인증 테스트클라이언트.pdb

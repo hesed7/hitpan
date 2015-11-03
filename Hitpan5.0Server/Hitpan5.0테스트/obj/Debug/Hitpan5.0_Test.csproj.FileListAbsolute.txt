@@ -1,0 +1,11 @@
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\bin\Debug\nunit.framework.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\bin\Debug\Rhino.Mocks.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\bin\Debug\nunit.framework.xml
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\bin\Debug\Rhino.Mocks.xml
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\obj\Debug\Hitpan5.0_Test.csprojResolveAssemblyReference.cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\bin\Debug\Hitpan5_Test.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\bin\Debug\Hitpan5_Test.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\obj\Debug\Hitpan5_Test.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\obj\Debug\Hitpan5_Test.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\bin\Debug\libHitpan5.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\Hitpan5.0테스트\bin\Debug\libHitpan5.pdb

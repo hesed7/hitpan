@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2166A957-8BC8-489E-B349-CBD12C476AE1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>libHitpan5</RootNamespace>
+    <AssemblyName>libHitpan5</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExcelReport, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelReport.2.0.0.0\lib\net40\ExcelReport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.1.3.1\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common.resources, Version=11.0.0.0, Culture=de, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.Common.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization.resources, Version=11.0.0.0, Culture=de, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.DataVisualization.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design.resources, Version=10.0.0.0, Culture=ko, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.Design.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign.resources, Version=10.0.0.0, Culture=ko, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.WebDesign.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms.resources, Version=11.0.0.0, Culture=de, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.WebForms.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms.resources, Version=11.0.0.0, Culture=de, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\ReportViewer\Microsoft.ReportViewer.WinForms.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\CommandController\abCMD.cs" />
+    <Compile Include="Controller\CommandController\CommonSetting\Insert.cs" />
+    <Compile Include="Controller\CommandController\CommonSetting\Update.cs" />
+    <Compile Include="Controller\CommandController\Goods\Insert.cs" />
+    <Compile Include="Controller\CommandController\Goods\Update.cs" />
+    <Compile Include="Controller\CommandController\ICMD.cs" />
+    <Compile Include="Controller\CommandController\MyCompany\Insert.cs" />
+    <Compile Include="Controller\CommandController\MyCompany\Update.cs" />
+    <Compile Include="Controller\CommandController\User\Insert.cs" />
+    <Compile Include="Controller\CommandController\User\Update.cs" />
+    <Compile Include="Controller\CommandListener\CommonSettingListener.cs" />
+    <Compile Include="Controller\CommandListener\GoodsListener.cs" />
+    <Compile Include="Controller\CommandListener\MyCompanyListener.cs" />
+    <Compile Include="Controller\CommandListener\UserListener.cs" />
+    <Compile Include="Controller\Common\DocumentController\abDocController.cs" />
+    <Compile Include="Controller\Common\DocumentController\IDocController.cs" />
+    <Compile Include="Controller\Common\DocumentController\PrintController.cs" />
+    <Compile Include="Controller\Common\Loger\Loger.cs" />
+    <Compile Include="Controller\Common\UserAuthValidator\UserValidator.cs" />
+    <Compile Include="Controller\Common\WebServiceController\WebServiceProxyController.cs" />
+    <Compile Include="Controller\SelectController\abSelect.cs" />
+    <Compile Include="Controller\SelectController\CommonSettings\CommonSettingsDocument.cs" />
+    <Compile Include="Controller\SelectController\CommonSettings\SelectCommonSettings.cs" />
+    <Compile Include="Controller\Common\DocumentController\Goods\GoodListDocument.cs" />
+    <Compile Include="Controller\Common\DocumentController\Goods\GoodDetailDocument.cs" />
+    <Compile Include="Controller\SelectController\Goods\SelectGoodDetail.cs" />
+    <Compile Include="Controller\SelectController\Goods\SelectGoodList.cs" />
+    <Compile Include="Controller\SelectController\ISelect.cs" />
+    <Compile Include="Controller\Common\DocumentController\MyCompany\MyCompanyDocument.cs" />
+    <Compile Include="Controller\SelectController\MyCompany\SelectMyCompany.cs" />
+    <Compile Include="Controller\SelectController\Users\Login\LogIn.cs" />
+    <Compile Include="Controller\SelectController\Users\SelectUser\SelectUser.cs" />
+    <Compile Include="Controller\Common\DocumentController\User\UserDocument.cs" />
+    <Compile Include="Hitpan5ClientLibrary.cs" />
+    <Compile Include="Model\DocumentModel\PrinterModel.cs" />
+    <Compile Include="Model\DocumentModel\ReportService.cs" />
+    <Compile Include="Model\WebServiceModel\proxy\SQLWebService.cs" />
+    <Compile Include="Model\WebServiceModel\SQLWebServiceModel.cs" />
+    <Compile Include="enums\Enums.cs" />
+    <Compile Include="Model\DataModel\SQLDataServiceModel.cs" />
+    <Compile Include="Model\DataModel\IDataModel.cs" />
+    <Compile Include="Model\DataModel\LocalDataFileService.cs" />
+    <Compile Include="Model\DataModel\DataQuery\SQLDataQueryRepository.cs" />
+    <Compile Include="Model\EncryptionModel\EncryptionService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VO\CommonVO\CompanyInfo.cs" />
+    <Compile Include="VO\CommonVO\DocumentInfo\RDLC.cs" />
+    <Compile Include="VO\CommonVO\DocumentInfo\DocumentVO.cs" />
+    <Compile Include="VO\CommonVO\DocumentInfo\견적서\QuotationVO.cs" />
+    <Compile Include="VO\CommonVO\GoodInfo\GoodInfo.cs" />
+    <Compile Include="VO\CommonVO\GoodInfo\GoodsList.cs" />
+    <Compile Include="VO\DBTableVO\CompanyInfo\Companies.cs" />
+    <Compile Include="VO\DBTableVO\GoodsInfo\Goods.cs" />
+    <Compile Include="VO\DBTableVO\GoodsInfo\GoodSeller.cs" />
+    <Compile Include="VO\DBTableVO\GoodsInfo\Parts.cs" />
+    <Compile Include="VO\DBTableVO\GoodsInfo\UnitCost.cs" />
+    <Compile Include="VO\CommonVO\SettingInfo\CommonSettinginfo\CommonSettinginfo.cs" />
+    <Compile Include="VO\DBTableVO\IDBTableVO.cs" />
+    <Compile Include="VO\DBTableVO\Log\Log.cs" />
+    <Compile Include="VO\CommonVO\myCompanyInfo.cs" />
+    <Compile Include="VO\CommonVO\UserAuth.cs" />
+    <Compile Include="VO\CommonVO\UserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\libHitpan5.VO.CompanyInfo.datasource" />
+    <None Include="Properties\DataSources\libHitpan5.VO.GoodVO.datasource" />
+    <None Include="Properties\DataSources\libHitpan5.VO.myInfo.datasource" />
+    <None Include="Properties\DataSources\libHitpan5.VO.QuotationVO.datasource" />
+    <None Include="Properties\DataSources\libHitpan5.VO.UserInfo.datasource" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

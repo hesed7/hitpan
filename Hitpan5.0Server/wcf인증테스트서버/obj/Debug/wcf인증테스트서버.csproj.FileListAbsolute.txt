@@ -1,0 +1,7 @@
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\wcf인증테스트서버\bin\Debug\wcf인증테스트서버.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\wcf인증테스트서버\bin\Debug\wcf인증테스트서버.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\wcf인증테스트서버\bin\Debug\SOAPManager.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\wcf인증테스트서버\bin\Debug\SOAPManager.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\wcf인증테스트서버\obj\Debug\wcf인증테스트서버.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\wcf인증테스트서버\obj\Debug\wcf인증테스트서버.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Server\wcf인증테스트서버\obj\Debug\wcf인증테스트서버.csprojResolveAssemblyReference.cache
