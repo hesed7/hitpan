@@ -170,3 +170,4 @@ F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBir
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBirdServer\obj\Debug\WebServiceServer.csprojResolveAssemblyReference.cache
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBirdServer\obj\Debug\WebServiceModule.dll
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBirdServer\obj\Debug\WebServiceModule.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBirdServer\bin\Debug\lib\htpDBSchema.sql

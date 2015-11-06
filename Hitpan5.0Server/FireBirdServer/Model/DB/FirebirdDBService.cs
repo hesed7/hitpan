@@ -26,7 +26,7 @@ namespace WebService.Model.DB
                 
                 FbConnectionStringBuilder FbSb = new FbConnectionStringBuilder();
                 FbSb.Charset = connVO.Charset;
-                FbSb.Database = connVO.DataBasePath;
+                //FbSb.Database = connVO.DataBasePath;
                 FbSb.UserID = connVO.DBID;
                 FbSb.Password = connVO.DBPassword;
                 FbSb.ServerType = FbServerType.Embedded;
@@ -47,7 +47,7 @@ namespace WebService.Model.DB
         {
             FbConnectionStringBuilder FbSb = new FbConnectionStringBuilder();
             FbSb.Charset = connVO.Charset;
-            FbSb.Database = connVO.DataBasePath;
+            //FbSb.Database = connVO.DataBasePath;
             FbSb.DataSource = "localhost";
             FbSb.ServerType = FbServerType.Embedded;
             string connstr= FbSb.ToString();

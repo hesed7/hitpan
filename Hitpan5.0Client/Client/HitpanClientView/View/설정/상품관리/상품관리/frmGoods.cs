@@ -9,9 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using libHitpan5.Controller.SelectController.Goods;
-using libHitpan5.Controller.SelectController;
-using libHitpan5.VO.CommonVO.GoodInfo;
+
 namespace HitpanClientView.View.설정.상품관리.상품관리
 {
     public partial class frmGoods : frmAb리스트뷰
@@ -20,7 +18,6 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
         public frmGoods()
         {
             this.RowCount = 10;
-            base.pageSetPageCount = 10;
             InitializeComponent();
         }
 
@@ -38,63 +35,20 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
 
 
         #region 부모폼 구성
-
-        /// <summary>
-        /// 아무런 조건 없이 상품 검색
-        /// </summary>
-        /// <param name="page"></param>
-        /// <param name="RowCount"></param>
-        /// <returns></returns>
         new private DataTable GetData(int page, int RowCount) 
         {
-            //데이터 구하기
-            ISelect GetGoodListVO = new SelectGoodList(page,RowCount);
-            GoodsList GoodsListVO = (GoodsList)frmMain.htpClientLib.Select(GetGoodListVO);
-
-            //데이터 분리
-            //[1] 데이터테이블
-            DataTable dtGoods = GoodsListVO.GoodList;
-            //[2] 전체 로우수
-            base.TotalRowsCount = GoodsListVO.TotalRowCount;
-            //데이터 테이블 반환
-            return dtGoods;
+            //libHitpan5.Hitpan5ClientLibrary htpLib= frmMain.getInstance().htpClientLib;
+            //ICommandListener icl=htpLib.GetCommandListener(CommandListenerType.goods);
+            //ICMD cmd= new 
+            //DataTable dt = htpLib.
+            //for (int i = 0; i < 10; i++)
+            //{
+                
+            //}
+            return null;
         }
-
-        /// <summary>
-        /// 어떤 조건 아래서 상품을 검색
-        /// </summary>
-        /// <param name="page"></param>
-        /// <param name="RowCount"></param>
-        /// <param name="param"></param>
-        /// <returns></returns>
-        new private DataTable GetData(int page, int RowCount,GoodInfo param) 
-        {
-            //데이터 구하기
-            ISelect GetGoodListVO = new SelectGoodList(page,RowCount);
-            ((SelectGoodList)GetGoodListVO).param = param.goodInfo;
-            GoodsList GoodsListVO = (GoodsList)frmMain.htpClientLib.Select(GetGoodListVO);
-
-            //데이터 분리
-            //[1] 데이터테이블
-            DataTable dtGoods = GoodsListVO.GoodList;
-            //[2] 전체 로우수
-            base.TotalRowsCount = GoodsListVO.TotalRowCount;
-            //데이터 테이블 반환
-            return dtGoods;
-        }
-        new private int GetTotalPageCount(int RowCount,int TotalRowCount) 
-        {
-            int totalPageCount=Convert.ToInt32(TotalRowCount / RowCount);
-            if (totalPageCount<1)
-	        {
-                totalPageCount = 1;
-	        }
-            return totalPageCount; 
-        }
-        new private void SetListView(DataTable data) 
-        {
-            
-        }
+        new private int GetTotalPageCount(int RowCount) {return 10; }
+        new private void SetListView(DataTable data) { }
         #endregion
     }
 }

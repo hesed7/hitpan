@@ -73,6 +73,8 @@
     <Compile Include="Delegate\Delegates.cs" />
     <Compile Include="Enum\enums.cs" />
     <Compile Include="Model\Common\FileExecuter.cs" />
+    <Compile Include="Model\Common\ZIPManager.cs" />
+    <Compile Include="Model\DB\DBEngine\DBEngineModel.cs" />
     <Compile Include="Model\DB\IDBService.cs" />
     <Compile Include="Model\DB\PostgresSQLDBServicecs.cs" />
     <Compile Include="Model\Scheduler\AutoBackupService.cs" />
@@ -265,9 +267,13 @@
     <Content Include="lib\Firebird2.5.4X86\udf\ib_udf2.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="lib\htpDBSchema.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\Microsoft.Win32.TaskScheduler.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="lib\PostgresSQLEngineX64\createdb.exe" />
     <Content Include="lib\PostgresSQLEngineX64\pg_dump.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using WebService.Model.Common;
+using WebService.Model.DB.DBEngine;
 
 namespace WebService.Controller.ServerSettingManager
 {
@@ -13,25 +14,7 @@ namespace WebService.Controller.ServerSettingManager
     {
         public bool CheckServerEngine()
         {
-            //postgresSQL이 설치되었는지 검증
-            try
-            {
-                RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\PostgreSQL\Services");
-                string[] subkeys = reg.GetSubKeyNames();
-                //이미 설치가 된 경우
-                if (subkeys.Length > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return new DBEngineModel().CheckServerEngine();
         }
 
         public void AutoBackup(TimeSpan Interval, string BackupFolder)
@@ -73,6 +56,7 @@ namespace WebService.Controller.ServerSettingManager
 
             string ProgramFilesDIR = string.Format("{0}Program Files", Directory.GetDirectoryRoot(Environment.GetFolderPath(Environment.SpecialFolder.Windows)));
             File.Copy(string.Format("{0}\\lib\\pg_hba.conf", Environment.CurrentDirectory), string.Format(@"{0}\PostgreSQL\9.4\data\pg_hba.conf", ProgramFilesDIR), true);
+            //서버 재시작 로직 나와야 함
         }
         public string database_superuser_password { get; set; }
     }

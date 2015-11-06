@@ -35,10 +35,3 @@ F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\libHitpan5\bin\Debug\Newtonsoft.Json.dll
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\libHitpan5\bin\Debug\Newtonsoft.Json.xml
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\libHitpan5\obj\Debug\libHitpan5.csprojResolveAssemblyReference.cache
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\bin\Debug\libHitpan5.dll
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\bin\Debug\libHitpan5.pdb
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\bin\Debug\ExcelReport.dll
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\bin\Debug\Newtonsoft.Json.dll
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\bin\Debug\Newtonsoft.Json.xml
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\obj\Debug\libHitpan5.dll
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\obj\Debug\libHitpan5.pdb

@@ -30,7 +30,7 @@ namespace HitPanSQLServicesServer.Controller.SettingInfo
             return OriginalData;
         }
         //추가
-        public void InsertServiceInfo(string url, string DBPath) 
+        public void InsertServiceInfo(string url, string DBName) 
         {
             //서비스 정보가 들어갈 객체
             IList<ServiceInfo> OriginalData = null;
@@ -41,9 +41,9 @@ namespace HitPanSQLServicesServer.Controller.SettingInfo
                 {
                     throw new Exception("접속할 URL을 입력하십시오");
                 }
-                else if (DBPath == null || DBPath == string.Empty)
+                else if (DBName == null || DBName == string.Empty)
                 {
-                    throw new Exception("사용할 DB의 경로를 입력하십시오");
+                    throw new Exception("사용할 DB의 이름 입력하십시오");
                 }
                 //파일이 있으면 기존 정보외의 충돌 검사
                 if (File.Exists(this.infoFilePath))
@@ -58,7 +58,7 @@ namespace HitPanSQLServicesServer.Controller.SettingInfo
                         {
                             throw new Exception("기존의 URL과 중복됩니다.");
                         }
-                        else if (si.DBPath == DBPath)
+                        else if (si.DBName == DBName)
                         {
                             throw new Exception("입력된 데이터베이스는 이미 서비스 되고 있습니다.");
                         }
@@ -73,7 +73,7 @@ namespace HitPanSQLServicesServer.Controller.SettingInfo
                     OriginalData = new List<ServiceInfo>();
                 }
                 //내용 삽입
-                OriginalData.Add(new ServiceInfo(url, DBPath));
+                OriginalData.Add(new ServiceInfo(url, DBName));
                 //객체를 문자열(Json)으로 변환
                 String jsonData = JsonConvert.SerializeObject(OriginalData);
                 //파일 삭제

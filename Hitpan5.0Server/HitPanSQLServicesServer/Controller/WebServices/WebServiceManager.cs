@@ -126,9 +126,16 @@ namespace HitPanSQLServicesServer.Controller.WebServices
             {
                 throw new Exception("서버가 준비되지 않았습니다");
             }
-            foreach (string url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
+            ICollection<string> urlList = WebService.ServerMain.getInstance().ActiveServiceDic.Keys;
+            IList<string> arrURL = new List<string>();
+            foreach (string url in urlList)
             {
-                ServerConsole.DeleteService(url);               
+                arrURL.Add(url);
+                               
+            }
+            foreach (string _url in arrURL)
+            {
+                ServerConsole.DeleteService(_url);
             }
         }
 

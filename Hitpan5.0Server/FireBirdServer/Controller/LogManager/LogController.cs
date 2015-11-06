@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace WebService.Controller.LogManager
 {
@@ -23,7 +24,7 @@ namespace WebService.Controller.LogManager
 
         internal void WriteLogFile(string Log)
         {
-            throw new NotImplementedException(Log);
+            MessageBox.Show(Log);
         }
     }
 }

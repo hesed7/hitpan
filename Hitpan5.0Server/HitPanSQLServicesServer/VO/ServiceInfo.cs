@@ -8,12 +8,12 @@ namespace HitPanSQLServicesServer.VO
 {
     class ServiceInfo
     {
-        public ServiceInfo(string ServiceURL, string DBPath)
+        public ServiceInfo(string ServiceURL, string DBName)
         {
             this.ServiceURL = ServiceURL;
-            this.DBPath = DBPath;
+            this.DBName = DBName;
         }
         public string ServiceURL { get; set; }
-        public string DBPath { get; set; }
+        public string DBName { get; set; }
     }
 }

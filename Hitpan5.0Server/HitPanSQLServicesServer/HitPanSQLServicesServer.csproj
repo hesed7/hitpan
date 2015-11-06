@@ -59,7 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\DBFile\DBFileManager.cs" />
+    <Compile Include="Controller\DB\DBManager.cs" />
     <Compile Include="Controller\SettingInfo\CommonSettingsController.cs" />
     <Compile Include="Controller\SettingInfo\ServiceURLControllers.cs" />
     <Compile Include="Controller\WebServices\WebServiceManager.cs" />

@@ -42,23 +42,3 @@ F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.pdb
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.View.설정.사용자설정.관리정보설정.frm관리정보설정.resources
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.View.설정.사용자설정.일반정보설정.계정설정.frmUserAdd.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Release\HitpanClientView.exe.config
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Release\HitpanClientView.exe
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Release\HitpanClientView.pdb
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Release\libHitpan5.dll
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Release\Newtonsoft.Json.dll
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Release\libHitpan5.pdb
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Release\Newtonsoft.Json.xml
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.csprojResolveAssemblyReference.cache
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.frmLogin.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.frmMain.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.Properties.Resources.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.View.설정.사용자설정.관리정보설정.frm관리정보설정.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.View.설정.사용자설정.일반정보설정.계정설정.frmUserAdd.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.View.설정.사용자설정.일반정보설정.frm일반정보설정.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.View.설정.사용자설정.전자세금계산서.frm전자세금계산서환경설정.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.View.설정.상품관리.상품관리.frmAb리스트뷰.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.View.설정.상품관리.상품관리.frmGoods.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.csproj.GenerateResource.Cache
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.exe
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Release\HitpanClientView.pdb

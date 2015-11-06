@@ -188,10 +188,10 @@ F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanS
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Debug\fr\Npgsql.resources.dll
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Debug\ja\Npgsql.resources.dll
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\bin\Debug\zh-CN\Npgsql.resources.dll
-F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.csprojResolveAssemblyReference.cache
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.frmMain.resources
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.frmViewQuery.resources
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.Properties.Resources.resources
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.csproj.GenerateResource.Cache
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.exe
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.csprojResolveAssemblyReference.cache

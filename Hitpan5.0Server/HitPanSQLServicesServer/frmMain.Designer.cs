@@ -31,14 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.LinkBackupFile = new System.Windows.Forms.LinkLabel();
+            this.txtBackupFile = new System.Windows.Forms.TextBox();
+            this.rdCreateDB = new System.Windows.Forms.RadioButton();
+            this.rdRestoreDB = new System.Windows.Forms.RadioButton();
             this.linkPortTest = new System.Windows.Forms.LinkLabel();
-            this.linkDBFinder = new System.Windows.Forms.LinkLabel();
             this.linkExternalIP = new System.Windows.Forms.LinkLabel();
             this.pnCommonSettingView = new System.Windows.Forms.Panel();
             this.linkDeleteAllSettings = new System.Windows.Forms.LinkLabel();
             this.linkWarning = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
-            this.linkSetMirrorPath = new System.Windows.Forms.LinkLabel();
             this.linkBackupPath = new System.Windows.Forms.LinkLabel();
             this.cbBackupSchedule = new System.Windows.Forms.ComboBox();
             this.btnSetCommonSettings = new System.Windows.Forms.Button();
@@ -47,15 +49,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtSecureKey = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.linkDeleteMirrorPath = new System.Windows.Forms.LinkLabel();
-            this.lbMirrorPaths = new System.Windows.Forms.ListBox();
             this.txtBackupPath = new System.Windows.Forms.TextBox();
             this.txtExternalIP = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblExternalIP = new System.Windows.Forms.Label();
-            this.txtDBPath = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPort = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,11 +80,7 @@
             this.cmsNotifyIcon1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.서버콘솔보이기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.서버종료하기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rdDBFilePath = new System.Windows.Forms.RadioButton();
-            this.rdRestoreDB = new System.Windows.Forms.RadioButton();
-            this.rdCreateDB = new System.Windows.Forms.RadioButton();
-            this.LinkBackupFile = new System.Windows.Forms.LinkLabel();
-            this.txtBackupFile = new System.Windows.Forms.TextBox();
+            this.dB복원ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.pnCommonSettingView.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -100,12 +94,9 @@
             this.panel2.Controls.Add(this.txtBackupFile);
             this.panel2.Controls.Add(this.rdCreateDB);
             this.panel2.Controls.Add(this.rdRestoreDB);
-            this.panel2.Controls.Add(this.rdDBFilePath);
             this.panel2.Controls.Add(this.linkPortTest);
-            this.panel2.Controls.Add(this.linkDBFinder);
             this.panel2.Controls.Add(this.linkExternalIP);
             this.panel2.Controls.Add(this.pnCommonSettingView);
-            this.panel2.Controls.Add(this.txtDBPath);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtPort);
             this.panel2.Controls.Add(this.label1);
@@ -116,34 +107,66 @@
             this.panel2.Controls.Add(this.btnEnd);
             this.panel2.Location = new System.Drawing.Point(316, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(678, 589);
+            this.panel2.Size = new System.Drawing.Size(678, 439);
             this.panel2.TabIndex = 3;
+            // 
+            // LinkBackupFile
+            // 
+            this.LinkBackupFile.AutoSize = true;
+            this.LinkBackupFile.Location = new System.Drawing.Point(584, 363);
+            this.LinkBackupFile.Name = "LinkBackupFile";
+            this.LinkBackupFile.Size = new System.Drawing.Size(77, 12);
+            this.LinkBackupFile.TabIndex = 19;
+            this.LinkBackupFile.TabStop = true;
+            this.LinkBackupFile.Text = "백업파일찾기";
+            this.LinkBackupFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkBackupFile_LinkClicked);
+            // 
+            // txtBackupFile
+            // 
+            this.txtBackupFile.Enabled = false;
+            this.txtBackupFile.Location = new System.Drawing.Point(160, 354);
+            this.txtBackupFile.Name = "txtBackupFile";
+            this.txtBackupFile.Size = new System.Drawing.Size(418, 21);
+            this.txtBackupFile.TabIndex = 18;
+            // 
+            // rdCreateDB
+            // 
+            this.rdCreateDB.AutoSize = true;
+            this.rdCreateDB.Location = new System.Drawing.Point(319, 332);
+            this.rdCreateDB.Name = "rdCreateDB";
+            this.rdCreateDB.Size = new System.Drawing.Size(119, 16);
+            this.rdCreateDB.TabIndex = 17;
+            this.rdCreateDB.TabStop = true;
+            this.rdCreateDB.Text = "비어있는 DB 생성";
+            this.rdCreateDB.UseVisualStyleBackColor = true;
+            this.rdCreateDB.CheckedChanged += new System.EventHandler(this.rdCreateDB_CheckedChanged);
+            // 
+            // rdRestoreDB
+            // 
+            this.rdRestoreDB.AutoSize = true;
+            this.rdRestoreDB.Location = new System.Drawing.Point(160, 332);
+            this.rdRestoreDB.Name = "rdRestoreDB";
+            this.rdRestoreDB.Size = new System.Drawing.Size(143, 16);
+            this.rdRestoreDB.TabIndex = 16;
+            this.rdRestoreDB.TabStop = true;
+            this.rdRestoreDB.Text = "백업파일 에서 DB생성";
+            this.rdRestoreDB.UseVisualStyleBackColor = true;
+            this.rdRestoreDB.CheckedChanged += new System.EventHandler(this.rdRestoreDB_CheckedChanged);
             // 
             // linkPortTest
             // 
             this.linkPortTest.AutoSize = true;
-            this.linkPortTest.Location = new System.Drawing.Point(247, 428);
+            this.linkPortTest.Location = new System.Drawing.Point(247, 296);
             this.linkPortTest.Name = "linkPortTest";
             this.linkPortTest.Size = new System.Drawing.Size(65, 12);
             this.linkPortTest.TabIndex = 14;
             this.linkPortTest.TabStop = true;
             this.linkPortTest.Text = "포트테스트";
             // 
-            // linkDBFinder
-            // 
-            this.linkDBFinder.AutoSize = true;
-            this.linkDBFinder.Location = new System.Drawing.Point(587, 499);
-            this.linkDBFinder.Name = "linkDBFinder";
-            this.linkDBFinder.Size = new System.Drawing.Size(69, 12);
-            this.linkDBFinder.TabIndex = 13;
-            this.linkDBFinder.TabStop = true;
-            this.linkDBFinder.Text = "DB파일찾기";
-            this.linkDBFinder.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDBFinder_LinkClicked);
-            // 
             // linkExternalIP
             // 
             this.linkExternalIP.AutoSize = true;
-            this.linkExternalIP.Location = new System.Drawing.Point(587, 402);
+            this.linkExternalIP.Location = new System.Drawing.Point(587, 270);
             this.linkExternalIP.Name = "linkExternalIP";
             this.linkExternalIP.Size = new System.Drawing.Size(64, 12);
             this.linkExternalIP.TabIndex = 12;
@@ -157,7 +180,6 @@
             this.pnCommonSettingView.Controls.Add(this.linkDeleteAllSettings);
             this.pnCommonSettingView.Controls.Add(this.linkWarning);
             this.pnCommonSettingView.Controls.Add(this.label6);
-            this.pnCommonSettingView.Controls.Add(this.linkSetMirrorPath);
             this.pnCommonSettingView.Controls.Add(this.linkBackupPath);
             this.pnCommonSettingView.Controls.Add(this.cbBackupSchedule);
             this.pnCommonSettingView.Controls.Add(this.btnSetCommonSettings);
@@ -166,17 +188,14 @@
             this.pnCommonSettingView.Controls.Add(this.label8);
             this.pnCommonSettingView.Controls.Add(this.txtSecureKey);
             this.pnCommonSettingView.Controls.Add(this.label7);
-            this.pnCommonSettingView.Controls.Add(this.linkDeleteMirrorPath);
-            this.pnCommonSettingView.Controls.Add(this.lbMirrorPaths);
             this.pnCommonSettingView.Controls.Add(this.txtBackupPath);
             this.pnCommonSettingView.Controls.Add(this.txtExternalIP);
             this.pnCommonSettingView.Controls.Add(this.label5);
-            this.pnCommonSettingView.Controls.Add(this.label4);
             this.pnCommonSettingView.Controls.Add(this.label3);
             this.pnCommonSettingView.Controls.Add(this.lblExternalIP);
             this.pnCommonSettingView.Location = new System.Drawing.Point(3, 3);
             this.pnCommonSettingView.Name = "pnCommonSettingView";
-            this.pnCommonSettingView.Size = new System.Drawing.Size(672, 371);
+            this.pnCommonSettingView.Size = new System.Drawing.Size(672, 244);
             this.pnCommonSettingView.TabIndex = 11;
             // 
             // linkDeleteAllSettings
@@ -213,17 +232,6 @@
             this.label6.TabIndex = 24;
             this.label6.Text = "일 마다 백업";
             // 
-            // linkSetMirrorPath
-            // 
-            this.linkSetMirrorPath.AutoSize = true;
-            this.linkSetMirrorPath.Location = new System.Drawing.Point(160, 224);
-            this.linkSetMirrorPath.Name = "linkSetMirrorPath";
-            this.linkSetMirrorPath.Size = new System.Drawing.Size(97, 12);
-            this.linkSetMirrorPath.TabIndex = 23;
-            this.linkSetMirrorPath.TabStop = true;
-            this.linkSetMirrorPath.Text = "미러링 경로 입력";
-            this.linkSetMirrorPath.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSetMirrorPath_LinkClicked);
-            // 
             // linkBackupPath
             // 
             this.linkBackupPath.AutoSize = true;
@@ -251,7 +259,7 @@
             // 
             // btnSetCommonSettings
             // 
-            this.btnSetCommonSettings.Location = new System.Drawing.Point(157, 322);
+            this.btnSetCommonSettings.Location = new System.Drawing.Point(555, 191);
             this.btnSetCommonSettings.Name = "btnSetCommonSettings";
             this.btnSetCommonSettings.Size = new System.Drawing.Size(100, 23);
             this.btnSetCommonSettings.TabIndex = 20;
@@ -310,26 +318,6 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "서비스 공통 설정정보";
             // 
-            // linkDeleteMirrorPath
-            // 
-            this.linkDeleteMirrorPath.AutoSize = true;
-            this.linkDeleteMirrorPath.Location = new System.Drawing.Point(295, 224);
-            this.linkDeleteMirrorPath.Name = "linkDeleteMirrorPath";
-            this.linkDeleteMirrorPath.Size = new System.Drawing.Size(97, 12);
-            this.linkDeleteMirrorPath.TabIndex = 16;
-            this.linkDeleteMirrorPath.TabStop = true;
-            this.linkDeleteMirrorPath.Text = "미러링 경로 삭제";
-            this.linkDeleteMirrorPath.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDeleteMirrorPath_LinkClicked);
-            // 
-            // lbMirrorPaths
-            // 
-            this.lbMirrorPaths.FormattingEnabled = true;
-            this.lbMirrorPaths.ItemHeight = 12;
-            this.lbMirrorPaths.Location = new System.Drawing.Point(157, 239);
-            this.lbMirrorPaths.Name = "lbMirrorPaths";
-            this.lbMirrorPaths.Size = new System.Drawing.Size(498, 76);
-            this.lbMirrorPaths.TabIndex = 15;
-            // 
             // txtBackupPath
             // 
             this.txtBackupPath.Location = new System.Drawing.Point(157, 156);
@@ -355,15 +343,6 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "자동백업 시간 간격 :";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 224);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "미러링 경로 :";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -382,18 +361,10 @@
             this.lblExternalIP.TabIndex = 0;
             this.lblExternalIP.Text = "외부IP : ";
             // 
-            // txtDBPath
-            // 
-            this.txtDBPath.Enabled = false;
-            this.txtDBPath.Location = new System.Drawing.Point(160, 490);
-            this.txtDBPath.Name = "txtDBPath";
-            this.txtDBPath.Size = new System.Drawing.Size(418, 21);
-            this.txtDBPath.TabIndex = 10;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 466);
+            this.label2.Location = new System.Drawing.Point(64, 334);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 9;
@@ -402,7 +373,7 @@
             // txtPort
             // 
             this.txtPort.Enabled = false;
-            this.txtPort.Location = new System.Drawing.Point(160, 425);
+            this.txtPort.Location = new System.Drawing.Point(160, 293);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(78, 21);
             this.txtPort.TabIndex = 8;
@@ -411,7 +382,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 434);
+            this.label1.Location = new System.Drawing.Point(43, 302);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 12);
             this.label1.TabIndex = 7;
@@ -419,7 +390,7 @@
             // 
             // txtServiceURL
             // 
-            this.txtServiceURL.Location = new System.Drawing.Point(160, 393);
+            this.txtServiceURL.Location = new System.Drawing.Point(160, 261);
             this.txtServiceURL.Name = "txtServiceURL";
             this.txtServiceURL.Size = new System.Drawing.Size(418, 21);
             this.txtServiceURL.TabIndex = 6;
@@ -429,7 +400,7 @@
             // lblCurrServiceURL
             // 
             this.lblCurrServiceURL.AutoSize = true;
-            this.lblCurrServiceURL.Location = new System.Drawing.Point(67, 402);
+            this.lblCurrServiceURL.Location = new System.Drawing.Point(67, 270);
             this.lblCurrServiceURL.Name = "lblCurrServiceURL";
             this.lblCurrServiceURL.Size = new System.Drawing.Size(77, 12);
             this.lblCurrServiceURL.TabIndex = 5;
@@ -437,7 +408,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(25, 551);
+            this.btnAdd.Location = new System.Drawing.Point(29, 398);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(116, 23);
             this.btnAdd.TabIndex = 4;
@@ -447,7 +418,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(156, 551);
+            this.btnDelete.Location = new System.Drawing.Point(160, 398);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(116, 23);
             this.btnDelete.TabIndex = 2;
@@ -457,7 +428,7 @@
             // 
             // btnEnd
             // 
-            this.btnEnd.Location = new System.Drawing.Point(545, 551);
+            this.btnEnd.Location = new System.Drawing.Point(549, 398);
             this.btnEnd.Name = "btnEnd";
             this.btnEnd.Size = new System.Drawing.Size(116, 23);
             this.btnEnd.TabIndex = 1;
@@ -469,7 +440,7 @@
             this.panel1.Controls.Add(this.lvServiceList);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(298, 589);
+            this.panel1.Size = new System.Drawing.Size(298, 439);
             this.panel1.TabIndex = 2;
             // 
             // lvServiceList
@@ -478,14 +449,13 @@
             this.colURL,
             this.colActivity});
             this.lvServiceList.ContextMenuStrip = this.cmsServiceActive;
-            this.lvServiceList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvServiceList.FullRowSelect = true;
             this.lvServiceList.GridLines = true;
             this.lvServiceList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvServiceList.Location = new System.Drawing.Point(0, 0);
             this.lvServiceList.MultiSelect = false;
             this.lvServiceList.Name = "lvServiceList";
-            this.lvServiceList.Size = new System.Drawing.Size(298, 589);
+            this.lvServiceList.Size = new System.Drawing.Size(298, 439);
             this.lvServiceList.TabIndex = 0;
             this.lvServiceList.UseCompatibleStateImageBehavior = false;
             this.lvServiceList.View = System.Windows.Forms.View.Details;
@@ -506,13 +476,14 @@
             this.서비스종료ToolStripMenuItem,
             this.서비스재시작ToolStripMenuItem,
             this.서비스삭제ToolStripMenuItem,
-            this.쿼리실행ToolStripMenuItem,
             this.즉시백업ToolStripMenuItem,
+            this.dB복원ToolStripMenuItem,
             this.모든서비스종료ToolStripMenuItem,
             this.모든서비스재시작ToolStripMenuItem,
-            this.모든서비스삭제ToolStripMenuItem});
+            this.모든서비스삭제ToolStripMenuItem,
+            this.쿼리실행ToolStripMenuItem});
             this.cmsServiceActive.Name = "cmsServiceActive";
-            this.cmsServiceActive.Size = new System.Drawing.Size(179, 202);
+            this.cmsServiceActive.Size = new System.Drawing.Size(179, 246);
             // 
             // 서비스시작ToolStripMenuItem
             // 
@@ -606,66 +577,18 @@
             this.서버종료하기ToolStripMenuItem.Text = "서버 종료하기";
             this.서버종료하기ToolStripMenuItem.Click += new System.EventHandler(this.서버종료하기ToolStripMenuItem_Click);
             // 
-            // rdDBFilePath
+            // dB복원ToolStripMenuItem
             // 
-            this.rdDBFilePath.AutoSize = true;
-            this.rdDBFilePath.Location = new System.Drawing.Point(160, 462);
-            this.rdDBFilePath.Name = "rdDBFilePath";
-            this.rdDBFilePath.Size = new System.Drawing.Size(119, 16);
-            this.rdDBFilePath.TabIndex = 15;
-            this.rdDBFilePath.TabStop = true;
-            this.rdDBFilePath.Text = "DB파일 경로 입력";
-            this.rdDBFilePath.UseVisualStyleBackColor = true;
-            this.rdDBFilePath.CheckedChanged += new System.EventHandler(this.rdDBFilePath_CheckedChanged);
-            // 
-            // rdRestoreDB
-            // 
-            this.rdRestoreDB.AutoSize = true;
-            this.rdRestoreDB.Location = new System.Drawing.Point(293, 462);
-            this.rdRestoreDB.Name = "rdRestoreDB";
-            this.rdRestoreDB.Size = new System.Drawing.Size(143, 16);
-            this.rdRestoreDB.TabIndex = 16;
-            this.rdRestoreDB.TabStop = true;
-            this.rdRestoreDB.Text = "백업파일 에서 DB복원";
-            this.rdRestoreDB.UseVisualStyleBackColor = true;
-            this.rdRestoreDB.CheckedChanged += new System.EventHandler(this.rdRestoreDB_CheckedChanged);
-            // 
-            // rdCreateDB
-            // 
-            this.rdCreateDB.AutoSize = true;
-            this.rdCreateDB.Location = new System.Drawing.Point(452, 462);
-            this.rdCreateDB.Name = "rdCreateDB";
-            this.rdCreateDB.Size = new System.Drawing.Size(107, 16);
-            this.rdCreateDB.TabIndex = 17;
-            this.rdCreateDB.TabStop = true;
-            this.rdCreateDB.Text = "빈 DB파일 생성";
-            this.rdCreateDB.UseVisualStyleBackColor = true;
-            this.rdCreateDB.CheckedChanged += new System.EventHandler(this.rdCreateDB_CheckedChanged);
-            // 
-            // LinkBackupFile
-            // 
-            this.LinkBackupFile.AutoSize = true;
-            this.LinkBackupFile.Location = new System.Drawing.Point(584, 526);
-            this.LinkBackupFile.Name = "LinkBackupFile";
-            this.LinkBackupFile.Size = new System.Drawing.Size(77, 12);
-            this.LinkBackupFile.TabIndex = 19;
-            this.LinkBackupFile.TabStop = true;
-            this.LinkBackupFile.Text = "백업파일찾기";
-            this.LinkBackupFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkBackupFile_LinkClicked);
-            // 
-            // txtBackupFile
-            // 
-            this.txtBackupFile.Enabled = false;
-            this.txtBackupFile.Location = new System.Drawing.Point(160, 517);
-            this.txtBackupFile.Name = "txtBackupFile";
-            this.txtBackupFile.Size = new System.Drawing.Size(418, 21);
-            this.txtBackupFile.TabIndex = 18;
+            this.dB복원ToolStripMenuItem.Name = "dB복원ToolStripMenuItem";
+            this.dB복원ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.dB복원ToolStripMenuItem.Text = "즉시 DB복원";
+            this.dB복원ToolStripMenuItem.Click += new System.EventHandler(this.dB복원ToolStripMenuItem_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 609);
+            this.ClientSize = new System.Drawing.Size(1006, 461);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmMain";
@@ -696,21 +619,16 @@
         private System.Windows.Forms.TextBox txtServiceURL;
         private System.Windows.Forms.Label lblCurrServiceURL;
         private System.Windows.Forms.Panel pnCommonSettingView;
-        private System.Windows.Forms.TextBox txtDBPath;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkPortTest;
-        private System.Windows.Forms.LinkLabel linkDBFinder;
         private System.Windows.Forms.LinkLabel linkExternalIP;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblExternalIP;
         private System.Windows.Forms.TextBox txtBackupPath;
         private System.Windows.Forms.TextBox txtExternalIP;
-        private System.Windows.Forms.ListBox lbMirrorPaths;
-        private System.Windows.Forms.LinkLabel linkDeleteMirrorPath;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtSecureKey;
@@ -718,7 +636,6 @@
         private System.Windows.Forms.ToolStripMenuItem 서비스시작ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 서비스종료ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 서비스재시작ToolStripMenuItem;
-        private System.Windows.Forms.LinkLabel linkSetMirrorPath;
         private System.Windows.Forms.LinkLabel linkBackupPath;
         private System.Windows.Forms.ComboBox cbBackupSchedule;
         private System.Windows.Forms.Button btnSetCommonSettings;
@@ -741,7 +658,7 @@
         private System.Windows.Forms.TextBox txtBackupFile;
         private System.Windows.Forms.RadioButton rdCreateDB;
         private System.Windows.Forms.RadioButton rdRestoreDB;
-        private System.Windows.Forms.RadioButton rdDBFilePath;
+        private System.Windows.Forms.ToolStripMenuItem dB복원ToolStripMenuItem;
 
     }
 }

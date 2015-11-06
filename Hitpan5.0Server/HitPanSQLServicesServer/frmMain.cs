@@ -9,7 +9,8 @@ using WebService.VO;
 using HitPanSQLServicesServer.Controller.WebServices;
 using HitPanSQLServicesServer.Controller.SettingInfo;
 using System.Collections;
-using HitPanSQLServicesServer.Controller.DBFile;
+using HitPanSQLServicesServer.Controller.DB;
+using System.IO;
 namespace HitPanSQLServicesServer
 {
     public partial class frmMain : Form
@@ -83,13 +84,13 @@ namespace HitPanSQLServicesServer
         /// <summary>
         /// 서비스 추가(설정파일에도 추가)
         /// </summary>
-        private void AddService(string ServiceURL,String DBPath)
+        private void AddService(string ServiceURL,String DBName)
         {
             try
             {
                 ServiceURLControllers suc = new ServiceURLControllers();
-                suc.InsertServiceInfo(ServiceURL, DBPath);
-                this.WebServiceManager.AddService(new ConnectionVO(ServiceURL, DBPath));
+                suc.InsertServiceInfo(ServiceURL, DBName);
+                this.WebServiceManager.AddService(new ConnectionVO(ServiceURL, DBName));
                 this.lvServiceList.Items.Clear();
                 foreach (string url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
                 {
@@ -135,8 +136,12 @@ namespace HitPanSQLServicesServer
             try
             {
                 ServiceURLControllers suc = new ServiceURLControllers();
+                //관련 서비스파일 삭제
                 suc.DeleteServiceInfo(ServiceURL);
+                //관련 웹서비스 종료
                 this.WebServiceManager.DeleteService(ServiceURL);
+                //관련DB드롭
+                new DBManager().DropDB(ServiceURL);
                 this.lvServiceList.Items.Clear();
                 foreach (string _url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
                 {
@@ -149,6 +154,7 @@ namespace HitPanSQLServicesServer
                     lvServiceList.Items.Add(new ListViewItem(data));
                 }
             }
+            catch (KeyNotFoundException) { }
             catch (Exception)
             {
 
@@ -161,9 +167,22 @@ namespace HitPanSQLServicesServer
             try
             {
                 ServiceURLControllers suc = new ServiceURLControllers();
+                IList<ServiceInfo> serviceList = suc.SelectServiceInfo();
+                DBManager dm = new DBManager();
+                //모든 서비스정보 삭제
                 suc.DeleteServiceInfoFile();
+                //모든 웹서비스 해제
                 this.WebServiceManager.DeleteService();
+                //모든 DB드롭                
+                foreach (ServiceInfo si in serviceList)
+                {
+                    dm.DropDB(si.ServiceURL);
+                }
                 this.lvServiceList.Items.Clear();
+            }
+            catch(KeyNotFoundException)
+            {
+                return;
             }
             catch (Exception)
             {
@@ -223,7 +242,7 @@ namespace HitPanSQLServicesServer
             {
                 foreach (ServiceInfo si in ServiceInfoList)
                 {
-                    serviceURLDic.Add(si.ServiceURL, si.DBPath);
+                    serviceURLDic.Add(si.ServiceURL, si.DBName);
                 }
             }
 
@@ -266,8 +285,6 @@ namespace HitPanSQLServicesServer
                 rdSecurityMode.Enabled = true;
                 linkBackupPath.Enabled = true;
                 cbBackupSchedule.Enabled = true;
-                linkSetMirrorPath.Enabled = true;
-                linkDeleteMirrorPath.Enabled = true;
                 btnSetCommonSettings.Text = "세팅완료";
                 linkDeleteAllSettings.Visible = false;
                 txtServiceURL.Enabled = false;
@@ -281,8 +298,6 @@ namespace HitPanSQLServicesServer
                 rdSecurityMode.Enabled = false;
                 linkBackupPath.Enabled = false;
                 cbBackupSchedule.Enabled = false;
-                linkSetMirrorPath.Enabled = false;
-                linkDeleteMirrorPath.Enabled = false;
                 btnSetCommonSettings.Text = "세팅시작하기";
                 linkDeleteAllSettings.Visible = true;
                 txtServiceURL.Enabled = true;
@@ -296,11 +311,6 @@ namespace HitPanSQLServicesServer
                 }
                 txtBackupPath.Text = this.CommonSettingsVO.BackupDIRPath;
                 cbBackupSchedule.Text = this.CommonSettingsVO.BackupSchedule.Days.ToString();
-                lbMirrorPaths.Items.Clear();
-                foreach (string MirrorPath in this.CommonSettingsVO.MirrorDIRPath)
-                {
-                    lbMirrorPaths.Items.Add(MirrorPath);
-                }
             }
             else
             {
@@ -310,8 +320,6 @@ namespace HitPanSQLServicesServer
                 rdSecurityMode.Enabled = false;
                 linkBackupPath.Enabled = false;
                 cbBackupSchedule.Enabled = false;
-                linkSetMirrorPath.Enabled = false;
-                linkDeleteMirrorPath.Enabled = false;
                 btnSetCommonSettings.Text = "세팅시작하기";
                 linkDeleteAllSettings.Visible = true;
                 txtServiceURL.Enabled = true;
@@ -325,11 +333,6 @@ namespace HitPanSQLServicesServer
                 }
                 txtBackupPath.Text = this.CommonSettingsVO.BackupDIRPath;
                 cbBackupSchedule.Text = this.CommonSettingsVO.BackupSchedule.Days.ToString();
-                lbMirrorPaths.Items.Clear();
-                foreach (string MirrorPath in this.CommonSettingsVO.MirrorDIRPath)
-                {
-                    lbMirrorPaths.Items.Add(MirrorPath);
-                }
 
                 //서비스 주소 세팅
                 foreach (string url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
@@ -443,19 +446,19 @@ namespace HitPanSQLServicesServer
             }
         }
 
-        private void linkSetMirrorPath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog()==DialogResult.OK)
-            {
-                lbMirrorPaths.Items.Add(fbd.SelectedPath);
-            }
-        }
+        //private void linkSetMirrorPath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    FolderBrowserDialog fbd = new FolderBrowserDialog();
+        //    if (fbd.ShowDialog()==DialogResult.OK)
+        //    {
+        //        lbMirrorPaths.Items.Add(fbd.SelectedPath);
+        //    }
+        //}
 
-        private void linkDeleteMirrorPath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            lbMirrorPaths.Items.RemoveAt(lbMirrorPaths.SelectedIndex);
-        }
+        //private void linkDeleteMirrorPath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    lbMirrorPaths.Items.RemoveAt(lbMirrorPaths.SelectedIndex);
+        //}
 
         private void btnSetCommonSettings_Click(object sender, EventArgs e)
         {
@@ -475,10 +478,7 @@ namespace HitPanSQLServicesServer
             cvo.certPath = string.Format("{0}\\HTPServer.pfx",Environment.CurrentDirectory);
             cvo.UseMirrorAlram = true;
             cvo.MirrorDIRPath = new StringCollection();
-            foreach (string mirror in lbMirrorPaths.Items)
-            {
-                cvo.MirrorDIRPath.Add(mirror);
-            }
+
             new CommonSettingsController().DeleteSettings();
             new CommonSettingsController().InsertSettings(cvo);
             linkWarning.Visible = true;            
@@ -517,45 +517,67 @@ namespace HitPanSQLServicesServer
             }
         }
 
-        private void linkDBFinder_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (rdDBFilePath.Checked)
-            {
-                OpenFileDialog ofd = new OpenFileDialog();
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    txtDBPath.Text = ofd.FileName;
-                    btnAdd.Enabled = true;
-                    btnDelete.Enabled = true;
-                }                
-            }
-            else
-            {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                if (fbd.ShowDialog() == DialogResult.OK)
-                {
-                    txtDBPath.Text = fbd.SelectedPath;
-                    if (rdCreateDB.Checked)
-                    {
-                        btnAdd.Enabled = true;
-                        btnDelete.Enabled = true;
-                    }
-                }
-            }
+        //private void linkDBFinder_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    if (rdDBFilePath.Checked)
+        //    {
+        //        OpenFileDialog ofd = new OpenFileDialog();
+        //        if (ofd.ShowDialog() == DialogResult.OK)
+        //        {
+        //            txtDBPath.Text = ofd.FileName;
+        //            btnAdd.Enabled = true;
+        //            btnDelete.Enabled = true;
+        //        }                
+        //    }
+        //    else
+        //    {
+        //        FolderBrowserDialog fbd = new FolderBrowserDialog();
+        //        if (fbd.ShowDialog() == DialogResult.OK)
+        //        {
+        //            txtDBPath.Text = fbd.SelectedPath;
+        //            if (rdCreateDB.Checked)
+        //            {
+        //                btnAdd.Enabled = true;
+        //                btnDelete.Enabled = true;
+        //            }
+        //        }
+        //    }
 
-        }
+        //}
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (rdRestoreDB.Checked)
+            //DB생성 및 복원
+            string DBName = new DBManager().GetDBNameFromURL(txtServiceURL.Text);
+            try
             {
-                txtDBPath.Text = new DBFileManager().RestoreDB(txtServiceURL.Text,txtBackupFile.Text,txtDBPath.Text);
+                if (rdCreateDB.Checked)
+                {
+                    //DB생성
+                    new DBManager().CreateDB(txtServiceURL.Text);                  
+                }
+                else if (rdRestoreDB.Checked)
+                {
+                    if (txtBackupFile.Text == string.Empty)
+                    {
+                        MessageBox.Show("백업파일이 없어서 DB를 복원할수 없습니다");
+                        return;
+                    }
+                    //DB복원
+                    new DBManager().RestoreDB(txtServiceURL.Text, txtBackupFile.Text,true);
+                }
+                else
+                {
+                    MessageBox.Show("DB생성을 할수 없습니다");
+                }
             }
-            else if (rdCreateDB.Checked)
+            catch (Exception ex)
             {
-                
+                MessageBox.Show(string.Format("DB생성을 할수 없습니다 :{0}",ex.Message));
+                return;
             }
-            AddService(txtServiceURL.Text,txtDBPath.Text);
+
+            AddService(txtServiceURL.Text, DBName);
         }
 
 
@@ -581,7 +603,7 @@ namespace HitPanSQLServicesServer
 	        {
 		        if (si.ServiceURL==url)
 	            {
-		            this.StartService(si.ServiceURL,si.DBPath);
+		            this.StartService(si.ServiceURL,si.DBName);
                     break;
 	            }
 	        }
@@ -597,7 +619,7 @@ namespace HitPanSQLServicesServer
             {
                 if (si.ServiceURL == url)
                 {
-                    this.StartService(si.ServiceURL, si.DBPath);
+                    this.StartService(si.ServiceURL, si.DBName );
                     break;
                 }
             }
@@ -608,6 +630,8 @@ namespace HitPanSQLServicesServer
             string url = lvServiceList.SelectedItems[0].SubItems[0].Text;
             this.DeleteService(url);
         }
+
+
 
         private void 쿼리실행ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -623,7 +647,7 @@ namespace HitPanSQLServicesServer
                 return;
             }
             string url = lvServiceList.SelectedItems[0].SubItems[0].Text;
-            new DBFileManager().BackupNow(url,this.CommonSettingsVO.BackupDIRPath);
+            new DBManager().BackupNow(url,this.CommonSettingsVO.BackupDIRPath);
         }
 
         private void 모든서비스종료ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -655,7 +679,7 @@ namespace HitPanSQLServicesServer
             {
                 try
                 {
-                    this.StartService(si.ServiceURL, si.DBPath);
+                    this.StartService(si.ServiceURL, si.DBName);
                 }
                 catch (Exception) { }             
             }
@@ -663,7 +687,10 @@ namespace HitPanSQLServicesServer
 
         private void 모든서비스삭제ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.DeleteAllServices();
+            if (MessageBox.Show("모든 서비스 정보와 함께 모든DB가 삭제됩니다. 실행 하시겠습니까?")==DialogResult.OK)
+            {
+                this.DeleteAllServices();
+            }
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -693,27 +720,26 @@ namespace HitPanSQLServicesServer
             }
         }
 
-        private void rdDBFilePath_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdDBFilePath.Checked)
-            {
-                rdRestoreDB.Checked = false;
-                rdCreateDB.Checked = false; 
-            }
-            txtBackupFile.Visible = false;
-            LinkBackupFile.Visible = false;
-        }
+        //private void rdDBFilePath_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (rdDBFilePath.Checked)
+        //    {
+        //        rdRestoreDB.Checked = false;
+        //        rdCreateDB.Checked = false; 
+        //    }
+        //    txtBackupFile.Visible = false;
+        //    LinkBackupFile.Visible = false;
+        //}
 
         private void rdRestoreDB_CheckedChanged(object sender, EventArgs e)
         {
             if (rdRestoreDB.Checked)
             {
-                rdDBFilePath.Checked = false;
                 rdCreateDB.Checked = false; 
             }
             txtBackupFile.Visible = true;
             LinkBackupFile.Visible = true;
-            linkDBFinder.Text = "DB폴더입력";
+
         }
 
         private void rdCreateDB_CheckedChanged(object sender, EventArgs e)
@@ -721,11 +747,9 @@ namespace HitPanSQLServicesServer
             if (rdCreateDB.Checked)
             {
                 rdRestoreDB.Checked = false;
-                rdDBFilePath.Checked = false; 
             }
             txtBackupFile.Visible = false;
             LinkBackupFile.Visible = false;
-            linkDBFinder.Text = "DB폴더입력";
         }
 
         private void LinkBackupFile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -737,6 +761,57 @@ namespace HitPanSQLServicesServer
                 btnAdd.Enabled = true;
                 btnDelete.Enabled = true;
             } 
+        }
+
+        private void dB복원ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            //[변수 확정하기]
+            string url = this.lvServiceList.SelectedItems[0].SubItems[0].Text;
+            string DBName = new DBManager().GetDBNameFromURL(url);
+            //[백업파일 존재여부 확인]
+            bool FileExist = false;
+            foreach (string FileName in Directory.GetFiles(CommonSettingsVO.BackupDIRPath))
+            {
+                string _FileName = FileName.Replace(CommonSettingsVO.BackupDIRPath + "\\","");
+                if (_FileName.Length<=15)
+                {
+                    continue;
+                }
+                _FileName = _FileName.Replace(_FileName.Substring(0, 15),string.Empty);
+                _FileName = _FileName.Replace(".gz",string.Empty);
+                if (_FileName == DBName)
+                {
+                    FileExist = true;
+                    break;
+                }
+            }
+            if (!FileExist)
+            {
+                MessageBox.Show("해당 서비스에 해당하는 백업파일이 존재하지 않습니다");
+                return;
+            }
+            //[1] 해당 DB 초기화 또는 DB삭제
+            new DBManager().DropDB(url);
+            //[2] 백업파일 덤프 실행하기
+            //가장 최근에 백업된 파일 찾기
+            long lastestbackup=0;
+            foreach (string bk in Directory.GetFiles(this.CommonSettingsVO.BackupDIRPath))
+	        {
+                if (!bk.Contains(DBName))
+                {
+                    continue;
+                }
+		        string bkName = bk.Replace(this.CommonSettingsVO.BackupDIRPath+"\\",string.Empty);
+                bkName = bkName.Replace("_"+DBName,string.Empty).Replace(".gz",string.Empty);
+                if (lastestbackup<Convert.ToInt64(bkName))
+	            {
+		            lastestbackup = Convert.ToInt64(bkName);
+	            }
+	        }
+            string lastestbackupFile = string.Format("{0}\\{1}_{2}.gz",this.CommonSettingsVO.BackupDIRPath,lastestbackup,DBName);
+            //백업파일 덤프 실행
+            new DBManager().RestoreDB(url, lastestbackupFile, true);
         }
 
         //private void btnRestore_Click(object sender, EventArgs e)

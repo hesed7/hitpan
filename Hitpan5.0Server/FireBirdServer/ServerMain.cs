@@ -67,10 +67,13 @@ namespace WebService
         private static ServerMain instance { get; set; }
         private ServerMain()
         {
-            settingManager = new FireBirdSettingController();
+            settingManager = new PostgresSQLSettingManager();
+            if (!settingManager.CheckServerEngine())
+            {
+                settingManager.SetServerEngine();
+            }
 
-            this.SOAPErrReporter = new deleErrReporter(GetErrMessage);
-            settingManager.SetServerEngine();
+            this.SOAPErrReporter = new deleErrReporter(GetErrMessage);            
             this.ActiveServiceDic = new Dictionary<string, bool>();
             this.EncryptionPassword= this.GetMacAddr();
         }
@@ -168,17 +171,22 @@ namespace WebService
         {
             settingManager.SetMirroring(ServiceURL, MirrorPath, this.UseMirrorAlram);
         }
-        public void RestoreDB(string BackupFilePath, ConnectionVO connVO)
+        public void RestoreDB(string BackupFilePath, ConnectionVO connVO,bool makeNewDB)
         {
-            DBController.RestoreDB(BackupFilePath, connVO);
+            DBController.RestoreDB(BackupFilePath, connVO, makeNewDB);
         } 
         #endregion
         #region DB만들기
         public void CreateDB(ConnectionVO connVO)
         {
-            string script = string.Format("{0}\\DBCreate.sql",Environment.CurrentDirectory);
-            DBController.CreateDB(connVO, script);
+            DBController.getInstance().CreateDB(connVO);
         } 
+        #endregion
+        #region DB삭제
+        public void DropDB(ConnectionVO connVO)
+        {
+            DBController.getInstance().DropDB(connVO);
+        }
         #endregion
         #region 로컬계정으로 DB쿼리
         public int SetData(string ServiceURL, StringCollection QueryBlock)
@@ -237,49 +245,66 @@ namespace WebService
         {
             #region DB커낵션과 SOAP 중 하나라도 활성안된 서비스는 둘다 죽인다
             //웹서비스 wcf 점검
-            foreach (string wcf_url in this.ServiceConnController.ServiceDic.Keys)
+            try
             {
-                bool isExist = false;
-                foreach (string dbConn_url in dbConn.ActiveDBKeyList)
+                IList<string> ServiceURLList = new List<string>();
+                IList<string> DBConnURLList = new List<string>();
+                foreach (string url in this.ServiceConnController.ServiceDic.Keys)
                 {
-                    if (wcf_url == dbConn_url)
+                    ServiceURLList.Add(url);
+                }
+                foreach (string url in dbConn.ActiveDBKeyList)
+                {
+                    DBConnURLList.Add(url);
+                }
+                foreach (string wcf_url in ServiceURLList)
+                {
+                    bool isExist = false;
+                    foreach (string dbConn_url in dbConn.ActiveDBKeyList)
                     {
-                        isExist = true;            
-                        break;
+                        if (wcf_url == dbConn_url)
+                        {
+                            isExist = true;
+                            break;
+                        }
+                    }
+                    if (!isExist)
+                    {
+                        this.ServiceConnController.Dispose(wcf_url);
+                        ActiveServiceDic[wcf_url] = false;
+                    }
+                    else
+                    {
+                        ActiveServiceDic[wcf_url] = true;
                     }
                 }
-                if (!isExist)
+                //웹서비스 DB연결 점검
+                foreach (string dbConn_url in DBConnURLList)
                 {
-                    this.ServiceConnController.Dispose(wcf_url);
-                    ActiveServiceDic[wcf_url] = false;
-                }
-                else
-                {                    
-                    ActiveServiceDic[wcf_url] = true;
+                    bool isExist = false;
+                    foreach (string wcf_url in ServiceURLList)
+                    {
+                        if (dbConn_url == wcf_url)
+                        {
+                            isExist = true;
+                            break;
+                        }
+                    }
+                    if (!isExist)
+                    {
+                        dbConn.Dispose(dbConn_url);
+                        ActiveServiceDic[dbConn_url] = false;
+                    }
+                    else
+                    {
+                        ActiveServiceDic[dbConn_url] = true;
+                    }
                 }
             }
-
-            //웹서비스 DB연결 점검
-            foreach (string dbConn_url in dbConn.ActiveDBKeyList)
+            catch (Exception)
             {
-                bool isExist = false;
-                foreach (string wcf_url in this.ServiceConnController.ServiceDic.Keys)
-                {
-                    if (dbConn_url == wcf_url)
-                    {
-                        isExist = true;
-                        break;
-                    }
-                }
-                if (!isExist)
-                {
-                    dbConn.Dispose(dbConn_url);
-                    ActiveServiceDic[dbConn_url] = false;
-                }
-                else
-                {
-                    ActiveServiceDic[dbConn_url] = true;
-                }
+                
+                throw;
             }
             #endregion
         } 

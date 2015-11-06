@@ -41,7 +41,7 @@ namespace libHitpan5.Controller.CommandListener
 
         internal object GetData()
         {
-             string query = QueryHouse.selectSettingInfo();
+            string query = QueryHouse.selectSettingInfo();
             DataTable dt= this.dataModel.GetData(query);
             this.DocumentData = dt;
             CommonSettinginfo CommonSettinginfo = JsonConvert.DeserializeObject<CommonSettinginfo>(dt.Rows[0]["JSONSETTINGINFODATA"].ToString());
