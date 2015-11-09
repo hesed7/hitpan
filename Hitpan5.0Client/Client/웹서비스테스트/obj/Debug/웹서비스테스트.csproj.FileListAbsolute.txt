@@ -24,3 +24,9 @@ F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.Properties.Resources.resources
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.csproj.GenerateResource.Cache
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.csprojResolveAssemblyReference.cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.csprojResolveAssemblyReference.cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.Form1.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.Properties.Resources.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.csproj.GenerateResource.Cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.exe
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\웹서비스테스트\obj\Debug\웹서비스테스트.pdb

@@ -12,6 +12,9 @@ using System.ServiceModel.Channels;
 using System.IdentityModel;
 namespace libHitpan5.Model.WebServiceModel
 {
+    /// <summary>
+    /// 웹서비스 프록시의 생성,해제,관리
+    /// </summary>
     public class SQLWebServiceModel
     {
         /// <summary>

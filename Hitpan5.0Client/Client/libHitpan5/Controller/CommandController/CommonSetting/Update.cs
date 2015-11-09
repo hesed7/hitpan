@@ -14,7 +14,7 @@ namespace libHitpan5.Controller.CommandController.CommonSetting
     {
         private CommonSettinginfo CommonSettinginfo { get; set; }
         private CommonSettinginfo pre_CommonSettinginfo { get; set; }
-        private IDataModel dbModel { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
         public Update(CommonSettinginfo CommonSettinginfo, CommonSettinginfo pre_CommonSettinginfo)
             : base("기본설정 입력", Hitpan5ClientLibrary.SQLDataServiceModel)
         {

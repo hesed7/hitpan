@@ -13,7 +13,7 @@ namespace libHitpan5.Controller.SelectController.Goods
 {
     public class SelectGoodList :abSelect
     {
-        private IDataModel dbModel { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
         private GoodsList param { get; set; }
         public SelectGoodList(IDocController doc, GoodsList param)
             :base("상품정보 검색",Hitpan5ClientLibrary.SQLDataServiceModel)

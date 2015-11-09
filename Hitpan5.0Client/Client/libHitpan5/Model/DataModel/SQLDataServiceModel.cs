@@ -7,9 +7,14 @@ using System.Data;
 using Newtonsoft.Json;
 using System.Xml.Serialization;
 using libHitpan5.Model.WebServiceModel;
+using WebService.WebServiceVO.Users;
+using libHitpan5._Exception;
 namespace libHitpan5.Model.DataModel
 {
-    public class SQLDataServiceModel : IDataModel
+    /// <summary>
+    /// 웹서비스프록시 로부터 데이터 얻음
+    /// </summary>
+    public class SQLDataServiceModel
     {
         internal string EncryptionSeed { get; set; }
         internal string ServiceURL { get; set; }
@@ -61,9 +66,105 @@ namespace libHitpan5.Model.DataModel
             this.sqlProxy.RegistQueryBlock(new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()), queryList, this.ServiceURL);
         }
 
-        public void Dispose()
+
+        #region User
+        public UsersVO[] GetUserInfo()
         {
-           
+            try
+            {
+                UsersVO[] arrUV = sqlProxy.GetUsersInfo
+                (
+                new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()),
+                this.ServiceURL
+                );
+                return arrUV;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+        public UsersVO GetUserInfo(string id)
+        {
+            try
+            {
+                UsersVO uv = sqlProxy.GetUserInfo
+                (
+                new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()),
+                this.ServiceURL,
+                id
+                );
+                return uv;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public UsersVO GetUserInfo(string id, string password)
+        {
+            try
+            {
+                UsersVO uv = sqlProxy.UserLogIn
+                (
+                new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()),
+                this.ServiceURL,
+                id,
+                password
+                );
+                if (uv == null)
+                {
+                    throw new InvalidLogin();
+                }
+                else
+                {
+                    return uv;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        internal void InsertUserInfo(UsersVO userInfo)
+        {
+            try
+            {
+                sqlProxy.InsertUserInfo
+                (
+                new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()),
+                this.ServiceURL,
+                userInfo
+                );
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        internal void UpdateUserInfo(UsersVO userInfo)
+        {
+            try
+            {
+                sqlProxy.UpdateUserInfo
+                (
+                new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()),
+                this.ServiceURL,
+                userInfo
+                );
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        } 
+        #endregion
     }
 }

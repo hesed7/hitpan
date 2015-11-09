@@ -14,8 +14,8 @@ namespace libHitpan5.Controller.CommandController
         private Loger loger { get; set; }
         private string work { get; set; }
 
-        private IDataModel dataModel { get; set; }
-        public abCMD(string work, IDataModel dataModel)
+        private SQLDataServiceModel dataModel { get; set; }
+        public abCMD(string work, SQLDataServiceModel dataModel)
         {
             this.work = work;
             this.loger = new Loger(dataModel);

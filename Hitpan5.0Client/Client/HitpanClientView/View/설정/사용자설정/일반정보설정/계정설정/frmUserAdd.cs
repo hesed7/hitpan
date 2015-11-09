@@ -9,11 +9,12 @@ using Newtonsoft.Json;
 using libHitpan5.Controller.SelectController.Users.SelectUser;
 using System.Collections.Generic;
 using libHitpan5.VO.CommonVO;
+using WebService.WebServiceVO.Users;
 namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정설정
 {
     public partial class frmUserAdd : Form
     {
-        public DataTable userInfoTable { get; set; }
+        public UsersVO[] userList { get; set; }
         #region 마으스 드래그로 컨트롤 이동하기
         //마우스 드래그로 이동의 선언부
         const int WM_SYSCOMMAND = 0x0112;
@@ -87,14 +88,13 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
             //유저정보 목록 보여주기
             lvUserList.Items.Clear();
             object dt = null;
-            IList<UserInfo> userList=  (IList<UserInfo>)new SelectUser(null).GetData();
-            if (dt != null)
+            this.userList = (UsersVO[])new SelectUser(null).GetData();
+            if (userList != null)
             {
-                userInfoTable = (DataTable)dt;
-                foreach (DataRow dr in userInfoTable.Rows)
+                foreach (UsersVO uv in userList)
                 {
-                    string id = dr["userID"].ToString();
-                    사용자등급 userType = ((사용자등급)Convert.ToInt32(dr["userType"]));
+                    string id = uv.UserID;
+                    사용자등급 userType = ((사용자등급)uv.UserType);
                     string strUserType = Enum.GetName(typeof(사용자등급), userType);
                     string[] strData = new string[] { id, strUserType };
                     lvUserList.Items.Add(new ListViewItem(strData));
@@ -106,7 +106,7 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
         /// 현재 입력된 내용을 바탕으로 UserInfo객체 생성
         /// </summary>
         /// <returns></returns>
-        private UserInfo GetUserInfo() 
+        private UsersVO GetUserInfo() 
         {
             UserAuth ua = new UserAuth();
             ua.견적관리         = (사용자권한)Enum.Parse(typeof(사용자권한), ddl견적관리.Text);
@@ -126,11 +126,11 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
             ua.표준관리         = (사용자권한)Enum.Parse(typeof(사용자권한), ddl표준관리.Text);
             ua.회계관리         = (사용자권한)Enum.Parse(typeof(사용자권한), ddl회계관리.Text);
 
-            UserInfo ui = new UserInfo();
-            ui.id               = txtID.Text;
-            ui.password         = txtPassword.Text;
-            ui.userAuth         = JsonConvert.SerializeObject(ua);
-            ui.userType         =  (사용자등급)Enum.Parse(typeof(사용자등급), ddlUserType.Text);
+            UsersVO ui = new UsersVO();
+            ui.UserID               = txtID.Text;
+            ui.UserPassword         = txtPassword.Text;
+            ui.UserAuth         = JsonConvert.SerializeObject(ua);
+            ui.UserType         =  (int)(사용자등급)Enum.Parse(typeof(사용자등급), ddlUserType.Text);
 
             return ui;
         }
@@ -139,13 +139,13 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
         private void btnInsertUpdate_Click(object sender, EventArgs e)
         {
             //[1] 사용자정보 VO객체 생성
-            UserInfo ui = GetUserInfo();
+            UsersVO ui = GetUserInfo();
             //[2] 업데이트 인지 인서트 인지 구분하여 명령어 객체 생성
             ICMD cmd = null;            
             if (!txtID.Enabled)
             {
                 //업데이트 하는 경우   
-                cmd = new libHitpan5.Controller.CommandController.User.Update((UserInfo)(new SelectUser(txtID.Text).GetData()),ui,string.Format("{0} 유저의 정보를 업데이트"));
+                cmd = new libHitpan5.Controller.CommandController.User.Update((UsersVO)(new SelectUser(txtID.Text).GetData()), ui, string.Format("{0} 유저의 정보를 업데이트",ui.UserID));
                 linkInsertMode.Visible = true;
             }
             else
@@ -153,9 +153,9 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
                 //인서트 하는 경우
                 //[1] id겹치는지 점검
                 bool isDuplicated = false;
-                foreach (DataRow dr in userInfoTable.Rows)
+                foreach (UsersVO uv in this.userList)
                 {
-                    if (dr["userID"].ToString()==ui.id)
+                    if (uv.UserID==ui.UserID)
                     {
                         isDuplicated = true;
                         break;
@@ -188,31 +188,38 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
         private void lvUserList_MouseClick(object sender, MouseEventArgs e)
         {
             string id = lvUserList.SelectedItems[0].SubItems[0].Text;
-            foreach (DataRow dr in userInfoTable.Rows)
+            foreach (UsersVO uv in this.userList)
             {
-                if (dr["userID"].ToString().Replace(" ",string.Empty)==id.Replace(" ",string.Empty))
+                if (uv.UserID.ToString().Replace(" ",string.Empty)==id.Replace(" ",string.Empty))
                 {
                     txtID.Enabled = false;
                     txtID.Text = id;
-                    txtPassword.Text = dr["userPassword"].ToString();
-                    UserAuth user_auth = (UserAuth)JsonConvert.DeserializeObject(dr["userAuth"].ToString(),typeof(UserAuth));
-                    ddlUserType.Text = Enum.GetName(typeof(사용자등급), ((사용자등급)Convert.ToInt32(dr["userType"])));
-                    ddl견적관리.Text = Enum.GetName(typeof(사용자권한), user_auth.견적관리);
-                    ddl계정관리.Text = Enum.GetName(typeof(사용자권한), user_auth.계정관리);
-                    ddl고객정보.Text = Enum.GetName(typeof(사용자권한), user_auth.고객정보);
-                    ddl나의정보관리.Text = Enum.GetName(typeof(사용자권한), user_auth.나의정보관리);
-                    ddl데이터관리.Text = Enum.GetName(typeof(사용자권한), user_auth.데이터관리);
-                    ddl매입관리.Text = Enum.GetName(typeof(사용자권한), user_auth.매입관리);
-                    ddl상품정보.Text = Enum.GetName(typeof(사용자권한), user_auth.상품정보);
-                    ddl세금계산서관리.Text = Enum.GetName(typeof(사용자권한), user_auth.세금계산서관리);
-                    ddl양식정보.Text = Enum.GetName(typeof(사용자권한), user_auth.양식정보);
-                    ddl에프터서비스관리.Text = Enum.GetName(typeof(사용자권한), user_auth.에프터서비스관리);
-                    ddl인사관리.Text = Enum.GetName(typeof(사용자권한), user_auth.인사관리);
-                    ddl일정정보.Text = Enum.GetName(typeof(사용자권한), user_auth.일정관리);
-                    ddl재고관리.Text = Enum.GetName(typeof(사용자권한), user_auth.재고관리);
-                    ddl판매관리.Text = Enum.GetName(typeof(사용자권한), user_auth.판매관리);
-                    ddl표준관리.Text = Enum.GetName(typeof(사용자권한), user_auth.표준관리);
-                    ddl회계관리.Text = Enum.GetName(typeof(사용자권한), user_auth.회계관리);
+                    txtPassword.Text = uv.UserPassword;
+                    try
+                    {
+                        UserAuth user_auth = (UserAuth)JsonConvert.DeserializeObject(uv.UserAuth, typeof(UserAuth));
+                        ddlUserType.Text = Enum.GetName(typeof(사용자등급), ((사용자등급)uv.UserType));
+                        ddl견적관리.Text = Enum.GetName(typeof(사용자권한), user_auth.견적관리);
+                        ddl계정관리.Text = Enum.GetName(typeof(사용자권한), user_auth.계정관리);
+                        ddl고객정보.Text = Enum.GetName(typeof(사용자권한), user_auth.고객정보);
+                        ddl나의정보관리.Text = Enum.GetName(typeof(사용자권한), user_auth.나의정보관리);
+                        ddl데이터관리.Text = Enum.GetName(typeof(사용자권한), user_auth.데이터관리);
+                        ddl매입관리.Text = Enum.GetName(typeof(사용자권한), user_auth.매입관리);
+                        ddl상품정보.Text = Enum.GetName(typeof(사용자권한), user_auth.상품정보);
+                        ddl세금계산서관리.Text = Enum.GetName(typeof(사용자권한), user_auth.세금계산서관리);
+                        ddl양식정보.Text = Enum.GetName(typeof(사용자권한), user_auth.양식정보);
+                        ddl에프터서비스관리.Text = Enum.GetName(typeof(사용자권한), user_auth.에프터서비스관리);
+                        ddl인사관리.Text = Enum.GetName(typeof(사용자권한), user_auth.인사관리);
+                        ddl일정정보.Text = Enum.GetName(typeof(사용자권한), user_auth.일정관리);
+                        ddl재고관리.Text = Enum.GetName(typeof(사용자권한), user_auth.재고관리);
+                        ddl판매관리.Text = Enum.GetName(typeof(사용자권한), user_auth.판매관리);
+                        ddl표준관리.Text = Enum.GetName(typeof(사용자권한), user_auth.표준관리);
+                        ddl회계관리.Text = Enum.GetName(typeof(사용자권한), user_auth.회계관리);
+                    }
+                    catch (Exception)
+                    {
+                        break;
+                    }
                     break;
                 }
             }//End of Foreach

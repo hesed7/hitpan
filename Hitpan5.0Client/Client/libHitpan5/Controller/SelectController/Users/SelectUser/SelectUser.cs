@@ -13,7 +13,7 @@ namespace libHitpan5.Controller.SelectController.Users.SelectUser
 {
     public class SelectUser :abSelect
     {
-        public IDataModel dbModel { get; set; }
+        public SQLDataServiceModel dbModel { get; set; }
         public string id { get; set; }
 
         /// <summary>

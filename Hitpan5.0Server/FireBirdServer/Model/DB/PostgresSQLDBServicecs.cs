@@ -18,6 +18,12 @@ namespace WebService.Model.DB
         /// </summary>
         private NpgsqlConnection NpgConn { get; set; }
         public ConnectionVO myConnVO { get; set; }
+
+
+        /// <summary>
+        /// 서버전체를 백업할 것인지 여부
+        /// </summary>
+        public bool WholeBackup { get; set; }
         public PostgresSQLDBServicecs(ConnectionVO connVO)
         {
             try
@@ -63,10 +69,7 @@ namespace WebService.Model.DB
             }
         }
 
-        /// <summary>
-        /// 서버전체를 백업할 것인지 여부
-        /// </summary>
-        public bool WholeBackup { get; set; }
+
 
 
         
@@ -83,7 +86,7 @@ namespace WebService.Model.DB
             }
             catch (Exception)
             {
-                throw;
+                 throw;
             }
             return dt;
         }

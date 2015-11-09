@@ -13,7 +13,7 @@ namespace libHitpan5.Controller.CommandController.MyCompany
     public class Insert :abCMD
     {
         private myInfo myCompany { get; set; }
-        private IDataModel dbModel { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
         public Insert(myInfo myCompany)
             : base("자신의 회사정보 입력", Hitpan5ClientLibrary.SQLDataServiceModel)
         {

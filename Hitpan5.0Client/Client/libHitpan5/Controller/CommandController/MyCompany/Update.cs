@@ -14,7 +14,7 @@ namespace libHitpan5.Controller.CommandController.MyCompany
     {
         private myInfo myCompany { get; set; }
         private myInfo pre_myCompany { get; set; }
-        private IDataModel dbModel { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
         public Update(myInfo myCompany, myInfo pre_myCompany)
             : base("자신의 회사정보 삭제", Hitpan5ClientLibrary.SQLDataServiceModel)
         {

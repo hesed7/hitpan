@@ -12,7 +12,7 @@ namespace libHitpan5.Controller.SelectController.Login
 {
     class LogIn :abSelect
     {
-        private IDataModel dataModel { get; set; }
+        private SQLDataServiceModel dataModel { get; set; }
         public string id { get; set; }
         public string password { get; set; }
         public LogIn(string id,string password)
@@ -28,7 +28,7 @@ namespace libHitpan5.Controller.SelectController.Login
             try
             {
                 base.WriteDoLog();
-                UserListener UserListener =new UserListener(this.dataModel);
+                UserListener UserListener =new UserListener(dataModel);
                 object returnValue = UserListener.Login(this.id, this.password);
                 if (returnValue==null)
                 {

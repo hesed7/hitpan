@@ -13,15 +13,17 @@ using libHitpan5.Controller.SelectController;
 using System;
 using libHitpan5.Controller.Common.UserAuthValidator;
 using libHitpan5.VO.CommonVO;
+using libHitpan5._Exception;
+using WebService.WebServiceVO.Users;
 namespace libHitpan5
 {
     public class Hitpan5ClientLibrary
     {
-        internal static IDataModel SQLDataServiceModel { get; set; }
+        internal static SQLDataServiceModel SQLDataServiceModel { get; set; }
         private WebServiceProxyController proxyController { get; set; }
         #region 사용 기본 정보
         public CommonSettinginfo settingInfo { get; set; }
-        private UserInfo userInfo { get; set; }
+        private UsersVO userInfo { get; set; }
         public myInfo myInfo { get; set; } 
         #endregion
         #region 시작과 종료
@@ -48,12 +50,12 @@ namespace libHitpan5
             //로그인 하기 (만약 아무것도 없으면 초기관리자 로서 모든 설정권한을 가짐: 빈 데이터 일 테니까 상관없다) 초기관리자는 계속 관리자 권한 갖는다
             SelectUser su = new SelectUser(null);
             su.work = "처음 사용자인지 검증";
-            IList<UserInfo> UserList = (IList<UserInfo>)su.GetData();
-            if (UserList == null || UserList.Count == 0)
+             UsersVO[] UserList = (UsersVO[])su.GetData();
+            if (UserList == null || UserList.Length == 0)
             {
-                this.userInfo = new UserInfo();
-                this.userInfo.id = "Admin";
-                this.userInfo.userType = 사용자등급.관리자;
+                this.userInfo = new UsersVO();
+                this.userInfo.UserID = "Admin";
+                this.userInfo.UserType = (int)사용자등급.관리자;
                 UserAuth ua = new UserAuth();
                 ua.견적관리 = 사용자권한.모두허용;
                 ua.계정관리 = 사용자권한.모두허용;
@@ -71,14 +73,18 @@ namespace libHitpan5
                 ua.판매관리 = 사용자권한.모두허용;
                 ua.표준관리 = 사용자권한.모두허용;
                 ua.회계관리 = 사용자권한.모두허용;
-                this.userInfo.userAuth = JsonConvert.SerializeObject(ua);
+                this.userInfo.UserAuth = JsonConvert.SerializeObject(ua);
             }
             else
             {
                 object obj = new LogIn(id, password).GetData();
                 try
                 {
-                    this.userInfo = (UserInfo)obj;
+                    this.userInfo = (UsersVO)obj;
+                }
+                catch (InvalidCastException) 
+                {
+                    throw new System.Exception("아이디가 존재하지 않거나 패스워드가 틀렸습니다");
                 }
                 catch (System.Exception ex)
                 {
@@ -184,18 +190,5 @@ namespace libHitpan5
         #endregion
     }
     
-    /// <summary>
-    /// 권한없이 작업할 경우
-    /// </summary>
-    public class NotAuthException:Exception
-    {
 
-    }
-    /// <summary>
-    /// 로그인 안하고 작업할 경우
-    /// </summary>
-    public class NotLoginException:Exception
-    {
-
-    }
 }

@@ -7,16 +7,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using WebService.WebServiceVO.Users;
 namespace libHitpan5.Controller.CommandController.User
 {
     public class Insert : abCMD
     {
 
-        public UserInfo userinfo { get; set; }
-        private IDataModel dbModel { get; set; }
-        public Insert(UserInfo userinfo)
-            : base(string.Format("아이디 {0} 입력"), Hitpan5ClientLibrary.SQLDataServiceModel)
+        public UsersVO userinfo { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
+        public Insert(UsersVO userinfo)
+            : base(string.Format("아이디 {0} 입력",userinfo.UserID), Hitpan5ClientLibrary.SQLDataServiceModel)
         {
             this.userinfo = userinfo;
             this.dbModel = Hitpan5ClientLibrary.SQLDataServiceModel;

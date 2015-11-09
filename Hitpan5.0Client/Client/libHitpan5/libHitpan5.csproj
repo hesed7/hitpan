@@ -99,6 +99,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Activation" />
     <Reference Include="System.ServiceModel.Activities" />
@@ -144,6 +145,7 @@
     <Compile Include="Controller\SelectController\Users\Login\LogIn.cs" />
     <Compile Include="Controller\SelectController\Users\SelectUser\SelectUser.cs" />
     <Compile Include="Controller\Common\DocumentController\User\UserDocument.cs" />
+    <Compile Include="Exception\exceptions.cs" />
     <Compile Include="Hitpan5ClientLibrary.cs" />
     <Compile Include="Model\DocumentModel\PrinterModel.cs" />
     <Compile Include="Model\DocumentModel\ReportService.cs" />

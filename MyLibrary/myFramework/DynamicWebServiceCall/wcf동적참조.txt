@@ -1,0 +1,13 @@
+﻿C:\Program Files(x86)\Microsoft SDKs\Windows\V6.0A\Bin 폴더로 이동한다.
+
+[1] SvcUtil.exe를 레지스트리에 등록
+sn -Vr svcutil.exe
+
+[2] wcf서비스가 포함된 dll을 SvcUtil.exe가 있는 폴더로 가져와서 다음 형식으로 입력(wsdl등 생성)
+svcutil wcf서비스가 포함된 dll.dll
+
+[3] 프록시 클래스 만들기
+svcutil /namespace:*,dll에서 서비스어트리뷰트로 선언된 클래스의 네임스페이스 tempuri.org.wsdl *.xsd
+
+ex) svcutil /namespace:*,SQLiteManager.WebService tempuri.org.wsdl *.xsd
+

@@ -1,4 +1,5 @@
-﻿using libHitpan5.VO.CommonVO.GoodInfo;
+﻿using libHitpan5.Model.DataModel;
+using libHitpan5.VO.CommonVO.GoodInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace libHitpan5.Controller.CommandListener
     class GoodsListener
     {
         public System.Data.DataTable DocumentData { get; set; }
-        private Model.DataModel.IDataModel dataModel;
+        private SQLDataServiceModel dataModel;
 
-        public GoodsListener(Model.DataModel.IDataModel dataModel)
+        public GoodsListener(SQLDataServiceModel dataModel)
         {
             // TODO: Complete member initialization
             this.dataModel = dataModel;

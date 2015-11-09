@@ -14,7 +14,7 @@ namespace libHitpan5.Controller.CommandController.Goods
     {
         private GoodInfo post_userinfo { get; set; }
         private GoodInfo userinfo { get; set; }
-        private IDataModel dbModel { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
         public Update(GoodInfo post_GoodInfo, GoodInfo GoodInfo, string comment)
             : base(comment, Hitpan5ClientLibrary.SQLDataServiceModel)
         {

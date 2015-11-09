@@ -30,3 +30,18 @@ F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\RdlCompile.compiled
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\리포팅테스트.exe
 F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\리포팅테스트.pdb
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\bin\Debug\리포팅테스트.exe.config
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\bin\Debug\리포팅테스트.exe
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\bin\Debug\리포팅테스트.pdb
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\bin\Debug\libHitpan5.dll
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\bin\Debug\Newtonsoft.Json.dll
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\bin\Debug\libHitpan5.pdb
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\bin\Debug\Newtonsoft.Json.xml
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\리포팅테스트.csprojResolveAssemblyReference.cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\리포팅테스트.Form1.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\리포팅테스트.Properties.Resources.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\리포팅테스트.csproj.GenerateResource.Cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\RdlCompile.cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\RdlCompile.compiled
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\리포팅테스트.exe
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\리포팅테스트\obj\Debug\리포팅테스트.pdb

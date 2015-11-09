@@ -1,6 +1,7 @@
 ﻿using HitpanClientView.View.설정;
 using HitpanClientView.View.설정.사용자설정.일반정보설정.계정설정;
 using libHitpan5;
+using libHitpan5._Exception;
 using libHitpan5.Controller.CommandController;
 using libHitpan5.Controller.SelectController.CommonSettings;
 using libHitpan5.Controller.SelectController.MyCompany;

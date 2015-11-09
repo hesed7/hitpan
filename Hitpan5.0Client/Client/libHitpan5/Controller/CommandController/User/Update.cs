@@ -7,15 +7,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WebService.WebServiceVO.Users;
 
 namespace libHitpan5.Controller.CommandController.User
 {
     public class Update :abCMD
     {
-        private UserInfo post_userinfo { get; set; }
-        private UserInfo userinfo { get; set; }
-        private IDataModel dbModel { get; set; }
-        public Update(UserInfo post_userinfo, UserInfo userinfo, string comment)
+        private UsersVO post_userinfo { get; set; }
+        private UsersVO userinfo { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
+        public Update(UsersVO post_userinfo, UsersVO userinfo, string comment)
             : base(comment,Hitpan5ClientLibrary.SQLDataServiceModel)
         {
             this.dbModel = Hitpan5ClientLibrary.SQLDataServiceModel;

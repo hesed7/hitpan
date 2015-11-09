@@ -6,6 +6,7 @@ using libHitpan5.Model.DataModel;
 using System.Data;
 using libHitpan5.VO;
 using libHitpan5.enums;
+using WebService.WebServiceVO.Users;
 namespace libHitpan5.Controller.CommandListener
 {
     /// <summary>
@@ -13,47 +14,42 @@ namespace libHitpan5.Controller.CommandListener
     /// </summary>
     class UserListener
     {
-        private Model.DataModel.IDataModel dataModel;
-        public SQLDataQueryRepository QueryHouse { get; set; }
-        public UserListener(Model.DataModel.IDataModel dataModel)
+        private SQLDataServiceModel dataModel;
+        public UserListener(SQLDataServiceModel dataModel)
         {
             // TODO: Complete member initialization
             this.dataModel = dataModel;
-            this.QueryHouse = new SQLDataQueryRepository();
         }
-        internal void Insert(VO.UserInfo userInfo)
+        internal void Insert(UsersVO userInfo)
         {
-            string query = QueryHouse.InsertUserInfo(userInfo.id,userInfo.password,userInfo.userAuth,userInfo.userType);
-            this.dataModel.SetData(query);
+            this.dataModel.InsertUserInfo(userInfo);
         }
 
-        internal void Delete(VO.UserInfo userInfo)
+        internal void Delete(UsersVO userInfo)
         {
-            string query = QueryHouse.DeleteUserInfo(userInfo.id);
-            this.dataModel.SetData(query);
+            userInfo.UserType = (int)사용자등급.페기;
+            this.dataModel.UpdateUserInfo(userInfo);
         }
 
         /// <summary>
         /// 아이디는 변경금지
         /// </summary>
         /// <param name="userinfo"></param>
-        internal void Update(VO.UserInfo userinfo)
+        internal void Update(UsersVO userInfo)
         {
-            string query = QueryHouse.UpdateUserInfo(userinfo.id,userinfo.password,userinfo.id,userinfo.userAuth,userinfo.userType);
-            this.dataModel.SetData(query);
+            this.dataModel.UpdateUserInfo(userInfo);
         }
 
         internal object Login(string id, string password)
         {
-            string query = QueryHouse.SelectUserInfo(id);
-            DataTable tblUser = this.dataModel.GetData(query);
-            UserInfo ui= ConvertDataRow_To_UserInfo(tblUser.Rows[0]);
-            string _password = tblUser.Rows[0]["UserPassword"].ToString();
-            if (password == _password)
+            
+            try
             {
-                return ui;
+                UsersVO uv = null;
+                uv = this.dataModel.GetUserInfo(id, password);
+                return uv;
             }
-            else
+            catch (Exception)
             {
                 return false;
             }
@@ -66,36 +62,32 @@ namespace libHitpan5.Controller.CommandListener
         /// <returns></returns>
         internal object GetUserInfo()
         {
-            string query = QueryHouse.SelectUserInfo();
-            DataTable tblUsers = this.dataModel.GetData(query);
-            this.DocumentData = tblUsers;
-
-            IList<UserInfo> userList = new List<UserInfo>();
-            foreach (DataRow row in tblUsers.Rows)
+            try
             {
-                UserInfo ui= ConvertDataRow_To_UserInfo(row);
-                userList.Add(ui);
+                UsersVO[] uvList = null;
+                uvList = this.dataModel.GetUserInfo();
+                return uvList;
             }
-            return userList;
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         internal object GetUserInfo(string id)
         {
-            string query = QueryHouse.SelectUserInfo(id);
-            DataTable tblUsers = this.dataModel.GetData(query);
-            this.DocumentData = tblUsers;
-            return ConvertDataRow_To_UserInfo(tblUsers.Rows[0]);
+            try
+            {
+                UsersVO uv = null;
+                uv = this.dataModel.GetUserInfo(id);
+                return uv;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-
-        private UserInfo ConvertDataRow_To_UserInfo(DataRow DataRow)
-        {
-            UserInfo ui = new UserInfo();
-            ui.id = DataRow["UserID"].ToString();
-            ui.userAuth = DataRow["userAuth"].ToString();
-            ui.userType = (사용자등급)Enum.ToObject(typeof(사용자등급), Convert.ToInt32(DataRow["userType"]));
-            return ui;
-        } 
         public  System.Data.DataTable DocumentData { get; set; }
     }
 }

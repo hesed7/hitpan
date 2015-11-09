@@ -1,4 +1,5 @@
-﻿using System;
+﻿using libHitpan5.Model.DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,9 @@ namespace libHitpan5.Controller.Common.Loger
 {
     class Loger
     {
-        private Model.DataModel.IDataModel dataModel;
+        private SQLDataServiceModel dataModel;
 
-        public Loger(Model.DataModel.IDataModel dataModel)
+        public Loger(SQLDataServiceModel dataModel)
         {
             // TODO: Complete member initialization
             this.dataModel = dataModel;

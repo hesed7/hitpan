@@ -13,7 +13,7 @@ namespace libHitpan5.Controller.CommandController.Goods
     class Insert : abCMD
     {
         private GoodInfo GoodInfo { get; set; }
-        public IDataModel dbModel { get; set; }
+        public SQLDataServiceModel dbModel { get; set; }
         public Insert(GoodInfo GoodInfo)
             : base(string.Format("이름:{0} 규격{1}인 상품 정보 입력", GoodInfo.goodInfo.GoodName, GoodInfo.goodInfo.GoodSubName), Hitpan5ClientLibrary.SQLDataServiceModel)
         {

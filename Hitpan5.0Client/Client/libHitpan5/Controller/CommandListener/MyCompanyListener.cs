@@ -11,9 +11,9 @@ namespace libHitpan5.Controller.CommandListener
     //나의 정보 입력,수정,삭제
     class MyCompanyListener
     {
-        private IDataModel dataModel;
+        private SQLDataServiceModel dataModel;
         private SQLDataQueryRepository QueryHouse { get; set; }
-        public MyCompanyListener(Model.DataModel.IDataModel dataModel)
+        public MyCompanyListener(SQLDataServiceModel dataModel)
         {
             // TODO: Complete member initialization
             this.dataModel = dataModel;

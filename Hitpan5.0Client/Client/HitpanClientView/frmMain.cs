@@ -58,6 +58,12 @@ namespace HitpanClientView
                         continue;
                     }
                 } 
+                
+            }
+            else
+            {
+                MessageBox.Show("아이디가 없거나 패스워드가 틀렸습니다");
+                this.Dispose();
             }
         }
 

@@ -84,3 +84,6 @@ F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBir
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBirdServer\obj\Release\WebServiceServer.csprojResolveAssemblyReference.cache
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBirdServer\obj\Release\WebServiceModule.dll
 F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Server\FireBirdServer\obj\Release\WebServiceModule.pdb
+C:\Users\so\Documents\hitpan\Hitpan5.0Server\FireBirdServer\obj\Release\WebServiceServer.csprojResolveAssemblyReference.cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Server\FireBirdServer\obj\Release\WebServiceModule.dll
+C:\Users\so\Documents\hitpan\Hitpan5.0Server\FireBirdServer\obj\Release\WebServiceModule.pdb

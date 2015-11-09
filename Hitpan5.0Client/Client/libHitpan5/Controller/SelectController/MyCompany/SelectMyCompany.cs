@@ -11,7 +11,7 @@ namespace libHitpan5.Controller.SelectController.MyCompany
 {
     public class SelectMyCompany :abSelect
     {
-        public IDataModel dbModel { get; set; }
+        public SQLDataServiceModel dbModel { get; set; }
         public SelectMyCompany()
             : base("나의 회사 정보 검색", Hitpan5ClientLibrary.SQLDataServiceModel)
         {

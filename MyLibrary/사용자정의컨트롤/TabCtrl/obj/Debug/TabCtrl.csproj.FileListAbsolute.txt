@@ -1,0 +1,7 @@
+C:\Users\so\Desktop\SourceCode_TabControl_2005\SourceCode_TabControl_2005\SourceCode_TabControl\SourceCode_TabControl\TabControl_Demo\TabCtrl\bin\Debug\TabCtrl.dll
+C:\Users\so\Desktop\SourceCode_TabControl_2005\SourceCode_TabControl_2005\SourceCode_TabControl\SourceCode_TabControl\TabControl_Demo\TabCtrl\bin\Debug\TabCtrl.pdb
+C:\Users\so\Desktop\SourceCode_TabControl_2005\SourceCode_TabControl_2005\SourceCode_TabControl\SourceCode_TabControl\TabControl_Demo\TabCtrl\obj\Debug\TabCtrl.csproj.GenerateResource.Cache
+C:\Users\so\Desktop\SourceCode_TabControl_2005\SourceCode_TabControl_2005\SourceCode_TabControl\SourceCode_TabControl\TabControl_Demo\TabCtrl\obj\Debug\TabCtrl.dll
+C:\Users\so\Desktop\SourceCode_TabControl_2005\SourceCode_TabControl_2005\SourceCode_TabControl\SourceCode_TabControl\TabControl_Demo\TabCtrl\obj\Debug\TabCtrl.pdb
+C:\Users\so\Desktop\SourceCode_TabControl_2005\SourceCode_TabControl_2005\SourceCode_TabControl\SourceCode_TabControl\TabControl_Demo\TabCtrl\obj\Debug\MyControls.TabCtlEx.resources
+C:\Users\so\Desktop\SourceCode_TabControl_2005\SourceCode_TabControl_2005\SourceCode_TabControl\SourceCode_TabControl\TabControl_Demo\TabCtrl\obj\Debug\MyControls.TabPageEx.resources

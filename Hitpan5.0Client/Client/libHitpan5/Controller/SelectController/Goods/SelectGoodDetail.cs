@@ -13,7 +13,7 @@ namespace libHitpan5.Controller.SelectController.Goods
 {
     public class SelectGoodDetail : abSelect
     {
-        public IDataModel dbModel { get; set; }
+        public SQLDataServiceModel dbModel { get; set; }
         public GoodInfo param { get; set; }
 
         public SelectGoodDetail(GoodInfo param)

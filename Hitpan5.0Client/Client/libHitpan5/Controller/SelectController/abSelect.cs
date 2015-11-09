@@ -13,7 +13,7 @@ namespace libHitpan5.Controller.SelectController
     {
         public UserAuth RequiredAuth { get; set; }
 
-        private IDataModel dataModel { get; set; }
+        private SQLDataServiceModel dataModel { get; set; }
         internal string work { get; set; }
         private Loger loger { get; set; }
 
@@ -25,7 +25,7 @@ namespace libHitpan5.Controller.SelectController
         /// 문서작성시 RDLC에 데이터로 들어갈 데이터테이블
         /// </summary>
         protected DataTable DocumentData { get; set; }
-        public abSelect(string work, IDataModel dataModel)
+        public abSelect(string work, SQLDataServiceModel dataModel)
         {
             this.work = work;
             this.dataModel = dataModel;

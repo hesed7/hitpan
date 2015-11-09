@@ -13,7 +13,7 @@ namespace libHitpan5.Controller.SelectController.CommonSettings
 {
     public class SelectCommonSettings : abSelect
     {
-        private IDataModel dbModel { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
         public SelectCommonSettings()
             : base("세팅정보 세팅", Hitpan5ClientLibrary.SQLDataServiceModel)
         {

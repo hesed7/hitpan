@@ -11,7 +11,7 @@ namespace libHitpan5.Controller.CommandController.CommonSetting
     public class Insert :abCMD
     {
         private CommonSettinginfo CommonSettinginfo { get; set; }
-        private IDataModel dbModel { get; set; }
+        private SQLDataServiceModel dbModel { get; set; }
         public Insert(CommonSettinginfo CommonSettinginfo)
             : base("기본설정 입력", Hitpan5ClientLibrary.SQLDataServiceModel)
         {

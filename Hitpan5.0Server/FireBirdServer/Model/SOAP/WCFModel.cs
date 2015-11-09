@@ -78,9 +78,10 @@ namespace WebService.Model.SOAPService
             this.ServiceURL = ServiceURL;
             this.ServiceNameSpace = ServiceNameSpace;
 
-            this.host = new ServiceHost(typeof(SQLWebService));
+            
             try
             {
+                this.host = new ServiceHost(typeof(SQLWebService));
                 this.soapService = new SOAPManager
                     (
                     ref this.host,
@@ -93,10 +94,10 @@ namespace WebService.Model.SOAPService
                     errReporter
                     );
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         }
 

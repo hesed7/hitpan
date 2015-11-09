@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using libHitpan5.enums;
 using Newtonsoft.Json;
+using WebService.WebServiceVO.Users;
 namespace libHitpan5.Controller.Common.UserAuthValidator
 {
     /// <summary>
@@ -12,26 +13,26 @@ namespace libHitpan5.Controller.Common.UserAuthValidator
     /// </summary>
     class UserValidator
     {
-        private VO.UserInfo userInfo;
+        private UsersVO userInfo;
 
         /// <summary>
         /// 사용자정보 객체
         /// </summary>
         /// <param name="userInfo"></param>
-        public UserValidator(VO.UserInfo userInfo)
+        public UserValidator(UsersVO userInfo)
         {
             // TODO: Complete member initialization
             this.userInfo = userInfo;
         }
         internal bool CheckAuth(UserAuth RequiredAuth)
         {                      
-            if (userInfo.userType==사용자등급.관리자)
+            if (userInfo.UserType ==(int)사용자등급.관리자)
             {
                 return true;
             }
 
             //사용자의 권한
-            UserAuth userAuth=JsonConvert.DeserializeObject<UserAuth>(userInfo.userAuth);
+            UserAuth userAuth=JsonConvert.DeserializeObject<UserAuth>(userInfo.UserAuth);
 
             bool isValid = true;
             foreach (var prop in typeof(UserAuth).GetProperties())

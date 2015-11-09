@@ -90,6 +90,12 @@ namespace WebService.Controller.DBManager
         } 
         #endregion
         #region Data Setter/Getter
+        internal int SetData(string key, string Query)
+        {
+            StringCollection sc = new StringCollection();
+            sc.Add(Query);
+            return ConnDic[key].SetData(sc);
+        }
         internal int SetData(string key, StringCollection QueryBlock)
         {
             return ConnDic[key].SetData(QueryBlock);

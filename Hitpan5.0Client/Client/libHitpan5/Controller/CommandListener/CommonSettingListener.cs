@@ -11,9 +11,9 @@ namespace libHitpan5.Controller.CommandListener
     //관리정보 설정 등 설정정보 입력,수정,삭제
     class CommonSettingListener
     {
-        private IDataModel dataModel;
+        private SQLDataServiceModel dataModel;
         public SQLDataQueryRepository QueryHouse { get; set; }
-        public CommonSettingListener(Model.DataModel.IDataModel dataModel)
+        public CommonSettingListener(SQLDataServiceModel dataModel)
         {
             // TODO: Complete member initialization
             this.dataModel = dataModel;
