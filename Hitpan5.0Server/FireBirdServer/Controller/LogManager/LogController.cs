@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace WebService.Controller.LogManager
+namespace WebServiceServer.Controller.LogManager
 {
     class LogController
     {

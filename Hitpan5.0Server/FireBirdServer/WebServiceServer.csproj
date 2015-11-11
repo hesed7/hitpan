@@ -7,7 +7,7 @@
     <ProjectGuid>{EDD44434-B641-4E29-8CB5-52B19872C241}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebService</RootNamespace>
+    <RootNamespace>WebServiceServer</RootNamespace>
     <AssemblyName>WebServiceModule</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -72,7 +72,7 @@
     <Compile Include="Controller\UserConnectionManager\Validators\UserName\ID_Password_Validator.cs" />
     <Compile Include="Controller\UserConnectionManager\Validators\ValidationManager.cs" />
     <Compile Include="Delegate\Delegates.cs" />
-    <Compile Include="Enum\enums.cs" />
+    <Compile Include="Enums\enums.cs" />
     <Compile Include="Model\Common\FileExecuter.cs" />
     <Compile Include="Model\Common\ZIPManager.cs" />
     <Compile Include="Model\DB\DBEngine\DBEngineModel.cs" />
@@ -84,10 +84,19 @@
     <Compile Include="Model\SOAP\WCFModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerMain.cs" />
-    <Compile Include="WebService\ISQLWebService.cs" />
-    <Compile Include="WebService\SQLWebService.cs" />
-    <Compile Include="WebService\WebServiceSQL\Users\UserQuery.cs" />
-    <Compile Include="WebService\WebServiceVO\Users\UsersVO.cs" />
+    <Compile Include="VO\SQLProcedureParameterVO.cs" />
+    <Compile Include="webService\IWebService.cs" />
+    <Compile Include="webService\WebService.cs" />
+    <Compile Include="webService\WebServiceSQL\Goods\GoodsQuery.cs" />
+    <Compile Include="webService\WebServiceSQL\Settings\CommonSettingsQuery.cs" />
+    <Compile Include="webService\WebServiceSQL\Settings\MyCompanyQuery.cs" />
+    <Compile Include="webService\WebServiceSQL\Users\UserQuery.cs" />
+    <Compile Include="webService\WebServiceVO\Goods\GoodsDetail.cs" />
+    <Compile Include="webService\WebServiceVO\Goods\GoodsListVO.cs" />
+    <Compile Include="webService\WebServiceVO\Settings\CommonSettings.cs" />
+    <Compile Include="webService\WebServiceVO\Settings\MyCompany.cs" />
+    <Compile Include="webService\WebServiceVO\Users\UserAuth.cs" />
+    <Compile Include="webService\WebServiceVO\Users\UsersVO.cs" />
     <Compile Include="VO\ConnectionVO.cs" />
   </ItemGroup>
   <ItemGroup>

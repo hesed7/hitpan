@@ -4,7 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 
-namespace WebService.Delegate
+namespace WebServiceServer.Delegate
 {
     /// <summary>
     /// ServiceHost에 메시지보안 적용시 기본값은 윈도우 인증값을 사용한다

@@ -7,8 +7,10 @@ using System.Data;
 using Newtonsoft.Json;
 using System.Xml.Serialization;
 using libHitpan5.Model.WebServiceModel;
-using WebService.WebServiceVO.Users;
+using WebServiceServer.WebServiceVO.Users;
+using WebServiceServer.WebServiceVO.Settings;
 using libHitpan5._Exception;
+using libHitpan5.VO;
 namespace libHitpan5.Model.DataModel
 {
     /// <summary>
@@ -18,14 +20,14 @@ namespace libHitpan5.Model.DataModel
     {
         internal string EncryptionSeed { get; set; }
         internal string ServiceURL { get; set; }
-        internal ISQLWebService sqlProxy { get; set; }
+        internal IWebService sqlProxy { get; set; }
 
         /// <summary>
         /// sql 쿼리를 서버에 보낸다
         /// </summary>
         /// <param name="EncryptionSeed">서버보안문자(seed)</param>
         /// <param name="sqlService">sql웹서비스 프록시객체</param>
-        public SQLDataServiceModel(string EncryptionSeed, string ServiceURL, ISQLWebService sqlService)
+        public SQLDataServiceModel(string EncryptionSeed, string ServiceURL, IWebService sqlService)
         {
             //[1] 웹서비스 동적 추가
             this.sqlProxy = sqlService;
@@ -68,7 +70,7 @@ namespace libHitpan5.Model.DataModel
 
 
         #region User
-        public UsersVO[] GetUserInfo()
+        public IList<UserInfoProxyVO> GetUserInfo()
         {
             try
             {
@@ -77,7 +79,14 @@ namespace libHitpan5.Model.DataModel
                 new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()),
                 this.ServiceURL
                 );
-                return arrUV;
+                IList<UserInfoProxyVO> upList = new List<UserInfoProxyVO>();
+                foreach (UsersVO uv in arrUV)
+                {
+                    UserInfoProxyVO up = new UserInfoProxyVO();
+                    up.UsersVO = uv;
+                    upList.Add(up);
+                }
+                return upList;
             }
             catch (Exception)
             {
@@ -85,7 +94,7 @@ namespace libHitpan5.Model.DataModel
                 throw;
             }
         }
-        public UsersVO GetUserInfo(string id)
+        public UserInfoProxyVO GetUserInfo(string id)
         {
             try
             {
@@ -95,7 +104,9 @@ namespace libHitpan5.Model.DataModel
                 this.ServiceURL,
                 id
                 );
-                return uv;
+                UserInfoProxyVO up = new UserInfoProxyVO();
+                up.UsersVO = uv;
+                return up;
             }
             catch (Exception)
             {
@@ -104,7 +115,7 @@ namespace libHitpan5.Model.DataModel
             }
         }
 
-        public UsersVO GetUserInfo(string id, string password)
+        public UserInfoProxyVO GetUserInfo(string id, string password)
         {
             try
             {
@@ -121,7 +132,9 @@ namespace libHitpan5.Model.DataModel
                 }
                 else
                 {
-                    return uv;
+                    UserInfoProxyVO up = new UserInfoProxyVO();
+                    up.UsersVO = uv;
+                    return up;
                 }
             }
             catch (Exception)
@@ -132,7 +145,7 @@ namespace libHitpan5.Model.DataModel
         }
 
 
-        internal void InsertUserInfo(UsersVO userInfo)
+        internal void InsertUserInfo(UserInfoProxyVO userInfo)
         {
             try
             {
@@ -140,7 +153,7 @@ namespace libHitpan5.Model.DataModel
                 (
                 new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()),
                 this.ServiceURL,
-                userInfo
+                userInfo.UsersVO
                 );
             }
             catch (Exception)
@@ -149,7 +162,7 @@ namespace libHitpan5.Model.DataModel
                 throw;
             }
         }
-        internal void UpdateUserInfo(UsersVO userInfo)
+        internal void UpdateUserInfo(UserInfoProxyVO userInfo)
         {
             try
             {
@@ -157,7 +170,7 @@ namespace libHitpan5.Model.DataModel
                 (
                 new EncryptionService().GetEncryptedKey(this.EncryptionSeed, this.sqlProxy.GetTime()),
                 this.ServiceURL,
-                userInfo
+                userInfo.UsersVO
                 );
             }
             catch (Exception)
@@ -165,6 +178,61 @@ namespace libHitpan5.Model.DataModel
                 throw;
             }
         } 
+        #endregion
+        #region SettingInfo & MyCompanyInfo
+        public CommonSettingProxyVO GetCommonSettings() 
+        {
+            CommonSettingProxyVO cpv= new CommonSettingProxyVO();
+            cpv.CommonSettings = sqlProxy.GetCommonSettingInfo(new EncryptionService().GetEncryptedKey(this.EncryptionSeed, DateTime.Now),this.ServiceURL);
+            return cpv;
+        }
+        public bool SetCommonSettings(CommonSettingProxyVO CommonSettingProxyVO) 
+        {
+            try
+            {
+                int i = sqlProxy.SetCommonSettingInfo(new EncryptionService().GetEncryptedKey(this.EncryptionSeed, DateTime.Now), this.ServiceURL, CommonSettingProxyVO.CommonSettings);
+                if (i == 0)
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                
+                return false;
+            }
+        }
+
+        public MyCompanyProxyVO GetMyCompanyInfo()
+        {
+            MyCompanyProxyVO mpv = new MyCompanyProxyVO();
+            mpv.MyCompany = sqlProxy.GetMyCompanyInfo(new EncryptionService().GetEncryptedKey(this.EncryptionSeed, DateTime.Now), this.ServiceURL);
+            return mpv;
+        }
+        public bool SetMyCompanyInfo(MyCompanyProxyVO MyCompanyProxyVO)
+        {
+            try
+            {
+                int i = sqlProxy.SetMyCompanyInfo(new EncryptionService().GetEncryptedKey(this.EncryptionSeed, DateTime.Now), this.ServiceURL, MyCompanyProxyVO.MyCompany);
+                if (i == 0)
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
         #endregion
     }
 }

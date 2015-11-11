@@ -1,13 +1,13 @@
-﻿using WebService.Controller.DBManager;
+﻿using WebServiceServer.Controller.DBManager;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text;
-using WebService;
+using WebServiceServer;
 
-namespace WebService.Controller.ServerSettingManager
+namespace WebServiceServer.Controller.ServerSettingManager
 {
     internal class FireBirdSettingController : ISettingManager
     {

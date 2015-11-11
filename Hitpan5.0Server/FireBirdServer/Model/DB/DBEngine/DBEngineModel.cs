@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-namespace WebService.Model.DB.DBEngine
+namespace WebServiceServer.Model.DB.DBEngine
 {
     class DBEngineModel
     {

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using FirebirdSql.Data.Client;
 using FirebirdSql.Data.FirebirdClient;
-using WebService.VO;
+using WebServiceServer.VO;
 using System.Collections.Specialized;
 using System.IO;
 using System.Data;
 using System.Diagnostics;
 using FirebirdSql.Data.Services;
-using WebService.Model.DB;
-namespace WebService.Model.DB
+using WebServiceServer.Model.DB;
+namespace WebServiceServer.Model.DB
 {
     public class FirebirdDBService : IDBService
     {

@@ -1,5 +1,5 @@
-﻿using WebService.Controller.UserConnectionManager.Validators.UserName;
-using WebService.Delegate;
+﻿using WebServiceServer.Controller.UserConnectionManager.Validators.UserName;
+using WebServiceServer.Delegate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.ServiceModel;
 using System.ServiceModel.Security;
 using System.Text;
 
-namespace WebService.Controller.UserConnectionManager.Validators
+namespace WebServiceServer.Controller.UserConnectionManager.Validators
 {
     class ValidationManager
     {

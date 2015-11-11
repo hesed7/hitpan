@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.IO;
-namespace WebService.Model.Common
+namespace WebServiceServer.Model.Common
 {
     class FileExecuter
     {

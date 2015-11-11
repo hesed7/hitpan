@@ -1,5 +1,5 @@
 ﻿using System;
-namespace WebService.Controller.ServerSettingManager
+namespace WebServiceServer.Controller.ServerSettingManager
 {
     interface ISettingManager
     {

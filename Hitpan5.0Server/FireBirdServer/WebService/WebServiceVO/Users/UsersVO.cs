@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 using System.Runtime.Serialization;
-namespace WebService.WebServiceVO.Users
+using WebServiceServer.WebServiceVO.Users;
+using WebServiceServer.Enums;
+namespace WebServiceServer.WebServiceVO.Users
 {
     [DataContract]
     public class UsersVO
@@ -14,8 +16,8 @@ namespace WebService.WebServiceVO.Users
         [DataMember]
         public string UserPassword { get; set; }
         [DataMember]
-        public string UserAuth { get; set; }
+        public UserAuth UserAuth { get; set; }
         [DataMember]
-        public int UserType { get; set; }
+        public 사용자등급 UserType { get; set; }
     }
 }

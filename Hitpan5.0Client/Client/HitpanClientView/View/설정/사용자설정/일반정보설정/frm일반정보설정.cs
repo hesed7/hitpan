@@ -10,11 +10,12 @@ using libHitpan5.Model.DataModel;
 using libHitpan5.VO;
 using System;
 using System.Windows.Forms;
+using WebServiceServer.WebServiceVO.Settings;
 namespace HitpanClientView.View.설정.사용자설정.일반정보설정
 {
     public partial class frm일반정보설정 : Form
     {
-        private myInfo _myInfo { get; set; }
+        private MyCompanyProxyVO _myInfo { get; set; }
         #region 마으스 드래그로 컨트롤 이동하기
         //마우스 드래그로 이동의 선언부
         const int WM_SYSCOMMAND = 0x0112;
@@ -48,6 +49,7 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정
         public frm일반정보설정()
         {
             // TODO: Complete member initialization
+            this._myInfo = frmMain.htpClientLib.myInfo;
             InitializeComponent();
         }
 
@@ -68,37 +70,38 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정
 
         private void frm일반정보설정_Load(object sender, EventArgs e)
         {
-            this._myInfo = GetMyInfo();
+            MyCompany mc = this._myInfo.MyCompany;
             if (this._myInfo != null)
             {
-                this.txtAddress.Text = this._myInfo.myDetailAddress;
-                this.txtBusinessContents.Text = this._myInfo.subBusinessType;
-                this.txtBusinessNumber.Text = this._myInfo.B_N;
-                this.txtBusinessType.Text = this._myInfo.businessType;
-                this.txtChairman.Text = this._myInfo.chairMan;
-                this.txtEmail.Text = this._myInfo.email;
-                this.txtFax.Text = this._myInfo.fax;
-                this.txtHomePage.Text = this._myInfo.homePage;
-                this.txtInitialDate.Text = this._myInfo.startDate;
-                this.txtMyName.Text = this._myInfo.myName;
-                this.txtPhone.Text = this._myInfo.phone;
-                this.txtSocialRegistryNumber.Text = this._myInfo.RegistryNumber;
-                this.txtSubBusinessNumber.Text = this._myInfo.subB_N;
-                this.txtZipNumber.Text = this._myInfo.myPostNo;
-                this.rtxtETC.Text = this._myInfo.etc;
+                this.txtAddress.Text = mc.myDetailAddress;
+                this.txtBusinessContents.Text = mc.subBusinessType;
+                this.txtBusinessNumber.Text = mc.B_N;
+                this.txtBusinessType.Text = mc.businessType;
+                this.txtChairman.Text = mc.chairMan;
+                this.txtEmail.Text = mc.email;
+                this.txtFax.Text = mc.fax;
+                this.txtHomePage.Text = mc.homePage;
+                this.txtInitialDate.Text = mc.startDate;
+                this.txtMyName.Text = mc.myName;
+                this.txtPhone.Text = mc.phone;
+                this.txtSocialRegistryNumber.Text = mc.RegistryNumber;
+                this.txtSubBusinessNumber.Text = mc.subB_N;
+                this.txtZipNumber.Text = mc.myPostNo;
+                this.rtxtETC.Text = mc.etc;
             }
+
         }
-        private myInfo GetMyInfo()
+        private MyCompanyProxyVO GetMyInfo()
         {
-            return (myInfo)new SelectMyCompany().GetData();//new SelectCommonSettings().GetData();
+            return (MyCompanyProxyVO)new SelectMyCompany().GetData();//new SelectCommonSettings().GetData();
         }
 
         /// <summary>
         /// 현재 입력된 내용을 바탕으로 myInfo를 생성 및 반환
         /// </summary>
-        private myInfo SetMyInfo()
+        private MyCompanyProxyVO SetMyInfo()
         {
-            myInfo mi = new myInfo();
+            MyCompany mi = new MyCompany();
             mi.myDetailAddress = this.txtAddress.Text;
             mi.subBusinessType = this.txtBusinessContents.Text;
             mi.B_N = this.txtBusinessNumber.Text;
@@ -114,19 +117,22 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정
             mi.subB_N = this.txtSubBusinessNumber.Text;
             mi.myPostNo = this.txtZipNumber.Text;
             mi.etc = this.rtxtETC.Text;
-            return mi;
+
+            MyCompanyProxyVO mpv = new MyCompanyProxyVO();
+            mpv.MyCompany = mi;
+            return mpv;
         }
 
-        private void SetMyInfo(myInfo _myInfo)
+        private void SetMyInfo(MyCompany _myInfo)
         {
             try
             {
                 ICMD cmd = null;
 
-                myInfo postInfo = this._myInfo;
+                MyCompanyProxyVO preMyInfo = this._myInfo;
                 if (this._myInfo != null)
                 {
-                    cmd = new libHitpan5.Controller.CommandController.MyCompany.Update(this._myInfo, SetMyInfo());
+                    cmd = new libHitpan5.Controller.CommandController.MyCompany.Update(SetMyInfo(), preMyInfo);
                 }
                 else
                 {
@@ -147,7 +153,7 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정
         {
             try
             {
-                myInfo _myInfo = new myInfo();
+                MyCompany _myInfo = new MyCompany();
                 _myInfo.B_N = txtBusinessNumber.Text;
                 _myInfo.businessType = txtBusinessType.Text;
                 _myInfo.chairMan = txtChairman.Text;

@@ -84,11 +84,11 @@ namespace HitPanSQLServicesServer
             {
                 StringCollection sc = new StringCollection();
                 sc.Add(txtQuery.Text);
-                WebService.ServerMain.getInstance().SetData(serviceURL, sc);
+                WebServiceServer.ServerMain.getInstance().SetData(serviceURL, sc);
             }
             else
             {
-                DataTable dt = WebService.ServerMain.getInstance().GetLocalData(serviceURL, txtQuery.Text);
+                DataTable dt = WebServiceServer.ServerMain.getInstance().GetLocalData(serviceURL, txtQuery.Text);
                 gvQueryResult.DataSource = dt;               
             }
         }
@@ -100,7 +100,7 @@ namespace HitPanSQLServicesServer
                 MessageBox.Show("실행할 쿼리가 없습니다");
                 return;
             }
-            DataTable dt = WebService.ServerMain.getInstance().GetPlan(serviceURL,txtQuery.Text);
+            DataTable dt = WebServiceServer.ServerMain.getInstance().GetPlan(serviceURL,txtQuery.Text);
             gvQueryResult.DataSource = dt;
         }
 

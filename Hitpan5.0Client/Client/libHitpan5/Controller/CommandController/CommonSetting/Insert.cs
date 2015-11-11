@@ -5,14 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using WebServiceServer.WebServiceVO.Settings;
 namespace libHitpan5.Controller.CommandController.CommonSetting
 {
     public class Insert :abCMD
     {
-        private CommonSettinginfo CommonSettinginfo { get; set; }
+        private CommonSettingProxyVO CommonSettinginfo { get; set; }
         private SQLDataServiceModel dbModel { get; set; }
-        public Insert(CommonSettinginfo CommonSettinginfo)
+        public Insert(CommonSettingProxyVO CommonSettinginfo)
             : base("기본설정 입력", Hitpan5ClientLibrary.SQLDataServiceModel)
         {
             this.CommonSettinginfo = CommonSettinginfo;

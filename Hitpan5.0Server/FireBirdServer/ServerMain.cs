@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WebService.Controller.DBManager;
-using WebService.Controller.UserConnectionManager;
-using WebService.VO;
+using WebServiceServer.Controller.DBManager;
+using WebServiceServer.Controller.UserConnectionManager;
+using WebServiceServer.VO;
 using System.ServiceModel;
-using WebService.Delegate;
+using WebServiceServer.Delegate;
 using SOAP;
 using System.Collections.Specialized;
 using System.Data;
 using System.Windows.Forms;
 using System.IO;
-using WebService.Controller.ServerSettingManager;
-using WebService.Controller.SecurityManager;
-using WebService.Controller.UserConnectionManager.Validators.UserName;
+using WebServiceServer.Controller.ServerSettingManager;
+using WebServiceServer.Controller.SecurityManager;
+using WebServiceServer.Controller.UserConnectionManager.Validators.UserName;
 using System.ServiceModel.Security;
-using WebService.Controller.UserConnectionManager.Validators;
+using WebServiceServer.Controller.UserConnectionManager.Validators;
 using System.Collections;
 using System.Net.NetworkInformation;
-using WebService.Model.DB;
-using WebService.Enum;
-namespace WebService
+using WebServiceServer.Model.DB;
+using WebServiceServer.Enums;
+namespace WebServiceServer
 {
     public class ServerMain
     {

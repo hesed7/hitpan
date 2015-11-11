@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using SOAP;
 using SOAP.Conf;
 using System.ServiceModel;
-using WebService.Delegate;
-using WebService.WebService;
-namespace WebService.Model.SOAPService
+using WebServiceServer.Delegate;
+using WebServiceServer.webService;
+namespace WebServiceServer.Model.SOAPService
 {
     internal class WCFModel
     {
@@ -81,7 +81,7 @@ namespace WebService.Model.SOAPService
             
             try
             {
-                this.host = new ServiceHost(typeof(SQLWebService));
+                this.host = new ServiceHost(typeof(WebService));
                 this.soapService = new SOAPManager
                     (
                     ref this.host,
@@ -89,8 +89,8 @@ namespace WebService.Model.SOAPService
                     new Uri(ServiceURL),
                     ServiceNameSpace,
                     ServiceBindingType.WSHttpBinding,
-                    typeof(SQLWebService),
-                    typeof(ISQLWebService),
+                    typeof(WebService),
+                    typeof(IWebService),
                     errReporter
                     );
             }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebService;
+using WebServiceServer;
 using HitPanSQLServicesServer.VO;
-using WebService.VO;
+using WebServiceServer.VO;
 namespace HitPanSQLServicesServer.Controller.WebServices
 {
     class WebServiceManager
@@ -49,7 +49,7 @@ namespace HitPanSQLServicesServer.Controller.WebServices
             }
             //중복된 URL골라내기
             bool isDuplicate = false;
-            IDictionary<string,bool> serviceDic=WebService.ServerMain.getInstance().ActiveServiceDic;
+            IDictionary<string,bool> serviceDic=WebServiceServer.ServerMain.getInstance().ActiveServiceDic;
             ICollection<string> urlList = serviceDic.Keys;
             foreach (string url in urlList)
             {
@@ -73,13 +73,13 @@ namespace HitPanSQLServicesServer.Controller.WebServices
             }
             //중복된 URL골라내기
             IList<ConnectionVO> _connVOList = new List<ConnectionVO>();
-            if (WebService.ServerMain.getInstance().ActiveServiceDic !=null && WebService.ServerMain.getInstance().ActiveServiceDic.Count>0)
+            if (WebServiceServer.ServerMain.getInstance().ActiveServiceDic !=null && WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Count>0)
             {
                 //이미 활성화된 서비스가 있는경우 URL등 중복방지
                 foreach (ConnectionVO connVO in connVOList)
                 {
                     bool isDuplicate = false;
-                    foreach (string url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
+                    foreach (string url in WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Keys)
                     {
                         if (connVO.ServiceURL == url)
                         {
@@ -110,7 +110,7 @@ namespace HitPanSQLServicesServer.Controller.WebServices
             {
                 throw new Exception("서버가 준비되지 않았습니다");
             }
-            foreach (string url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
+            foreach (string url in WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Keys)
             {
                 if (ServiceURL == url)
                 {
@@ -126,7 +126,7 @@ namespace HitPanSQLServicesServer.Controller.WebServices
             {
                 throw new Exception("서버가 준비되지 않았습니다");
             }
-            ICollection<string> urlList = WebService.ServerMain.getInstance().ActiveServiceDic.Keys;
+            ICollection<string> urlList = WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Keys;
             IList<string> arrURL = new List<string>();
             foreach (string url in urlList)
             {

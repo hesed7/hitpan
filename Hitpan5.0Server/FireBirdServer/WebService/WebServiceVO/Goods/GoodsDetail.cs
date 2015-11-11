@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WebService.Enum
+namespace WebServiceServer.webService.WebServiceVO.Goods
 {
-    public enum DbEngineType { FireBird,PostgresSQL}
+    class GoodsDetail
+    {
+    }
 }

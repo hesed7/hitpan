@@ -75,7 +75,6 @@ C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\H
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Newtonsoft.Json.dll
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.pdb
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Newtonsoft.Json.xml
-C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csprojResolveAssemblyReference.cache
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.frmLogin.resources
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.frmMain.resources
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.Properties.Resources.resources
@@ -87,3 +86,4 @@ C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\H
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.상품관리.상품관리.frmGoods.resources
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csproj.GenerateResource.Cache
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.dll
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csprojResolveAssemblyReference.cache

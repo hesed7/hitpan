@@ -14,7 +14,7 @@ namespace HitPanSQLServicesServer.Controller.SettingInfo
         public void InsertSettings(CommonSettingsVO vo) 
         {
             string plainJson = JsonConvert.SerializeObject(vo);
-            string Encryptedjson = WebService.ServerMain.getInstance().GetEncryptedString(plainJson);
+            string Encryptedjson = WebServiceServer.ServerMain.getInstance().GetEncryptedString(plainJson);
             Settings.Default.CommonSettingsVO = Encryptedjson;
             Settings.Default.Save();
         }
@@ -31,7 +31,7 @@ namespace HitPanSQLServicesServer.Controller.SettingInfo
             try
             {
                 string Encryptedjson = Settings.Default.CommonSettingsVO;
-                string plainJson = WebService.ServerMain.getInstance().GetDecryptedString(Encryptedjson);
+                string plainJson = WebServiceServer.ServerMain.getInstance().GetDecryptedString(Encryptedjson);
                 settingData = JsonConvert.DeserializeObject<CommonSettingsVO>(plainJson);
             }
             catch (Exception)
@@ -56,7 +56,7 @@ namespace HitPanSQLServicesServer.Controller.SettingInfo
             }
 
             string plainJson = JsonConvert.SerializeObject(originVO);
-            string Encryptedjson = WebService.ServerMain.getInstance().GetEncryptedString(plainJson);
+            string Encryptedjson = WebServiceServer.ServerMain.getInstance().GetEncryptedString(plainJson);
             Settings.Default.CommonSettingsVO = Encryptedjson;
             Settings.Default.Save();
         }

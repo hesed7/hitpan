@@ -5,11 +5,12 @@ using System.Text;
 using libHitpan5.Controller.Common.Loger;
 using libHitpan5.Model.DataModel;
 using libHitpan5.VO.CommonVO;
+using libHitpan5.VO.CommonVO.UserInfo;
 namespace libHitpan5.Controller.CommandController
 {
     public abstract class abCMD :ICMD
     {
-        public UserAuth RequiredAuth { get; set; }
+        public UserAuthProxyVO RequiredAuth { get; set; }
 
         private Loger loger { get; set; }
         private string work { get; set; }

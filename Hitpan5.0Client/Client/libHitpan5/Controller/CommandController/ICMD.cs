@@ -1,4 +1,5 @@
 ﻿using libHitpan5.VO.CommonVO;
+using libHitpan5.VO.CommonVO.UserInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace libHitpan5.Controller.CommandController
         void Do();
         void UnDo();
 
-        UserAuth RequiredAuth { get; set; }
+        UserAuthProxyVO RequiredAuth { get; set; }
     }
 }

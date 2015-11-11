@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebService;
-using WebService.VO;
+using WebServiceServer;
+using WebServiceServer.VO;
 namespace HitPanSQLServicesServer.Controller.DB
 {
     class DBManager
@@ -17,7 +17,7 @@ namespace HitPanSQLServicesServer.Controller.DB
         {
             string DBName = GetDBNameFromURL(URL);
             ConnectionVO cvo = new ConnectionVO(URL, DBName);
-            WebService.ServerMain.getInstance().RestoreDB(BackupPath, cvo, makeNewDB);
+            WebServiceServer.ServerMain.getInstance().RestoreDB(BackupPath, cvo, makeNewDB);
             return DBName;
         }
 
@@ -25,7 +25,7 @@ namespace HitPanSQLServicesServer.Controller.DB
         {
             string DBName = GetDBNameFromURL(URL);
             ConnectionVO cvo = new ConnectionVO(URL, DBName);
-            WebService.ServerMain.getInstance().CreateDB(cvo);
+            WebServiceServer.ServerMain.getInstance().CreateDB(cvo);
             return DBName;            
         }
 
@@ -33,7 +33,7 @@ namespace HitPanSQLServicesServer.Controller.DB
         {
             string DBName = GetDBNameFromURL(URL);
             ConnectionVO cvo = new ConnectionVO(URL, DBName);
-            WebService.ServerMain.getInstance().DropDB(cvo);
+            WebServiceServer.ServerMain.getInstance().DropDB(cvo);
         }
 
         internal string GetDBNameFromURL(string url)

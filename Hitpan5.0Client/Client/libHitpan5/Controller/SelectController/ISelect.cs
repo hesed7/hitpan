@@ -6,6 +6,7 @@ using libHitpan5.Controller.Common.Loger;
 using libHitpan5.Controller.Common.DocumentController;
 using System.Data;
 using libHitpan5.VO.CommonVO;
+using libHitpan5.VO.CommonVO.UserInfo;
 namespace libHitpan5.Controller.SelectController
 {
     public interface ISelect
@@ -13,6 +14,6 @@ namespace libHitpan5.Controller.SelectController
         object GetData();
         void GetDocument();
 
-        UserAuth RequiredAuth { get; set; }
+        UserAuthProxyVO RequiredAuth { get; set; }
     }
 }

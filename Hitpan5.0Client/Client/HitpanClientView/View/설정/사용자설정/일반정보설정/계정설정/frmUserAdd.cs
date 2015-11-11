@@ -1,5 +1,4 @@
 ﻿using libHitpan5.Controller.CommandController;
-using libHitpan5.enums;
 using libHitpan5.Model.DataModel;
 using libHitpan5.VO;
 using System;
@@ -9,12 +8,13 @@ using Newtonsoft.Json;
 using libHitpan5.Controller.SelectController.Users.SelectUser;
 using System.Collections.Generic;
 using libHitpan5.VO.CommonVO;
-using WebService.WebServiceVO.Users;
+using WebServiceServer.WebServiceVO.Users;
+using WebServiceServer.Enums;
 namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정설정
 {
     public partial class frmUserAdd : Form
     {
-        public UsersVO[] userList { get; set; }
+        public IList<UserInfoProxyVO> userList { get; set; }
         #region 마으스 드래그로 컨트롤 이동하기
         //마우스 드래그로 이동의 선언부
         const int WM_SYSCOMMAND = 0x0112;
@@ -87,12 +87,12 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
 
             //유저정보 목록 보여주기
             lvUserList.Items.Clear();
-            object dt = null;
-            this.userList = (UsersVO[])new SelectUser(null).GetData();
+            this.userList = (IList<UserInfoProxyVO>)new SelectUser(null).GetData();
             if (userList != null)
             {
-                foreach (UsersVO uv in userList)
+                foreach (UserInfoProxyVO up in userList)
                 {
+                    UsersVO uv = up.UsersVO;
                     string id = uv.UserID;
                     사용자등급 userType = ((사용자등급)uv.UserType);
                     string strUserType = Enum.GetName(typeof(사용자등급), userType);
@@ -106,7 +106,7 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
         /// 현재 입력된 내용을 바탕으로 UserInfo객체 생성
         /// </summary>
         /// <returns></returns>
-        private UsersVO GetUserInfo() 
+        private UserInfoProxyVO GetUserInfo() 
         {
             UserAuth ua = new UserAuth();
             ua.견적관리         = (사용자권한)Enum.Parse(typeof(사용자권한), ddl견적관리.Text);
@@ -127,25 +127,27 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
             ua.회계관리         = (사용자권한)Enum.Parse(typeof(사용자권한), ddl회계관리.Text);
 
             UsersVO ui = new UsersVO();
-            ui.UserID               = txtID.Text;
-            ui.UserPassword         = txtPassword.Text;
-            ui.UserAuth         = JsonConvert.SerializeObject(ua);
-            ui.UserType         =  (int)(사용자등급)Enum.Parse(typeof(사용자등급), ddlUserType.Text);
+            ui.UserID           = txtID.Text;
+            ui.UserPassword     = txtPassword.Text;
+            ui.UserAuth         = ua; 
+            ui.UserType         = (사용자등급)Enum.Parse(typeof(사용자등급), ddlUserType.Text);
 
-            return ui;
+            UserInfoProxyVO upv = new UserInfoProxyVO();
+            upv.UsersVO = ui;
+            return upv;
         }
 
 
         private void btnInsertUpdate_Click(object sender, EventArgs e)
         {
             //[1] 사용자정보 VO객체 생성
-            UsersVO ui = GetUserInfo();
+            UserInfoProxyVO ui = GetUserInfo();
             //[2] 업데이트 인지 인서트 인지 구분하여 명령어 객체 생성
             ICMD cmd = null;            
             if (!txtID.Enabled)
             {
                 //업데이트 하는 경우   
-                cmd = new libHitpan5.Controller.CommandController.User.Update((UsersVO)(new SelectUser(txtID.Text).GetData()), ui, string.Format("{0} 유저의 정보를 업데이트",ui.UserID));
+                cmd = new libHitpan5.Controller.CommandController.User.Update((UserInfoProxyVO)(new SelectUser(txtID.Text).GetData()), ui, string.Format("{0} 유저의 정보를 업데이트", ui.UsersVO.UserID));
                 linkInsertMode.Visible = true;
             }
             else
@@ -153,9 +155,9 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
                 //인서트 하는 경우
                 //[1] id겹치는지 점검
                 bool isDuplicated = false;
-                foreach (UsersVO uv in this.userList)
+                foreach (UserInfoProxyVO uv in this.userList)
                 {
-                    if (uv.UserID==ui.UserID)
+                    if (uv.UsersVO.UserID==ui.UsersVO.UserID)
                     {
                         isDuplicated = true;
                         break;
@@ -188,17 +190,17 @@ namespace HitpanClientView.View.설정.사용자설정.일반정보설정.계정
         private void lvUserList_MouseClick(object sender, MouseEventArgs e)
         {
             string id = lvUserList.SelectedItems[0].SubItems[0].Text;
-            foreach (UsersVO uv in this.userList)
+            foreach (UserInfoProxyVO uv in this.userList)
             {
-                if (uv.UserID.ToString().Replace(" ",string.Empty)==id.Replace(" ",string.Empty))
+                if (uv.UsersVO.UserID.ToString().Replace(" ",string.Empty)==id.Replace(" ",string.Empty))
                 {
                     txtID.Enabled = false;
                     txtID.Text = id;
-                    txtPassword.Text = uv.UserPassword;
+                    txtPassword.Text = uv.UsersVO.UserPassword;
                     try
                     {
-                        UserAuth user_auth = (UserAuth)JsonConvert.DeserializeObject(uv.UserAuth, typeof(UserAuth));
-                        ddlUserType.Text = Enum.GetName(typeof(사용자등급), ((사용자등급)uv.UserType));
+                        UserAuth user_auth = uv.UsersVO.UserAuth;
+                        ddlUserType.Text = Enum.GetName(typeof(사용자등급), ((사용자등급)uv.UsersVO.UserType));
                         ddl견적관리.Text = Enum.GetName(typeof(사용자권한), user_auth.견적관리);
                         ddl계정관리.Text = Enum.GetName(typeof(사용자권한), user_auth.계정관리);
                         ddl고객정보.Text = Enum.GetName(typeof(사용자권한), user_auth.고객정보);

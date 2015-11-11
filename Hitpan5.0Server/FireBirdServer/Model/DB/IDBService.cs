@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data;
-namespace WebService.Model.DB
+namespace WebServiceServer.Model.DB
 {
     interface IDBService
     {

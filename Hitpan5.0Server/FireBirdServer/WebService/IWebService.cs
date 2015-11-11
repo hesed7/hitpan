@@ -2,11 +2,12 @@
 using System.ServiceModel;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using WebService.WebServiceVO.Users;
-namespace WebService.WebService
+using WebServiceServer.WebServiceVO.Users;
+using WebServiceServer.WebServiceVO.Settings;
+namespace WebServiceServer.webService
 {
     [ServiceContract] 
-    public interface ISQLWebService
+    public interface IWebService
     {
         [OperationContract]
         string GetData(string AuthKey, string query, string serviceURL);
@@ -26,5 +27,13 @@ namespace WebService.WebService
         int UpdateUserInfo(string AuthKey, string serviceURL,UsersVO userInfo) ;
         [OperationContract]
         int InsertUserInfo(string AuthKey, string serviceURL, UsersVO userInfo);
+        [OperationContract]
+        MyCompany GetMyCompanyInfo(string AuthKey, string serviceURL);
+        [OperationContract]
+        int SetMyCompanyInfo(string AuthKey, string serviceURL,MyCompany myCompanyInfo);
+        [OperationContract]
+        CommonSettings GetCommonSettingInfo(string AuthKey, string serviceURL);
+        [OperationContract]
+        int SetCommonSettingInfo(string AuthKey, string serviceURL, CommonSettings CommonSettings);
     }
 }

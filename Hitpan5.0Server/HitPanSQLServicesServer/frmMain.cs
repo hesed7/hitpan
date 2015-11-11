@@ -5,7 +5,7 @@ using System.ServiceModel;
 using HitPanSQLServicesServer.VO;
 using System.Collections.Specialized;
 using System.Net;
-using WebService.VO;
+using WebServiceServer.VO;
 using HitPanSQLServicesServer.Controller.WebServices;
 using HitPanSQLServicesServer.Controller.SettingInfo;
 using System.Collections;
@@ -92,9 +92,9 @@ namespace HitPanSQLServicesServer
                 suc.InsertServiceInfo(ServiceURL, DBName);
                 this.WebServiceManager.AddService(new ConnectionVO(ServiceURL, DBName));
                 this.lvServiceList.Items.Clear();
-                foreach (string url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
+                foreach (string url in WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Keys)
                 {
-                    string[] data = new string[] { url, Convert.ToString(WebService.ServerMain.getInstance().ActiveServiceDic[url]) };
+                    string[] data = new string[] { url, Convert.ToString(WebServiceServer.ServerMain.getInstance().ActiveServiceDic[url]) };
                     lvServiceList.Items.Add(new ListViewItem(data));
                 }
             }
@@ -114,9 +114,9 @@ namespace HitPanSQLServicesServer
             {
                 this.WebServiceManager.StartService(new ConnectionVO(ServiceURL, DBPath));
                 this.lvServiceList.Items.Clear();
-                foreach (string url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
+                foreach (string url in WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Keys)
                 {
-                    string[] data = new string[] { url, Convert.ToString(WebService.ServerMain.getInstance().ActiveServiceDic[url]) };
+                    string[] data = new string[] { url, Convert.ToString(WebServiceServer.ServerMain.getInstance().ActiveServiceDic[url]) };
                     lvServiceList.Items.Add(new ListViewItem(data));
                 }
             }
@@ -143,14 +143,14 @@ namespace HitPanSQLServicesServer
                 //관련DB드롭
                 new DBManager().DropDB(ServiceURL);
                 this.lvServiceList.Items.Clear();
-                foreach (string _url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
+                foreach (string _url in WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Keys)
                 {
                     if (_url == ServiceURL)
                     {
                         //삭제된 URL은 목록에서 삭제
                         continue;
                     }
-                    string[] data = new string[] { _url, Convert.ToString(WebService.ServerMain.getInstance().ActiveServiceDic[_url]) };
+                    string[] data = new string[] { _url, Convert.ToString(WebServiceServer.ServerMain.getInstance().ActiveServiceDic[_url]) };
                     lvServiceList.Items.Add(new ListViewItem(data));
                 }
             }
@@ -201,9 +201,9 @@ namespace HitPanSQLServicesServer
             {
                 this.WebServiceManager.DeleteService(ServiceURL);
                 this.lvServiceList.Items.Clear();
-                foreach (string _url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
+                foreach (string _url in WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Keys)
                 {
-                    string[] data = new string[] { _url, Convert.ToString(WebService.ServerMain.getInstance().ActiveServiceDic[_url]) };
+                    string[] data = new string[] { _url, Convert.ToString(WebServiceServer.ServerMain.getInstance().ActiveServiceDic[_url]) };
                     lvServiceList.Items.Add(new ListViewItem(data));
                 }
             }
@@ -253,7 +253,7 @@ namespace HitPanSQLServicesServer
         }
         private void DropServer()
         {
-            WebService.ServerMain.getInstance().ServerOFF();
+            WebServiceServer.ServerMain.getInstance().ServerOFF();
             linkDeleteAllSettings.Visible = false;
 
             lvServiceList.Items.Clear();
@@ -335,9 +335,9 @@ namespace HitPanSQLServicesServer
                 cbBackupSchedule.Text = this.CommonSettingsVO.BackupSchedule.Days.ToString();
 
                 //서비스 주소 세팅
-                foreach (string url in WebService.ServerMain.getInstance().ActiveServiceDic.Keys)
+                foreach (string url in WebServiceServer.ServerMain.getInstance().ActiveServiceDic.Keys)
                 {
-                    string[] arrServiceStat = new string[] { url, Convert.ToString(WebService.ServerMain.getInstance().ActiveServiceDic[url]) };
+                    string[] arrServiceStat = new string[] { url, Convert.ToString(WebServiceServer.ServerMain.getInstance().ActiveServiceDic[url]) };
                     lvServiceList.Items.Add(new ListViewItem(arrServiceStat));
                 }
             }

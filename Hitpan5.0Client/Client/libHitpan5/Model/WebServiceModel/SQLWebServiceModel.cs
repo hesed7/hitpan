@@ -20,16 +20,16 @@ namespace libHitpan5.Model.WebServiceModel
         /// <summary>
         /// 웹서비스 통신연결을 제공하는 객체
         /// </summary>
-        private ChannelFactory<ISQLWebService> WebServiceChannel { get; set; }
+        private ChannelFactory<IWebService> WebServiceChannel { get; set; }
         public string ServiceURL { get; set; }
         public SQLWebServiceModel(string ServiceURL)
 	    {
             this.ServiceURL = ServiceURL;
 
             WSHttpBinding binding = new WSHttpBinding(SecurityMode.None);
-            WebServiceChannel = new ChannelFactory<ISQLWebService>
+            WebServiceChannel = new ChannelFactory<IWebService>
             (
-                new ServiceEndpoint(ContractDescription.GetContract(typeof(ISQLWebService)),
+                new ServiceEndpoint(ContractDescription.GetContract(typeof(IWebService)),
                 binding,
                 new EndpointAddress(this.ServiceURL))
             );
@@ -49,11 +49,11 @@ namespace libHitpan5.Model.WebServiceModel
             
             //보안설정
             binding.Security.Message.ClientCredentialType = MessageCredentialType;
-            WebServiceChannel = new ChannelFactory<ISQLWebService>
+            WebServiceChannel = new ChannelFactory<IWebService>
                 (
                     new ServiceEndpoint
                         (
-                        ContractDescription.GetContract(typeof(ISQLWebService)),
+                        ContractDescription.GetContract(typeof(IWebService)),
                         binding,
                         EndpointURL
                         )
@@ -62,7 +62,7 @@ namespace libHitpan5.Model.WebServiceModel
             WebServiceChannel.Credentials.ServiceCertificate.Authentication.CertificateValidationMode =
                 X509CertificateValidationMode.None;
         }
-        internal ISQLWebService GetWebServiceProxy() 
+        internal IWebService GetWebServiceProxy() 
         {
             try
             {
@@ -75,7 +75,7 @@ namespace libHitpan5.Model.WebServiceModel
             }
         }
 
-        internal ISQLWebService GetWebServiceProxy(string ServerID,String ServerPassword)
+        internal IWebService GetWebServiceProxy(string ServerID,String ServerPassword)
         {
             try
             {
@@ -113,14 +113,14 @@ namespace libHitpan5.Model.WebServiceModel
         /// <returns>
         /// 채널이 연결된 웹서비스객체
         /// </returns>
-        private ISQLWebService CallWebserviceUsingCallback(string webServiceUrl, DuplexChannelFactory<ISQLWebService> WebServiceChannel, InstanceContext ClientCallback)
+        private IWebService CallWebserviceUsingCallback(string webServiceUrl, DuplexChannelFactory<IWebService> WebServiceChannel, InstanceContext ClientCallback)
         {
             EndpointAddress epa = new EndpointAddress(
                     new Uri(webServiceUrl),
                     new DnsEndpointIdentity(System.IdentityModel.Claims.Claim.CreateDnsClaim("HTPSecureManager"))
                 );
 
-            ISQLWebService webservice = WebServiceChannel.CreateChannel
+            IWebService webservice = WebServiceChannel.CreateChannel
                 (
                 ClientCallback,
                 epa
@@ -134,14 +134,14 @@ namespace libHitpan5.Model.WebServiceModel
         /// <param name="p"></param>
         /// <param name="channelFactory"></param>
         /// <returns></returns>
-        private ISQLWebService CallWebservice(string webServiceUrl, ChannelFactory<ISQLWebService> channelFactory)
+        private IWebService CallWebservice(string webServiceUrl, ChannelFactory<IWebService> channelFactory)
         {
             EndpointAddress epa = new EndpointAddress(
                     new Uri(webServiceUrl),
                     new DnsEndpointIdentity(System.IdentityModel.Claims.Claim.CreateDnsClaim("HTPSecureManager"))
                 );
 
-            ISQLWebService webservice = WebServiceChannel.CreateChannel
+            IWebService webservice = WebServiceChannel.CreateChannel
                 (
                 epa                
                 );

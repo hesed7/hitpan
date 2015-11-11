@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Specialized;
-using WebService.Model.SOAPService;
+using WebServiceServer.Model.SOAPService;
 using System.ServiceModel;
-using WebService.Delegate;
-using WebService.WebService;
+using WebServiceServer.Delegate;
+using WebServiceServer.webService;
 using SOAP;
-using WebService.Controller.UserConnectionManager.Validators;
-namespace WebService.Controller.UserConnectionManager
+using WebServiceServer.Controller.UserConnectionManager.Validators;
+namespace WebServiceServer.Controller.UserConnectionManager
 {
     class ServiceConnController
     {
@@ -33,8 +33,8 @@ namespace WebService.Controller.UserConnectionManager
             this.certPassword=certPassword;
             this.ServiceDic = new Dictionary<string, WCFModel>();
             this.serviceNameSpace = "http://GISHitpanWebService.org";
-            this.ServiceType = typeof(SQLWebService);
-            this.ServiceInterface = typeof(ISQLWebService);
+            this.ServiceType = typeof(WebService);
+            this.ServiceInterface = typeof(IWebService);
             this.errReporter = errReporter;
             this.Activity = true;
         }
@@ -42,8 +42,8 @@ namespace WebService.Controller.UserConnectionManager
         {
             this.ServiceDic = new Dictionary<string, WCFModel>();
             this.serviceNameSpace = "http://GISHitpanWebService.org";
-            this.ServiceType = typeof(SQLWebService);
-            this.ServiceInterface = typeof(ISQLWebService);
+            this.ServiceType = typeof(WebService);
+            this.ServiceInterface = typeof(IWebService);
             this.errReporter = errReporter;
             this.MessageCredentialType = MessageCredentialType.None;
             this.Activity = true;

@@ -6,38 +6,31 @@ using libHitpan5.Model.DataModel;
 using System.Data;
 using libHitpan5.VO;
 using Newtonsoft.Json;
+using WebServiceServer.WebServiceVO.Settings;
 namespace libHitpan5.Controller.CommandListener
 {
     //나의 정보 입력,수정,삭제
     class MyCompanyListener
     {
         private SQLDataServiceModel dataModel;
-        private SQLDataQueryRepository QueryHouse { get; set; }
         public MyCompanyListener(SQLDataServiceModel dataModel)
         {
             // TODO: Complete member initialization
             this.dataModel = dataModel;
-            QueryHouse = new SQLDataQueryRepository();
         }
-        internal void Insert(VO.myInfo myInfo)
+        internal void Insert(MyCompanyProxyVO MyCompany)
         {
-            string query = QueryHouse.InsertMyInfo(myInfo);
-            dataModel.SetData(query);
+            dataModel.SetMyCompanyInfo(MyCompany);
         }
-
-        internal void Delete()
+        internal void Update(MyCompanyProxyVO MyCompany)
         {
-            string query = QueryHouse.DeleteMyInfo();
-            dataModel.SetData(query);
+            dataModel.SetMyCompanyInfo(MyCompany);
         }
 
         internal object GetMyCompanyInfo()
         {
-            string query = QueryHouse.GetMyInfo();
-            DataTable dt= dataModel.GetData(query);
-            this.DocumentData = dt;
-            myInfo mi = JsonConvert.DeserializeObject<myInfo>(dt.Rows[0]["JSONMYINFO"].ToString());
-            return mi;
+            MyCompanyProxyVO mc = dataModel.GetMyCompanyInfo();
+            return mc;
         }
 
         public  System.Data.DataTable DocumentData { get; set; }

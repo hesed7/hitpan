@@ -71,70 +71,70 @@ namespace libHitpan5.Model.DataModel
         } 
         #endregion
         #region myInfo
-        public string InsertMyInfo(myInfo myInfo)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("insert into commonSetting(jsonMyInfo) values('");
-            sb.Append(GetEscapedString(JsonConvert.SerializeObject(myInfo),false));
-            sb.Append("')");
-            return sb.ToString();
-        }
-        public string UpdateMyInfo(myInfo myInfo)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("update commonSetting set ");
-            sb.Append("jsonMyInfo = '");
-            sb.Append(GetEscapedString(JsonConvert.SerializeObject(myInfo),false));
-            sb.Append("'");
-            return sb.ToString();
-        }
-        public string GetMyInfo()
-        {
-            return "select jsonMyInfo from commonSetting";
-        }
-        public string DeleteMyInfo()
-        {
-            return "delete jsonMyInfo from commonSetting";
-        } 
+        //public string InsertMyInfo(myInfo myInfo)
+        //{
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append("insert into commonSetting(jsonMyInfo) values('");
+        //    sb.Append(GetEscapedString(JsonConvert.SerializeObject(myInfo),false));
+        //    sb.Append("')");
+        //    return sb.ToString();
+        //}
+        //public string UpdateMyInfo(myInfo myInfo)
+        //{
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append("update commonSetting set ");
+        //    sb.Append("jsonMyInfo = '");
+        //    sb.Append(GetEscapedString(JsonConvert.SerializeObject(myInfo),false));
+        //    sb.Append("'");
+        //    return sb.ToString();
+        //}
+        //public string GetMyInfo()
+        //{
+        //    return "select jsonMyInfo from commonSetting";
+        //}
+        //public string DeleteMyInfo()
+        //{
+        //    return "delete jsonMyInfo from commonSetting";
+        //} 
         #endregion
         #region 세팅데이터
-        public string selectSettingInfo()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("select jsonSettingInfoData from commonSetting");
-            return sb.ToString();
-        }
-        public string insertSettingInfo(CommonSettinginfo param)
-        {
-            if (param == null)
-            {
-                throw new NullReferenceException();
-            }
+        //public string selectSettingInfo()
+        //{
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append("select jsonSettingInfoData from commonSetting");
+        //    return sb.ToString();
+        //}
+        //public string insertSettingInfo(CommonSettinginfo param)
+        //{
+        //    if (param == null)
+        //    {
+        //        throw new NullReferenceException();
+        //    }
             
-            string info = JsonConvert.SerializeObject(param);
-                   info= GetEscapedString(info, false);
-            StringBuilder sb = new StringBuilder();
-            sb.Append("insert into commonSetting(jsonSettingInfoData) ");
-            sb.Append("values('");
-            sb.Append(info);
-            sb.Append("')");
-            return sb.ToString();
-        }
-        public string updateSettingInfo(CommonSettinginfo param)
-        {
-            string jsonData = JsonConvert.SerializeObject(param);
-                   jsonData = GetEscapedString(jsonData, false);
-            StringBuilder sb = new StringBuilder();
-            sb.Append("update commonSetting set jsonSettingInfoData='");
-            sb.Append(jsonData);
-            sb.Append("'");
-            return sb.ToString();
-        }
+        //    string info = JsonConvert.SerializeObject(param);
+        //           info= GetEscapedString(info, false);
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append("insert into commonSetting(jsonSettingInfoData) ");
+        //    sb.Append("values('");
+        //    sb.Append(info);
+        //    sb.Append("')");
+        //    return sb.ToString();
+        //}
+        //public string updateSettingInfo(CommonSettinginfo param)
+        //{
+        //    string jsonData = JsonConvert.SerializeObject(param);
+        //           jsonData = GetEscapedString(jsonData, false);
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append("update commonSetting set jsonSettingInfoData='");
+        //    sb.Append(jsonData);
+        //    sb.Append("'");
+        //    return sb.ToString();
+        //}
 
-        public string DeleteSettingInfo()
-        {
-            return "delete jsonSettingInfoData from commonSetting";
-        } 
+        //public string DeleteSettingInfo()
+        //{
+        //    return "delete jsonSettingInfoData from commonSetting";
+        //} 
         #endregion
         #region 사용자정보
         public string InsertUserInfo(string id, string password, string Auth, 사용자등급 userType)

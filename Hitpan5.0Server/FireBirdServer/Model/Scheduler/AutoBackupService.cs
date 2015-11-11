@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Win32.TaskScheduler;
 using System.Diagnostics;
-namespace WebService.Model.Scheduler
+namespace WebServiceServer.Model.Scheduler
 {
     public class SchedulingService
     {

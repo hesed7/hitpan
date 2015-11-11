@@ -8,6 +8,7 @@ using System.Configuration;
 using HitpanClientView.View.설정.상품관리.상품관리;
 using HitpanClientView.View.설정.사용자설정.일반정보설정;
 using HitpanClientView.View.설정.사용자설정.관리정보설정;
+using WebServiceServer.WebServiceVO.Settings;
 namespace HitpanClientView
 {
     public partial class frmMain : Form
@@ -39,15 +40,17 @@ namespace HitpanClientView
             //로컬파일에 저장된 세팅정보를 클라이언트 라이브러리에 올리기
             if (new frmLogin().ShowDialog()==DialogResult.OK)
             {
-                foreach (var prop in typeof(CommonSettinginfo).GetProperties())
+                foreach (var prop in typeof(CommonSettings).GetProperties())
                 {
+
                     try
                     {
-                        if (htpClientLib.settingInfo[prop.Name] != null && Convert.ToInt32(htpClientLib.settingInfo[prop.Name]) != 0)
+                        object val = htpClientLib.settingInfo[prop.Name];
+                        if (val != null && Convert.ToInt32(val) != 0)
                         {
                             continue;
                         }
-                        htpClientLib.settingInfo[prop.Name] = Convert.ToInt32(Settings.Default[prop.Name]);
+                        htpClientLib.settingInfo[prop.Name] = (Enum)Enum.Parse(prop.ReflectedType, Settings.Default[prop.Name].ToString());
                     }
                     catch (NullReferenceException)
                     {

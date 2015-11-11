@@ -6,7 +6,7 @@ using libHitpan5.Model.DataModel;
 using System.Data;
 using libHitpan5.VO;
 using libHitpan5.enums;
-using WebService.WebServiceVO.Users;
+using WebServiceServer.WebServiceVO.Users;
 namespace libHitpan5.Controller.CommandListener
 {
     /// <summary>
@@ -20,14 +20,14 @@ namespace libHitpan5.Controller.CommandListener
             // TODO: Complete member initialization
             this.dataModel = dataModel;
         }
-        internal void Insert(UsersVO userInfo)
+        internal void Insert(UserInfoProxyVO userInfo)
         {
             this.dataModel.InsertUserInfo(userInfo);
         }
 
-        internal void Delete(UsersVO userInfo)
+        internal void Delete(UserInfoProxyVO userInfo)
         {
-            userInfo.UserType = (int)사용자등급.페기;
+            userInfo.UsersVO.UserType = (int)사용자등급.페기;
             this.dataModel.UpdateUserInfo(userInfo);
         }
 
@@ -35,7 +35,7 @@ namespace libHitpan5.Controller.CommandListener
         /// 아이디는 변경금지
         /// </summary>
         /// <param name="userinfo"></param>
-        internal void Update(UsersVO userInfo)
+        internal void Update(UserInfoProxyVO userInfo)
         {
             this.dataModel.UpdateUserInfo(userInfo);
         }
@@ -45,7 +45,7 @@ namespace libHitpan5.Controller.CommandListener
             
             try
             {
-                UsersVO uv = null;
+                UserInfoProxyVO uv = null;
                 uv = this.dataModel.GetUserInfo(id, password);
                 return uv;
             }
@@ -64,7 +64,7 @@ namespace libHitpan5.Controller.CommandListener
         {
             try
             {
-                UsersVO[] uvList = null;
+                IList<UserInfoProxyVO> uvList = null;
                 uvList = this.dataModel.GetUserInfo();
                 return uvList;
             }
@@ -78,7 +78,7 @@ namespace libHitpan5.Controller.CommandListener
         {
             try
             {
-                UsersVO uv = null;
+                UserInfoProxyVO uv = null;
                 uv = this.dataModel.GetUserInfo(id);
                 return uv;
             }

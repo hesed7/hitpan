@@ -3,6 +3,7 @@ using libHitpan5.enums;
 using libHitpan5.Model.DataModel;
 using libHitpan5.VO.CommonVO;
 using libHitpan5.VO.CommonVO.GoodInfo;
+using libHitpan5.VO.CommonVO.UserInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace libHitpan5.Controller.CommandController.Goods
             this.GoodInfo = GoodInfo;
             this.dbModel = Hitpan5ClientLibrary.SQLDataServiceModel;
 
-            UserAuth ua = new UserAuth();
-            ua.상품정보 = 사용자권한.모두허용;
-            ua.표준관리 = 사용자권한.모두허용;
+            UserAuthProxyVO ua = new UserAuthProxyVO();
+            ua["상품정보"] = 사용자권한.모두허용;
+            ua["표준관리"] = 사용자권한.모두허용;
             base.RequiredAuth = ua;
         }
         public override void Do()

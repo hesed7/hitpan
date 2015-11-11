@@ -1,14 +1,14 @@
-﻿using WebService.Controller.ServerSettingManager;
+﻿using WebServiceServer.Controller.ServerSettingManager;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using WebService.Model.Common;
-using WebService.Model.DB.DBEngine;
+using WebServiceServer.Model.Common;
+using WebServiceServer.Model.DB.DBEngine;
 
-namespace WebService.Controller.ServerSettingManager
+namespace WebServiceServer.Controller.ServerSettingManager
 {
     class PostgresSQLSettingManager:ISettingManager
     {

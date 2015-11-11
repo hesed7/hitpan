@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace WebService.Model.Security
+namespace WebServiceServer.Model.Security
 {
     class EncryptedKeyProvider
     {

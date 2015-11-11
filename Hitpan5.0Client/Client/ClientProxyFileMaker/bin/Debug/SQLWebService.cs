@@ -8,92 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebService.WebServiceVO.Users
-{
-    using System.Runtime.Serialization;
-    
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UsersVO", Namespace="http://schemas.datacontract.org/2004/07/WebService.WebServiceVO.Users")]
-    public partial class UsersVO : object, System.Runtime.Serialization.IExtensibleDataObject
-    {
-        
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private string UserAuthField;
-        
-        private string UserIDField;
-        
-        private string UserPasswordField;
-        
-        private int UserTypeField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserAuth
-        {
-            get
-            {
-                return this.UserAuthField;
-            }
-            set
-            {
-                this.UserAuthField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserID
-        {
-            get
-            {
-                return this.UserIDField;
-            }
-            set
-            {
-                this.UserIDField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserPassword
-        {
-            get
-            {
-                return this.UserPasswordField;
-            }
-            set
-            {
-                this.UserPasswordField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserType
-        {
-            get
-            {
-                return this.UserTypeField;
-            }
-            set
-            {
-                this.UserTypeField = value;
-            }
-        }
-    }
-}
 
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -106,6 +20,12 @@ public interface ISQLWebService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/GetData", ReplyAction="http://tempuri.org/ISQLWebService/GetDataResponse")]
     System.Threading.Tasks.Task<string> GetDataAsync(string AuthKey, string query, string serviceURL);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/GetSQLPlan", ReplyAction="http://tempuri.org/ISQLWebService/GetSQLPlanResponse")]
+    string GetSQLPlan(string query, string serviceURL);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/GetSQLPlan", ReplyAction="http://tempuri.org/ISQLWebService/GetSQLPlanResponse")]
+    System.Threading.Tasks.Task<string> GetSQLPlanAsync(string query, string serviceURL);
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/GetTime", ReplyAction="http://tempuri.org/ISQLWebService/GetTimeResponse")]
     System.DateTime GetTime();
@@ -121,42 +41,10 @@ public interface ISQLWebService
     
     [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISQLWebService/RegistQueryBlock")]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebService.WebServiceVO.Users.UsersVO))]
-    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebService.WebServiceVO.Users.UsersVO[]))]
     void RegistQueryBlock(string AuthKey, object[] QueryBlock, string serviceURL);
     
     [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISQLWebService/RegistQueryBlock")]
     System.Threading.Tasks.Task RegistQueryBlockAsync(string AuthKey, object[] QueryBlock, string serviceURL);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/UserLogIn", ReplyAction="http://tempuri.org/ISQLWebService/UserLogInResponse")]
-    WebService.WebServiceVO.Users.UsersVO UserLogIn(string AuthKey, string serviceURL, string id, string password);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/UserLogIn", ReplyAction="http://tempuri.org/ISQLWebService/UserLogInResponse")]
-    System.Threading.Tasks.Task<WebService.WebServiceVO.Users.UsersVO> UserLogInAsync(string AuthKey, string serviceURL, string id, string password);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/GetUserInfo", ReplyAction="http://tempuri.org/ISQLWebService/GetUserInfoResponse")]
-    WebService.WebServiceVO.Users.UsersVO GetUserInfo(string AuthKey, string serviceURL, string id);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/GetUserInfo", ReplyAction="http://tempuri.org/ISQLWebService/GetUserInfoResponse")]
-    System.Threading.Tasks.Task<WebService.WebServiceVO.Users.UsersVO> GetUserInfoAsync(string AuthKey, string serviceURL, string id);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/GetUsersInfo", ReplyAction="http://tempuri.org/ISQLWebService/GetUsersInfoResponse")]
-    WebService.WebServiceVO.Users.UsersVO[] GetUsersInfo(string AuthKey, string serviceURL);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/GetUsersInfo", ReplyAction="http://tempuri.org/ISQLWebService/GetUsersInfoResponse")]
-    System.Threading.Tasks.Task<WebService.WebServiceVO.Users.UsersVO[]> GetUsersInfoAsync(string AuthKey, string serviceURL);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/UpdateUserInfo", ReplyAction="http://tempuri.org/ISQLWebService/UpdateUserInfoResponse")]
-    int UpdateUserInfo(string AuthKey, string serviceURL, WebService.WebServiceVO.Users.UsersVO userInfo);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/UpdateUserInfo", ReplyAction="http://tempuri.org/ISQLWebService/UpdateUserInfoResponse")]
-    System.Threading.Tasks.Task<int> UpdateUserInfoAsync(string AuthKey, string serviceURL, WebService.WebServiceVO.Users.UsersVO userInfo);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/InsertUserInfo", ReplyAction="http://tempuri.org/ISQLWebService/InsertUserInfoResponse")]
-    int InsertUserInfo(string AuthKey, string serviceURL, WebService.WebServiceVO.Users.UsersVO userInfo);
-    
-    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISQLWebService/InsertUserInfo", ReplyAction="http://tempuri.org/ISQLWebService/InsertUserInfoResponse")]
-    System.Threading.Tasks.Task<int> InsertUserInfoAsync(string AuthKey, string serviceURL, WebService.WebServiceVO.Users.UsersVO userInfo);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -203,6 +91,16 @@ public partial class SQLWebServiceClient : System.ServiceModel.ClientBase<ISQLWe
         return base.Channel.GetDataAsync(AuthKey, query, serviceURL);
     }
     
+    public string GetSQLPlan(string query, string serviceURL)
+    {
+        return base.Channel.GetSQLPlan(query, serviceURL);
+    }
+    
+    public System.Threading.Tasks.Task<string> GetSQLPlanAsync(string query, string serviceURL)
+    {
+        return base.Channel.GetSQLPlanAsync(query, serviceURL);
+    }
+    
     public System.DateTime GetTime()
     {
         return base.Channel.GetTime();
@@ -231,55 +129,5 @@ public partial class SQLWebServiceClient : System.ServiceModel.ClientBase<ISQLWe
     public System.Threading.Tasks.Task RegistQueryBlockAsync(string AuthKey, object[] QueryBlock, string serviceURL)
     {
         return base.Channel.RegistQueryBlockAsync(AuthKey, QueryBlock, serviceURL);
-    }
-    
-    public WebService.WebServiceVO.Users.UsersVO UserLogIn(string AuthKey, string serviceURL, string id, string password)
-    {
-        return base.Channel.UserLogIn(AuthKey, serviceURL, id, password);
-    }
-    
-    public System.Threading.Tasks.Task<WebService.WebServiceVO.Users.UsersVO> UserLogInAsync(string AuthKey, string serviceURL, string id, string password)
-    {
-        return base.Channel.UserLogInAsync(AuthKey, serviceURL, id, password);
-    }
-    
-    public WebService.WebServiceVO.Users.UsersVO GetUserInfo(string AuthKey, string serviceURL, string id)
-    {
-        return base.Channel.GetUserInfo(AuthKey, serviceURL, id);
-    }
-    
-    public System.Threading.Tasks.Task<WebService.WebServiceVO.Users.UsersVO> GetUserInfoAsync(string AuthKey, string serviceURL, string id)
-    {
-        return base.Channel.GetUserInfoAsync(AuthKey, serviceURL, id);
-    }
-    
-    public WebService.WebServiceVO.Users.UsersVO[] GetUsersInfo(string AuthKey, string serviceURL)
-    {
-        return base.Channel.GetUsersInfo(AuthKey, serviceURL);
-    }
-    
-    public System.Threading.Tasks.Task<WebService.WebServiceVO.Users.UsersVO[]> GetUsersInfoAsync(string AuthKey, string serviceURL)
-    {
-        return base.Channel.GetUsersInfoAsync(AuthKey, serviceURL);
-    }
-    
-    public int UpdateUserInfo(string AuthKey, string serviceURL, WebService.WebServiceVO.Users.UsersVO userInfo)
-    {
-        return base.Channel.UpdateUserInfo(AuthKey, serviceURL, userInfo);
-    }
-    
-    public System.Threading.Tasks.Task<int> UpdateUserInfoAsync(string AuthKey, string serviceURL, WebService.WebServiceVO.Users.UsersVO userInfo)
-    {
-        return base.Channel.UpdateUserInfoAsync(AuthKey, serviceURL, userInfo);
-    }
-    
-    public int InsertUserInfo(string AuthKey, string serviceURL, WebService.WebServiceVO.Users.UsersVO userInfo)
-    {
-        return base.Channel.InsertUserInfo(AuthKey, serviceURL, userInfo);
-    }
-    
-    public System.Threading.Tasks.Task<int> InsertUserInfoAsync(string AuthKey, string serviceURL, WebService.WebServiceVO.Users.UsersVO userInfo)
-    {
-        return base.Channel.InsertUserInfoAsync(AuthKey, serviceURL, userInfo);
     }
 }

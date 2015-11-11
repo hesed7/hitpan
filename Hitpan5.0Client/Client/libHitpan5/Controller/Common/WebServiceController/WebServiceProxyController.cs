@@ -10,7 +10,7 @@ namespace libHitpan5.Controller.Common.WebServiceController
     public class WebServiceProxyController
     {
         private SQLWebServiceModel webserviceModel { get; set; }
-        internal ISQLWebService proxy { get; set; }
+        internal IWebService proxy { get; set; }
 
         public WebServiceProxyController(string serviceURL)
         {

@@ -1,15 +1,15 @@
-﻿using WebService.VO;
+﻿using WebServiceServer.VO;
 using FirebirdSql.Data.FirebirdClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Specialized;
-using WebService.Controller.LogManager;
+using WebServiceServer.Controller.LogManager;
 using System.Data;
-using WebService.Model.DB;
-using WebService.Enum;
-namespace WebService.Controller.DBManager
+using WebServiceServer.Model.DB;
+using WebServiceServer.Enums;
+namespace WebServiceServer.Controller.DBManager
 {
     class DBController
     {

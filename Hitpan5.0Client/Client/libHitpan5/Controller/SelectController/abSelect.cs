@@ -7,11 +7,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using libHitpan5.VO.CommonVO;
+using libHitpan5.VO.CommonVO.UserInfo;
 namespace libHitpan5.Controller.SelectController
 {
     public abstract class abSelect :ISelect
     {
-        public UserAuth RequiredAuth { get; set; }
+        public UserAuthProxyVO RequiredAuth { get; set; }
 
         private SQLDataServiceModel dataModel { get; set; }
         internal string work { get; set; }

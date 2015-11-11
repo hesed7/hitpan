@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using libHitpan5.Model.DataModel;
-using libHitpan5.enums;
 using libHitpan5.VO;
 using libHitpan5.Controller.Common.WebServiceController;
 using libHitpan5.Controller.SelectController.Users.SelectUser;
@@ -14,7 +13,9 @@ using System;
 using libHitpan5.Controller.Common.UserAuthValidator;
 using libHitpan5.VO.CommonVO;
 using libHitpan5._Exception;
-using WebService.WebServiceVO.Users;
+using WebServiceServer.WebServiceVO.Users;
+using WebServiceServer.WebServiceVO.Settings;
+using WebServiceServer.Enums;
 namespace libHitpan5
 {
     public class Hitpan5ClientLibrary
@@ -22,9 +23,9 @@ namespace libHitpan5
         internal static SQLDataServiceModel SQLDataServiceModel { get; set; }
         private WebServiceProxyController proxyController { get; set; }
         #region 사용 기본 정보
-        public CommonSettinginfo settingInfo { get; set; }
-        private UsersVO userInfo { get; set; }
-        public myInfo myInfo { get; set; } 
+        public CommonSettingProxyVO settingInfo { get; set; }
+        private UserInfoProxyVO userInfo { get; set; }
+        public MyCompanyProxyVO myInfo { get; set; } 
         #endregion
         #region 시작과 종료
         private static Hitpan5ClientLibrary instance { get; set; }
@@ -50,37 +51,35 @@ namespace libHitpan5
             //로그인 하기 (만약 아무것도 없으면 초기관리자 로서 모든 설정권한을 가짐: 빈 데이터 일 테니까 상관없다) 초기관리자는 계속 관리자 권한 갖는다
             SelectUser su = new SelectUser(null);
             su.work = "처음 사용자인지 검증";
-             UsersVO[] UserList = (UsersVO[])su.GetData();
-            if (UserList == null || UserList.Length == 0)
+            IList<UserInfoProxyVO> UserList = (IList<UserInfoProxyVO>)su.GetData();
+            if (UserList == null || UserList.Count == 0)
             {
-                this.userInfo = new UsersVO();
-                this.userInfo.UserID = "Admin";
-                this.userInfo.UserType = (int)사용자등급.관리자;
-                UserAuth ua = new UserAuth();
-                ua.견적관리 = 사용자권한.모두허용;
-                ua.계정관리 = 사용자권한.모두허용;
-                ua.고객정보 = 사용자권한.모두허용;
-                ua.나의정보관리 = 사용자권한.모두허용;
-                ua.데이터관리 = 사용자권한.모두허용;
-                ua.매입관리 = 사용자권한.모두허용;
-                ua.상품정보 = 사용자권한.모두허용;
-                ua.세금계산서관리 = 사용자권한.모두허용;
-                ua.양식정보 = 사용자권한.모두허용;
-                ua.에프터서비스관리 = 사용자권한.모두허용;
-                ua.인사관리 = 사용자권한.모두허용;
-                ua.일정관리 = 사용자권한.모두허용;
-                ua.재고관리 = 사용자권한.모두허용;
-                ua.판매관리 = 사용자권한.모두허용;
-                ua.표준관리 = 사용자권한.모두허용;
-                ua.회계관리 = 사용자권한.모두허용;
-                this.userInfo.UserAuth = JsonConvert.SerializeObject(ua);
+                this.userInfo = new UserInfoProxyVO();
+                this.userInfo["UserID"] = "Admin";
+                this.userInfo["UserType"] = 사용자등급.관리자;
+                this.userInfo["견적관리"] = 사용자권한.모두허용;
+                this.userInfo["계정관리"] = 사용자권한.모두허용;
+                this.userInfo["고객정보"] = 사용자권한.모두허용;
+                this.userInfo["나의정보관리"] = 사용자권한.모두허용;
+                this.userInfo["데이터관리"] = 사용자권한.모두허용;
+                this.userInfo["매입관리"] = 사용자권한.모두허용;
+                this.userInfo["상품정보"] = 사용자권한.모두허용;
+                this.userInfo["세금계산서관리"] = 사용자권한.모두허용;
+                this.userInfo["양식정보"] = 사용자권한.모두허용;
+                this.userInfo["에프터서비스관리"] = 사용자권한.모두허용;
+                this.userInfo["인사관리"] = 사용자권한.모두허용;
+                this.userInfo["일정관리"] = 사용자권한.모두허용;
+                this.userInfo["재고관리"] = 사용자권한.모두허용;
+                this.userInfo["판매관리"] = 사용자권한.모두허용;
+                this.userInfo["표준관리"] = 사용자권한.모두허용;
+                this.userInfo["회계관리"] = 사용자권한.모두허용;
             }
             else
             {
                 object obj = new LogIn(id, password).GetData();
                 try
                 {
-                    this.userInfo = (UsersVO)obj;
+                    this.userInfo = (UserInfoProxyVO)obj;
                 }
                 catch (InvalidCastException) 
                 {
@@ -95,21 +94,29 @@ namespace libHitpan5
             try
             {
                 object obj = new SelectCommonSettings().GetData();
-                this.settingInfo = (CommonSettinginfo)obj;
+                this.settingInfo = (CommonSettingProxyVO)obj;
             }
             catch (System.Exception)
             {
-                this.settingInfo = null;
+               
             }
             //자기 자신의 정보 가져오기
             try
             {
                 object obj = new SelectMyCompany().GetData();
-                this.myInfo = (myInfo)obj;
+                this.myInfo = (MyCompanyProxyVO)obj;
             }
             catch (System.Exception)
             {
-                this.myInfo = null;
+                
+            }
+            if (this.myInfo == null)
+            {
+                this.myInfo = new MyCompanyProxyVO();
+            }
+            if (this.settingInfo ==null)
+            {
+                this.settingInfo = new CommonSettingProxyVO();
             }
         }
         public static Hitpan5ClientLibrary getInstance(bool UseSecurityMode, string ServiceURL, string EncryptSeed, string id, string password) 

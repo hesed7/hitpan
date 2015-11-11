@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WebService.WebServiceVO.Users;
-
-namespace WebService.WebServiceSQL.Users
+using WebServiceServer.WebServiceVO.Users;
+using Newtonsoft.Json;
+using WebServiceServer.Enums;
+namespace WebServiceServer.WebServiceSQL.Users
 {
     class UserQuery
     {
@@ -18,6 +19,8 @@ namespace WebService.WebServiceSQL.Users
         }
         public string insertUser(UsersVO userInfo) 
         {
+            string UserAuth = JsonConvert.SerializeObject(userInfo.UserAuth);
+            string UserType = Enum.GetName(typeof(사용자등급),userInfo.UserType);
             StringBuilder sbUser = new StringBuilder();
             sbUser.Append("insert into USERS(");
             sbUser.Append(" userid,");
@@ -30,16 +33,17 @@ namespace WebService.WebServiceSQL.Users
             sbUser.Append("','");
             sbUser.Append(userInfo.UserPassword);
             sbUser.Append("','");
-            sbUser.Append(userInfo.UserAuth);
+            sbUser.Append(UserAuth);
             sbUser.Append("','");
-            sbUser.Append(userInfo.UserType);
+            sbUser.Append(UserType);
             sbUser.Append("'");
             sbUser.Append(")");
             return sbUser.ToString();
         }
-
         public string UpdateUser(UsersVO userInfo)
         {
+            string UserAuth = JsonConvert.SerializeObject(userInfo.UserAuth);
+            string UserType = Enum.GetName(typeof(사용자등급), userInfo.UserType);
             StringBuilder sbUser = new StringBuilder();
             sbUser.Append("update Users set ");
             sbUser.Append("userid='");
@@ -49,11 +53,11 @@ namespace WebService.WebServiceSQL.Users
             sbUser.Append(userInfo.UserPassword);
             sbUser.Append("',");
             sbUser.Append("UserAuth = '");
-            sbUser.Append(userInfo.UserAuth);
+            sbUser.Append(UserAuth);
             sbUser.Append("',");
-            sbUser.Append("UserType = ");                                   
-            sbUser.Append(userInfo.UserType);
-            sbUser.Append(" where ");
+            sbUser.Append("UserType = '");
+            sbUser.Append(UserType);
+            sbUser.Append("' where ");
             sbUser.Append(" userid='");
             sbUser.Append(userInfo.UserID);
             sbUser.Append("'");

@@ -5,11 +5,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using Npgsql;
-using WebService.VO;
-using WebService.Model.Common;
-using WebService.Model.DB.DBEngine;
+using WebServiceServer.VO;
+using WebServiceServer.Model.Common;
+using WebServiceServer.Model.DB.DBEngine;
 using System.IO;
-namespace WebService.Model.DB
+namespace WebServiceServer.Model.DB
 {
     class PostgresSQLDBServicecs :IDBService
     {
@@ -90,6 +90,35 @@ namespace WebService.Model.DB
             }
             return dt;
         }
+        public DataTable GetData(string procedureName,IList<SQLProcedureParameterVO> ParameterList)
+        {
+            //저장프로시저와 커맨드 객체 연결
+            NpgsqlCommand nCMD = new NpgsqlCommand(procedureName, this.NpgConn);
+            nCMD.CommandType = CommandType.StoredProcedure;
+            foreach (SQLProcedureParameterVO SQLProcedureParameterVO in ParameterList)
+            {
+                var parameter = nCMD.CreateParameter();
+                parameter.ParameterName = SQLProcedureParameterVO.parameterName;
+                parameter.DbType = SQLProcedureParameterVO.DBType;
+                parameter.Value = SQLProcedureParameterVO.value;
+                nCMD.Parameters.Add(parameter);
+            }
+
+            //커맨드객체와 데이터어댑터 연결 및 데이터테이블 Get
+            DataTable dt = new DataTable();
+            try
+            {
+                using (NpgsqlDataAdapter nda = new NpgsqlDataAdapter(nCMD))
+                {
+                    nda.Fill(dt);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dt;
+        }
         private object SetDataThreadSafe = new object();
         public int SetData(StringCollection QueryBlock)
         {
@@ -120,6 +149,61 @@ namespace WebService.Model.DB
                             break;
                         }
                     }
+
+                    if (querySucc)
+                    {
+                        tran.Commit();
+                        return succCount;
+                    }
+                    else
+                    {
+                        if (tran != null)
+                        {
+                            tran.Rollback();
+                        }
+                        throw ex;
+                    }
+                }//End of using(tran)                    
+            }//End of Using(cmd)    
+        }
+
+        public int SetData(string procedureName, IList<SQLProcedureParameterVO> ParameterList)
+        {
+            int succCount = 0;
+            Exception ex = null;
+            bool querySucc = true;
+
+            //저장프로시저와 커맨드 객체 연결
+            NpgsqlCommand nCMD = new NpgsqlCommand(procedureName, this.NpgConn);
+            nCMD.CommandType = CommandType.StoredProcedure;
+            foreach (SQLProcedureParameterVO SQLProcedureParameterVO in ParameterList)
+            {
+                var parameter = nCMD.CreateParameter();
+                parameter.ParameterName = SQLProcedureParameterVO.parameterName;
+                parameter.DbType = SQLProcedureParameterVO.DBType;
+                parameter.Value = SQLProcedureParameterVO.value;
+                nCMD.Parameters.Add(parameter);
+            }
+
+
+            using (nCMD)
+            {
+                using (NpgsqlTransaction tran = this.NpgConn.BeginTransaction(IsolationLevel.ReadCommitted))
+                {
+                    nCMD.Transaction = tran;
+                    try
+                    {
+                        lock (SetDataThreadSafe)
+                        {
+                            succCount += nCMD.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        querySucc = false;
+                        ex = e;
+                    }
+                    
 
                     if (querySucc)
                     {

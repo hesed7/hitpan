@@ -1,10 +1,10 @@
-﻿using WebService.Model.Security;
+﻿using WebServiceServer.Model.Security;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-namespace WebService.Controller.SecurityManager
+namespace WebServiceServer.Controller.SecurityManager
 {
     class SecurityController
     {

@@ -5,6 +5,7 @@ using libHitpan5.VO;
 using System.Collections.Generic;
 using libHitpan5.enums;
 using libHitpan5.Controller.CommandController;
+using WebServiceServer.WebServiceVO.Settings;
 namespace HitpanClientView.View.설정.사용자설정.관리정보설정
 {
     public partial class frm관리정보설정 : Form
@@ -21,7 +22,7 @@ namespace HitpanClientView.View.설정.사용자설정.관리정보설정
         /// <summary>
         /// 설정정보를 담고있는 VO
         /// </summary>
-        private CommonSettinginfo commonSettings { get; set; }
+        private CommonSettingProxyVO commonSettings { get; set; }
         public frm관리정보설정()
         {
             InitializeComponent();
@@ -73,19 +74,19 @@ namespace HitpanClientView.View.설정.사용자설정.관리정보설정
         {          
             //세팅정보 채우기
             this.commonSettings = frmMain.htpClientLib.settingInfo;
-
+            CommonSettings commonSettings = this.commonSettings.CommonSettings;
             #region pnSettings 채우기
             // 세팅정보 설정 콤보박스 하나하나의 높이
-            double height = pnSettings.Height / (typeof(CommonSettinginfo).GetProperties().Length);
+            double height = pnSettings.Height / (typeof(CommonSettings).GetProperties().Length);
             // 세팅정보 설정 콤보박스 하나하나의 top
             double top = height;
             // 세팅정보 설정 라벨중 넓이가 가장 큰 라벨의 넓이(줄세울려고)
             double width = 0;
 
             //일단 라벨쓰고
-            foreach (var prop in typeof(CommonSettinginfo).GetProperties())
+            foreach (var prop in typeof(CommonSettings).GetProperties())
             {
-                if (prop.Name=="Item")
+                if (prop.Name=="ExtensionData")
                 {
                     continue;
                 }
@@ -112,7 +113,7 @@ namespace HitpanClientView.View.설정.사용자설정.관리정보설정
                 lbl.Width = Convert.ToInt32(width);
 
                 string enumName = lbl.Name.Replace("lbl", "");
-                Type _enumType = typeof(CommonSettinginfo).GetProperty(enumName).PropertyType;
+                Type _enumType = (typeof(CommonSettings).GetProperty(enumName)).PropertyType;
                 ComboBox ddl = new ComboBox();
                          ddl.Name = "ddl" + enumName;
                          ddl.DataSource = Enum.GetNames(_enumType);                              
@@ -121,18 +122,9 @@ namespace HitpanClientView.View.설정.사용자설정.관리정보설정
                          ddl.Top = lbl.Top;    
                
                 //선택된 데이터 구하기
-                if (this.commonSettings!=null)
+                if (this.commonSettings != null && this.commonSettings.CommonSettings!=null && this.commonSettings[enumName] !=null)
                 {
-                    int i = 0;
-                    foreach (string name in Enum.GetNames(_enumType))
-                    {
-                        if (i == (Int32)this.commonSettings[enumName])
-                        {
-                            ddl.Text = name;
-                            break;
-                        }
-                        i++;
-                    } 
+                    ddl.Text = Enum.GetName(this.commonSettings[enumName].GetType(), this.commonSettings[enumName]);
                 }
                 ddlList.Add(ddl);
             }
@@ -144,7 +136,14 @@ namespace HitpanClientView.View.설정.사용자설정.관리정보설정
             foreach (ComboBox ddl in ddlList)
             {
                 string enumName = ddl.Name.Replace("ddl", "");
-                this.commonSettings[enumName] = ddl.SelectedIndex;
+                foreach (var pi in typeof(CommonSettings).GetProperties())
+                {
+                    if (enumName==pi.Name)
+                    {
+                        this.commonSettings[pi.Name] = (Enum)Enum.Parse(this.commonSettings.EnumTypeDic[pi.Name],ddl.Text);
+                        break;
+                    }
+                }
             }
             ICMD cmd = null;
             if (this.commonSettings!=null)

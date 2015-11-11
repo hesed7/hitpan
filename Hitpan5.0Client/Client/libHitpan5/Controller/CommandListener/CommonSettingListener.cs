@@ -6,46 +6,38 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
+using WebServiceServer.WebServiceVO.Settings;
 namespace libHitpan5.Controller.CommandListener
 {
     //관리정보 설정 등 설정정보 입력,수정,삭제
     class CommonSettingListener
     {
         private SQLDataServiceModel dataModel;
-        public SQLDataQueryRepository QueryHouse { get; set; }
         public CommonSettingListener(SQLDataServiceModel dataModel)
         {
             // TODO: Complete member initialization
             this.dataModel = dataModel;
-            this.QueryHouse = new SQLDataQueryRepository();
         }
-        internal void Insert(VO.CommonSettinginfo CommonSettinginfo)
+        internal void Insert(CommonSettingProxyVO CommonSettinginfo)
         {
-            string query = QueryHouse.insertSettingInfo(CommonSettinginfo);
-            this.dataModel.SetData(query);
+            dataModel.SetCommonSettings(CommonSettinginfo);
         }
 
 
 
         internal void Delete()
         {
-            string query = QueryHouse.DeleteSettingInfo();
-            this.dataModel.SetData(query);
+            dataModel.SetCommonSettings(new CommonSettingProxyVO());
         }
 
-        internal void Update(VO.CommonSettinginfo CommonSettinginfo)
+        internal void Update(CommonSettingProxyVO CommonSettinginfo)
         {
-            string query = QueryHouse.updateSettingInfo(CommonSettinginfo);
-            this.dataModel.SetData(query);
+            dataModel.SetCommonSettings(CommonSettinginfo);
         }
 
         internal object GetData()
         {
-            string query = QueryHouse.selectSettingInfo();
-            DataTable dt= this.dataModel.GetData(query);
-            this.DocumentData = dt;
-            CommonSettinginfo CommonSettinginfo = JsonConvert.DeserializeObject<CommonSettinginfo>(dt.Rows[0]["JSONSETTINGINFODATA"].ToString());
-            return CommonSettinginfo;
+            return dataModel.GetCommonSettings();
         }
 
         public  System.Data.DataTable DocumentData { get; set; }

@@ -94,7 +94,7 @@ namespace HitpanClientView
                 frmMain.htpClientLib = Hitpan5ClientLibrary.getInstance(chSecurityMode.Checked, txtURL.Text, txtAuthKey.Text, txtUserID.Text, txtUserPassword.Text);
                 this.DialogResult = DialogResult.OK;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 this.DialogResult = DialogResult.No;
             }

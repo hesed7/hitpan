@@ -149,12 +149,10 @@
     <Compile Include="Hitpan5ClientLibrary.cs" />
     <Compile Include="Model\DocumentModel\PrinterModel.cs" />
     <Compile Include="Model\DocumentModel\ReportService.cs" />
-    <Compile Include="Model\WebServiceModel\proxy\SQLWebService.cs" />
+    <Compile Include="Model\WebServiceModel\proxy\WebService.cs" />
     <Compile Include="Model\WebServiceModel\SQLWebServiceModel.cs" />
     <Compile Include="enums\Enums.cs" />
     <Compile Include="Model\DataModel\SQLDataServiceModel.cs" />
-    <Compile Include="Model\DataModel\IDataModel.cs" />
-    <Compile Include="Model\DataModel\LocalDataFileService.cs" />
     <Compile Include="Model\DataModel\DataQuery\SQLDataQueryRepository.cs" />
     <Compile Include="Model\EncryptionModel\EncryptionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,17 +162,17 @@
     <Compile Include="VO\CommonVO\DocumentInfo\견적서\QuotationVO.cs" />
     <Compile Include="VO\CommonVO\GoodInfo\GoodInfo.cs" />
     <Compile Include="VO\CommonVO\GoodInfo\GoodsList.cs" />
+    <Compile Include="VO\CommonVO\UserInfo\UserAuthProxyVO.cs" />
     <Compile Include="VO\DBTableVO\CompanyInfo\Companies.cs" />
     <Compile Include="VO\DBTableVO\GoodsInfo\Goods.cs" />
     <Compile Include="VO\DBTableVO\GoodsInfo\GoodSeller.cs" />
     <Compile Include="VO\DBTableVO\GoodsInfo\Parts.cs" />
     <Compile Include="VO\DBTableVO\GoodsInfo\UnitCost.cs" />
-    <Compile Include="VO\CommonVO\SettingInfo\CommonSettinginfo\CommonSettinginfo.cs" />
+    <Compile Include="VO\CommonVO\SettingInfo\CommonSettinginfo\CommonSettingProxyVO.cs" />
     <Compile Include="VO\DBTableVO\IDBTableVO.cs" />
     <Compile Include="VO\DBTableVO\Log\Log.cs" />
-    <Compile Include="VO\CommonVO\myCompanyInfo.cs" />
-    <Compile Include="VO\CommonVO\UserAuth.cs" />
-    <Compile Include="VO\CommonVO\UserInfo.cs" />
+    <Compile Include="VO\CommonVO\SettingInfo\MyCompany\MyCompanyProxyVO.cs" />
+    <Compile Include="VO\CommonVO\UserInfo\UserInfoProxyVO.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />

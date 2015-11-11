@@ -8,8 +8,8 @@ using System.IdentityModel.Selectors;
 using System.ServiceModel;
 using System.Data;
 using System.Collections.Specialized;
-using WebService.Controller.DBManager;
-namespace WebService.Controller.UserConnectionManager.Validators.UserName
+using WebServiceServer.Controller.DBManager;
+namespace WebServiceServer.Controller.UserConnectionManager.Validators.UserName
 {
     public class ID_Password_Validator :UserNamePasswordValidator
     {
