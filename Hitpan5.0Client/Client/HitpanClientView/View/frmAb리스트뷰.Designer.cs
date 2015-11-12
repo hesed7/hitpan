@@ -130,9 +130,9 @@
         private System.Windows.Forms.Panel pnListView;
         private System.Windows.Forms.Panel pnPagingConsole;
         private System.Windows.Forms.PictureBox picGood;
-        private System.Windows.Forms.ListView lvList;
         private System.Windows.Forms.Panel pnPageLink;
         protected System.Windows.Forms.Panel pnDetailView;
         protected System.Windows.Forms.Panel pnSearchConsole;
+        protected System.Windows.Forms.ListView lvList;
     }
 }

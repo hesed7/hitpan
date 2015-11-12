@@ -14,11 +14,16 @@ namespace libHitpan5.Controller.SelectController.Goods
 {
     public class SelectGoodList :abSelect
     {
+        private int page { get; set; }
+        private int rowCount { get; set; }
+
         private SQLDataServiceModel dbModel { get; set; }
-        private GoodsList param { get; set; }
-        public SelectGoodList(IDocController doc, GoodsList param)
+        private GoodsListProxyVO param { get; set; }
+        public SelectGoodList(int page,int rowCount, GoodsListProxyVO param)
             :base("상품정보 검색",Hitpan5ClientLibrary.SQLDataServiceModel)
         {
+            this.page = page;
+            this.rowCount = rowCount;
             this.dbModel = Hitpan5ClientLibrary.SQLDataServiceModel;
             this.param = param;
 
@@ -32,7 +37,7 @@ namespace libHitpan5.Controller.SelectController.Goods
         public override object GetData()
         {
             GoodsListener goodsListener= new GoodsListener(this.dbModel);
-            GoodsList GoodList = goodsListener.GetGoodsList(param);
+            IList<GoodsListProxyVO> GoodList = goodsListener.GetGoodsList(this.page,this.rowCount,param);
             base.DocumentData = goodsListener.DocumentData;//문서작성용 데이터
             return GoodList;
         }

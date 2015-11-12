@@ -24,6 +24,15 @@ namespace WebServiceServer.Enums
         [EnumMember]
         에러
     }
+
+    [DataContract]
+    public enum UnitCostType 
+    {
+        [EnumMember]
+        매입,
+        [EnumMember]
+        매출
+    }
     #region 히트판 작업설정
     [DataContract]
     public enum 사용자권한 

@@ -13,14 +13,14 @@ namespace libHitpan5.Controller.CommandController.Goods
 {
     class Update :abCMD
     {
-        private GoodInfo post_userinfo { get; set; }
-        private GoodInfo userinfo { get; set; }
+        private GoodDetailProxyVO post_GoodInfo { get; set; }
+        private GoodDetailProxyVO GoodInfo { get; set; }
         private SQLDataServiceModel dbModel { get; set; }
-        public Update(GoodInfo post_GoodInfo, GoodInfo GoodInfo, string comment)
+        public Update(GoodDetailProxyVO post_GoodInfo, GoodDetailProxyVO GoodInfo, string comment)
             : base(comment, Hitpan5ClientLibrary.SQLDataServiceModel)
         {
-            this.userinfo = userinfo;
-            this.post_userinfo = post_userinfo;
+            this.GoodInfo = GoodInfo;
+            this.post_GoodInfo = post_GoodInfo;
             this.dbModel = Hitpan5ClientLibrary.SQLDataServiceModel;
 
             UserAuthProxyVO ua = new UserAuthProxyVO();
@@ -33,7 +33,7 @@ namespace libHitpan5.Controller.CommandController.Goods
             base.WriteDoLog();
             try
             {
-                new GoodsListener(this.dbModel).Update(userinfo);
+                new GoodsListener(this.dbModel).Update(GoodInfo);
                 base.WriteDoSuccLog();
             }
             catch (Exception e)
@@ -47,7 +47,7 @@ namespace libHitpan5.Controller.CommandController.Goods
             try
             {
                 base.WriteUnDoLog();
-                new GoodsListener(this.dbModel).Update(post_userinfo);
+                new GoodsListener(this.dbModel).Update(post_GoodInfo);
                 base.WriteUnDoSuccLog();
             }
             catch (Exception e)

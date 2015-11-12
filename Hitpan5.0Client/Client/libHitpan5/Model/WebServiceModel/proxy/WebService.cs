@@ -772,6 +772,18 @@ namespace WebServiceServer.Enums
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitCostType", Namespace="http://schemas.datacontract.org/2004/07/WebServiceServer.Enums")]
+    public enum UnitCostType : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        매입 = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        매출 = 1,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="사용자권한", Namespace="http://schemas.datacontract.org/2004/07/WebServiceServer.Enums")]
     public enum 사용자권한 : int
     {
@@ -799,6 +811,761 @@ namespace WebServiceServer.Enums
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         일반사용자 = 2,
+    }
+}
+namespace WebServiceServer.WebServiceVO.Goods
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GoodsListVO", Namespace="http://schemas.datacontract.org/2004/07/WebServiceServer.WebServiceVO.Goods")]
+    public partial class GoodsListVO : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string good_imageField;
+        
+        private string good_makerField;
+        
+        private string good_nameField;
+        
+        private string good_nicknameField;
+        
+        private long good_pkField;
+        
+        private string good_subnameField;
+        
+        private string statusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_image
+        {
+            get
+            {
+                return this.good_imageField;
+            }
+            set
+            {
+                this.good_imageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_maker
+        {
+            get
+            {
+                return this.good_makerField;
+            }
+            set
+            {
+                this.good_makerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_name
+        {
+            get
+            {
+                return this.good_nameField;
+            }
+            set
+            {
+                this.good_nameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_nickname
+        {
+            get
+            {
+                return this.good_nicknameField;
+            }
+            set
+            {
+                this.good_nicknameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long good_pk
+        {
+            get
+            {
+                return this.good_pkField;
+            }
+            set
+            {
+                this.good_pkField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_subname
+        {
+            get
+            {
+                return this.good_subnameField;
+            }
+            set
+            {
+                this.good_subnameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string status
+        {
+            get
+            {
+                return this.statusField;
+            }
+            set
+            {
+                this.statusField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GoodsDetail", Namespace="http://schemas.datacontract.org/2004/07/WebServiceServer.WebServiceVO.Goods")]
+    public partial class GoodsDetail : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string etc_infoField;
+        
+        private string good_imageField;
+        
+        private string good_makerField;
+        
+        private string good_nameField;
+        
+        private string good_nicknameField;
+        
+        private long good_pkField;
+        
+        private string good_subnameField;
+        
+        private WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.good_unit_info[] good_unit_infoListField;
+        
+        private WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.goodpart[] goodpartListField;
+        
+        private WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.goodseller[] goodsellerListField;
+        
+        private long properstockField;
+        
+        private string statusField;
+        
+        private WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.unitcost[] unitcostListField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string etc_info
+        {
+            get
+            {
+                return this.etc_infoField;
+            }
+            set
+            {
+                this.etc_infoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_image
+        {
+            get
+            {
+                return this.good_imageField;
+            }
+            set
+            {
+                this.good_imageField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_maker
+        {
+            get
+            {
+                return this.good_makerField;
+            }
+            set
+            {
+                this.good_makerField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_name
+        {
+            get
+            {
+                return this.good_nameField;
+            }
+            set
+            {
+                this.good_nameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_nickname
+        {
+            get
+            {
+                return this.good_nicknameField;
+            }
+            set
+            {
+                this.good_nicknameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long good_pk
+        {
+            get
+            {
+                return this.good_pkField;
+            }
+            set
+            {
+                this.good_pkField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string good_subname
+        {
+            get
+            {
+                return this.good_subnameField;
+            }
+            set
+            {
+                this.good_subnameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.good_unit_info[] good_unit_infoList
+        {
+            get
+            {
+                return this.good_unit_infoListField;
+            }
+            set
+            {
+                this.good_unit_infoListField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.goodpart[] goodpartList
+        {
+            get
+            {
+                return this.goodpartListField;
+            }
+            set
+            {
+                this.goodpartListField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.goodseller[] goodsellerList
+        {
+            get
+            {
+                return this.goodsellerListField;
+            }
+            set
+            {
+                this.goodsellerListField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long properstock
+        {
+            get
+            {
+                return this.properstockField;
+            }
+            set
+            {
+                this.properstockField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string status
+        {
+            get
+            {
+                return this.statusField;
+            }
+            set
+            {
+                this.statusField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.unitcost[] unitcostList
+        {
+            get
+            {
+                return this.unitcostListField;
+            }
+            set
+            {
+                this.unitcostListField = value;
+            }
+        }
+    }
+}
+namespace WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub
+{
+    using System.Runtime.Serialization;
+    
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="good_unit_info", Namespace="http://schemas.datacontract.org/2004/07/WebServiceServer.WebServiceVO.Goods.GoodD" +
+        "etail_Sub")]
+    public partial class good_unit_info : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private long amountField;
+        
+        private string flag_unitField;
+        
+        private long good_idxField;
+        
+        private string unitField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long amount
+        {
+            get
+            {
+                return this.amountField;
+            }
+            set
+            {
+                this.amountField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string flag_unit
+        {
+            get
+            {
+                return this.flag_unitField;
+            }
+            set
+            {
+                this.flag_unitField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long good_idx
+        {
+            get
+            {
+                return this.good_idxField;
+            }
+            set
+            {
+                this.good_idxField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string unit
+        {
+            get
+            {
+                return this.unitField;
+            }
+            set
+            {
+                this.unitField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="goodpart", Namespace="http://schemas.datacontract.org/2004/07/WebServiceServer.WebServiceVO.Goods.GoodD" +
+        "etail_Sub")]
+    public partial class goodpart : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private long final_good_idxField;
+        
+        private long required_amountField;
+        
+        private long required_goodField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long final_good_idx
+        {
+            get
+            {
+                return this.final_good_idxField;
+            }
+            set
+            {
+                this.final_good_idxField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long required_amount
+        {
+            get
+            {
+                return this.required_amountField;
+            }
+            set
+            {
+                this.required_amountField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long required_good
+        {
+            get
+            {
+                return this.required_goodField;
+            }
+            set
+            {
+                this.required_goodField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="goodseller", Namespace="http://schemas.datacontract.org/2004/07/WebServiceServer.WebServiceVO.Goods.GoodD" +
+        "etail_Sub")]
+    public partial class goodseller : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string company_addrField;
+        
+        private string company_faxField;
+        
+        private string company_nameField;
+        
+        private string company_phoneField;
+        
+        private int company_worktimeField;
+        
+        private long goods_idxField;
+        
+        private long seller_idxField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string company_addr
+        {
+            get
+            {
+                return this.company_addrField;
+            }
+            set
+            {
+                this.company_addrField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string company_fax
+        {
+            get
+            {
+                return this.company_faxField;
+            }
+            set
+            {
+                this.company_faxField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string company_name
+        {
+            get
+            {
+                return this.company_nameField;
+            }
+            set
+            {
+                this.company_nameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string company_phone
+        {
+            get
+            {
+                return this.company_phoneField;
+            }
+            set
+            {
+                this.company_phoneField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int company_worktime
+        {
+            get
+            {
+                return this.company_worktimeField;
+            }
+            set
+            {
+                this.company_worktimeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long goods_idx
+        {
+            get
+            {
+                return this.goods_idxField;
+            }
+            set
+            {
+                this.goods_idxField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long seller_idx
+        {
+            get
+            {
+                return this.seller_idxField;
+            }
+            set
+            {
+                this.seller_idxField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="unitcost", Namespace="http://schemas.datacontract.org/2004/07/WebServiceServer.WebServiceVO.Goods.GoodD" +
+        "etail_Sub")]
+    public partial class unitcost : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private long company_idxField;
+        
+        private bool contain_taxField;
+        
+        private long costField;
+        
+        private WebServiceServer.Enums.UnitCostType cost_typeField;
+        
+        private long good_idxField;
+        
+        private bool is_free_taxField;
+        
+        private string unitField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long company_idx
+        {
+            get
+            {
+                return this.company_idxField;
+            }
+            set
+            {
+                this.company_idxField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool contain_tax
+        {
+            get
+            {
+                return this.contain_taxField;
+            }
+            set
+            {
+                this.contain_taxField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long cost
+        {
+            get
+            {
+                return this.costField;
+            }
+            set
+            {
+                this.costField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebServiceServer.Enums.UnitCostType cost_type
+        {
+            get
+            {
+                return this.cost_typeField;
+            }
+            set
+            {
+                this.cost_typeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long good_idx
+        {
+            get
+            {
+                return this.good_idxField;
+            }
+            set
+            {
+                this.good_idxField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool is_free_tax
+        {
+            get
+            {
+                return this.is_free_taxField;
+            }
+            set
+            {
+                this.is_free_taxField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string unit
+        {
+            get
+            {
+                return this.unitField;
+            }
+            set
+            {
+                this.unitField = value;
+            }
+        }
     }
 }
 namespace WebServiceServer.WebServiceVO.Users
@@ -1191,7 +1958,18 @@ public interface IWebService
     [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IWebService/RegistQueryBlock")]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Settings.MyCompany))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Settings.CommonSettings))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodsListVO[]))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodsListVO))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodsDetail))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.good_unit_info[]))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.good_unit_info))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.goodpart[]))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.goodpart))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.goodseller[]))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.goodseller))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.unitcost[]))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub.unitcost))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.Enums.사용자권한))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.Enums.사용자등급))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.Enums.가용재고관리))]
@@ -1209,6 +1987,7 @@ public interface IWebService
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.Enums.판매_매입분의_회계처리))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.Enums.판매시_세트자료_조립해체))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.Enums.판매처리시_점검))]
+    [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.Enums.UnitCostType))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Users.UsersVO))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Users.UserAuth))]
     [System.ServiceModel.ServiceKnownTypeAttribute(typeof(WebServiceServer.WebServiceVO.Users.UsersVO[]))]
@@ -1270,6 +2049,42 @@ public interface IWebService
     
     [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/SetCommonSettingInfo", ReplyAction="http://tempuri.org/IWebService/SetCommonSettingInfoResponse")]
     System.Threading.Tasks.Task<int> SetCommonSettingInfoAsync(string AuthKey, string serviceURL, WebServiceServer.WebServiceVO.Settings.CommonSettings CommonSettings);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/GetGoodsCount", ReplyAction="http://tempuri.org/IWebService/GetGoodsCountResponse")]
+    long GetGoodsCount(string AuthKey, string serviceURL, string good_name, string good_subName, string good_NickName, string good_maker);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/GetGoodsCount", ReplyAction="http://tempuri.org/IWebService/GetGoodsCountResponse")]
+    System.Threading.Tasks.Task<long> GetGoodsCountAsync(string AuthKey, string serviceURL, string good_name, string good_subName, string good_NickName, string good_maker);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/GetGoodsList", ReplyAction="http://tempuri.org/IWebService/GetGoodsListResponse")]
+    WebServiceServer.WebServiceVO.Goods.GoodsListVO[] GetGoodsList(string AuthKey, string serviceURL, int page, int rowCount, string good_name, string good_subName, string good_NickName, string good_maker);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/GetGoodsList", ReplyAction="http://tempuri.org/IWebService/GetGoodsListResponse")]
+    System.Threading.Tasks.Task<WebServiceServer.WebServiceVO.Goods.GoodsListVO[]> GetGoodsListAsync(string AuthKey, string serviceURL, int page, int rowCount, string good_name, string good_subName, string good_NickName, string good_maker);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/GetGoodDetail", ReplyAction="http://tempuri.org/IWebService/GetGoodDetailResponse")]
+    WebServiceServer.WebServiceVO.Goods.GoodsDetail GetGoodDetail(string AuthKey, string serviceURL, long good_pk);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/GetGoodDetail", ReplyAction="http://tempuri.org/IWebService/GetGoodDetailResponse")]
+    System.Threading.Tasks.Task<WebServiceServer.WebServiceVO.Goods.GoodsDetail> GetGoodDetailAsync(string AuthKey, string serviceURL, long good_pk);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/InsertGood", ReplyAction="http://tempuri.org/IWebService/InsertGoodResponse")]
+    int InsertGood(string AuthKey, string serviceURL, WebServiceServer.WebServiceVO.Goods.GoodsDetail goodInfo);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/InsertGood", ReplyAction="http://tempuri.org/IWebService/InsertGoodResponse")]
+    System.Threading.Tasks.Task<int> InsertGoodAsync(string AuthKey, string serviceURL, WebServiceServer.WebServiceVO.Goods.GoodsDetail goodInfo);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/UpdateGood", ReplyAction="http://tempuri.org/IWebService/UpdateGoodResponse")]
+    int UpdateGood(string AuthKey, string query, string serviceURL, WebServiceServer.WebServiceVO.Goods.GoodsDetail goodInfo);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/UpdateGood", ReplyAction="http://tempuri.org/IWebService/UpdateGoodResponse")]
+    System.Threading.Tasks.Task<int> UpdateGoodAsync(string AuthKey, string query, string serviceURL, WebServiceServer.WebServiceVO.Goods.GoodsDetail goodInfo);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/DeleteGood", ReplyAction="http://tempuri.org/IWebService/DeleteGoodResponse")]
+    int DeleteGood(string AuthKey, string query, string serviceURL, long goodIDX);
+    
+    [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWebService/DeleteGood", ReplyAction="http://tempuri.org/IWebService/DeleteGoodResponse")]
+    System.Threading.Tasks.Task<int> DeleteGoodAsync(string AuthKey, string query, string serviceURL, long goodIDX);
 }
 
 [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1434,5 +2249,65 @@ public partial class WebServiceClient : System.ServiceModel.ClientBase<IWebServi
     public System.Threading.Tasks.Task<int> SetCommonSettingInfoAsync(string AuthKey, string serviceURL, WebServiceServer.WebServiceVO.Settings.CommonSettings CommonSettings)
     {
         return base.Channel.SetCommonSettingInfoAsync(AuthKey, serviceURL, CommonSettings);
+    }
+    
+    public long GetGoodsCount(string AuthKey, string serviceURL, string good_name, string good_subName, string good_NickName, string good_maker)
+    {
+        return base.Channel.GetGoodsCount(AuthKey, serviceURL, good_name, good_subName, good_NickName, good_maker);
+    }
+    
+    public System.Threading.Tasks.Task<long> GetGoodsCountAsync(string AuthKey, string serviceURL, string good_name, string good_subName, string good_NickName, string good_maker)
+    {
+        return base.Channel.GetGoodsCountAsync(AuthKey, serviceURL, good_name, good_subName, good_NickName, good_maker);
+    }
+    
+    public WebServiceServer.WebServiceVO.Goods.GoodsListVO[] GetGoodsList(string AuthKey, string serviceURL, int page, int rowCount, string good_name, string good_subName, string good_NickName, string good_maker)
+    {
+        return base.Channel.GetGoodsList(AuthKey, serviceURL, page, rowCount, good_name, good_subName, good_NickName, good_maker);
+    }
+    
+    public System.Threading.Tasks.Task<WebServiceServer.WebServiceVO.Goods.GoodsListVO[]> GetGoodsListAsync(string AuthKey, string serviceURL, int page, int rowCount, string good_name, string good_subName, string good_NickName, string good_maker)
+    {
+        return base.Channel.GetGoodsListAsync(AuthKey, serviceURL, page, rowCount, good_name, good_subName, good_NickName, good_maker);
+    }
+    
+    public WebServiceServer.WebServiceVO.Goods.GoodsDetail GetGoodDetail(string AuthKey, string serviceURL, long good_pk)
+    {
+        return base.Channel.GetGoodDetail(AuthKey, serviceURL, good_pk);
+    }
+    
+    public System.Threading.Tasks.Task<WebServiceServer.WebServiceVO.Goods.GoodsDetail> GetGoodDetailAsync(string AuthKey, string serviceURL, long good_pk)
+    {
+        return base.Channel.GetGoodDetailAsync(AuthKey, serviceURL, good_pk);
+    }
+    
+    public int InsertGood(string AuthKey, string serviceURL, WebServiceServer.WebServiceVO.Goods.GoodsDetail goodInfo)
+    {
+        return base.Channel.InsertGood(AuthKey, serviceURL, goodInfo);
+    }
+    
+    public System.Threading.Tasks.Task<int> InsertGoodAsync(string AuthKey, string serviceURL, WebServiceServer.WebServiceVO.Goods.GoodsDetail goodInfo)
+    {
+        return base.Channel.InsertGoodAsync(AuthKey, serviceURL, goodInfo);
+    }
+    
+    public int UpdateGood(string AuthKey, string query, string serviceURL, WebServiceServer.WebServiceVO.Goods.GoodsDetail goodInfo)
+    {
+        return base.Channel.UpdateGood(AuthKey, query, serviceURL, goodInfo);
+    }
+    
+    public System.Threading.Tasks.Task<int> UpdateGoodAsync(string AuthKey, string query, string serviceURL, WebServiceServer.WebServiceVO.Goods.GoodsDetail goodInfo)
+    {
+        return base.Channel.UpdateGoodAsync(AuthKey, query, serviceURL, goodInfo);
+    }
+    
+    public int DeleteGood(string AuthKey, string query, string serviceURL, long goodIDX)
+    {
+        return base.Channel.DeleteGood(AuthKey, query, serviceURL, goodIDX);
+    }
+    
+    public System.Threading.Tasks.Task<int> DeleteGoodAsync(string AuthKey, string query, string serviceURL, long goodIDX)
+    {
+        return base.Channel.DeleteGoodAsync(AuthKey, query, serviceURL, goodIDX);
     }
 }

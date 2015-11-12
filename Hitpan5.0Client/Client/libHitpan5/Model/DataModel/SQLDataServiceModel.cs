@@ -11,6 +11,8 @@ using WebServiceServer.WebServiceVO.Users;
 using WebServiceServer.WebServiceVO.Settings;
 using libHitpan5._Exception;
 using libHitpan5.VO;
+using WebServiceServer.WebServiceVO.Goods;
+using libHitpan5.VO.CommonVO.GoodInfo;
 namespace libHitpan5.Model.DataModel
 {
     /// <summary>
@@ -233,6 +235,62 @@ namespace libHitpan5.Model.DataModel
                 return false;
             }
         }
+        #endregion
+        #region Goods
+        internal IList<GoodsListProxyVO> GetGoodList
+            (
+            int page,
+            int rowCount,
+            string goodName,
+            string goodSubName,
+            string goodNickName,
+            string goodMaker
+            ) 
+        {
+            IList<GoodsListProxyVO> GoodsListProxy = new List<GoodsListProxyVO>();
+            IList<GoodsListVO> GoodsList =
+                sqlProxy.GetGoodsList
+                (
+                new EncryptionService().GetEncryptedKey(this.EncryptionSeed,sqlProxy.GetTime()),
+                this.ServiceURL,
+                page,
+                rowCount,
+                goodName,
+                goodSubName,
+                goodNickName,
+                goodMaker
+                );
+            long TotalRowCount = 
+            this.sqlProxy.GetGoodsCount
+                (
+                new EncryptionService().GetEncryptedKey(this.EncryptionSeed,sqlProxy.GetTime()),
+                this.ServiceURL,
+                goodName,
+                goodSubName,
+                goodNickName,
+                goodMaker                                                                                                           
+                );
+            foreach (GoodsListVO vo in GoodsList)
+            {
+                GoodsListProxyVO ProxyVO = new GoodsListProxyVO();
+                ProxyVO.GoodsListVO = vo;
+                ProxyVO.TotalRowCount = TotalRowCount;
+                GoodsListProxy.Add(ProxyVO);
+            }
+            return GoodsListProxy;
+        }//End of GetGoodList
+
+
+        internal GoodDetailProxyVO GetGoodDetail(string goodPK) 
+        {
+            Int64 lngGoodPK = Convert.ToInt64(goodPK);
+            GoodsDetail detail =  sqlProxy.GetGoodDetail(new EncryptionService().GetEncryptedKey(this.EncryptionSeed,sqlProxy.GetTime()),this.ServiceURL,lngGoodPK);
+
+            GoodDetailProxyVO detailProxy = new GoodDetailProxyVO();
+            detailProxy.GoodsDetail = detail;
+
+            return detailProxy;
+        }//End of GetGoodDetail
         #endregion
     }
 }

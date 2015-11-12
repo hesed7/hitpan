@@ -12,13 +12,15 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
 {           
     public partial class frmAb리스트뷰 : Form
     {
+
+        protected int RowCountPerPage { get; set; }
         /// <summary>
         /// 데이터 구하기
         /// </summary>
         /// <param name="page">현재 페이지</param>
         /// <param name="RowCount">한 체이지에 들어갈 로우수</param>
         /// <returns></returns>
-        protected delegate DataTable deleGetData(int page, int RowCount);
+        protected delegate IList<object> deleGetData(int page, int RowCount);
         /// <summary>
         /// 특정조건을 만족하는 검색시에 나오는 전체 페이지 수
         /// </summary>
@@ -29,7 +31,7 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
         /// 리스트뷰 세팅
         /// </summary>
         /// <param name="data">검색된 데이터가 들어있는 데이터테이블</param>
-        protected delegate void deleSetListView(DataTable data);
+        protected delegate void deleSetListView(IList<object> data);
 
         #region 델리게이트
         /// <summary>
@@ -51,11 +53,11 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
         //한 페이지셋당 들어갈 페이지수
         protected int pageSetPageCount { get; set; }
         //페이지가 로딩되면서 구한 한 페이지 안의 로우들 데이터
-        protected DataTable PageRowsData { get; set; }
+        protected IList<object> PageRowsData { get; set; }
         /// <summary>
         /// 리스트뷰에서 선택한 로우에 해당하는 데이터로우
         /// </summary>
-        protected DataRow drDetail { get; set; } 
+        protected object drDetail { get; set; } 
         #endregion
         public frmAb리스트뷰()
         {
@@ -76,16 +78,36 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
         /// <param name="pageSetPageCount">페이지 셋당 나타낼 페이지수</param>
         protected void SetPageLink(int TotalPage,int page,int pageSetPageCount,int rowCount) 
         {
+            pnPageLink.Controls.Clear();
             //라벨 또는 링크를 작성할 Left위치
             int leftPoint = 0;
             #region 현재 페이지셋 정보 구하기
-            int currentPageSet = (page / pageSetPageCount) + 1;
+            int currentPageSet = 0;
+            if (page % pageSetPageCount ==0)
+            {
+                currentPageSet = (page / pageSetPageCount);
+            }
+            else
+            {
+                currentPageSet = (page / pageSetPageCount) + 1;
+            }
+
             int FirstPage = ((currentPageSet - 1) * pageSetPageCount) + 1;
-            int LastPage = ((currentPageSet) * pageSetPageCount); 
+
+            int LastPage = 0;
+            if (TotalPage<((currentPageSet) * pageSetPageCount))
+            {
+                LastPage = TotalPage;
+            }
+            else
+            {
+                LastPage = ((currentPageSet) * pageSetPageCount);
+            }
+            
             #endregion
             #region 이전 페이지셋의 첫번째 페이지로 이동하는 링크 작성(◁)
             Label linkLeft = null;
-            if (page < pageSetPageCount)
+            if (currentPageSet ==1)
             {
                 linkLeft = new Label();
                 linkLeft.Text = "||◁ ";
@@ -98,6 +120,7 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
                 //클릭이벤트 설정
                 linkLeft.MouseClick += delegate
                 {
+                    lvList.Clear();
                     this.PageRowsData = GetData(PrePage, rowCount);
                     SetListView(this.PageRowsData);
                     SetPageLink(TotalPage, PrePage, pageSetPageCount,rowCount);
@@ -117,6 +140,7 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
                 pageLink.Parent = pnPageLink;
                 pageLink.MouseClick += delegate 
                 {
+                    lvList.Clear();
                     this.PageRowsData = GetData(i, rowCount);
                     SetListView(this.PageRowsData);
                 };
@@ -134,7 +158,7 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
             #endregion
             #region 다음 페이지셋의 첫번째 페이지로 이동하는 링크작성 (▷)
             Label linkRight = null;
-            if (((Convert.ToInt32(page / pageSetPageCount)) * pageSetPageCount) - TotalPage >= 0)
+            if (((currentPageSet) * pageSetPageCount)  >= TotalPage)
             {
                 linkRight = new Label();
                 linkRight.Text = " ▷||";
@@ -145,8 +169,13 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
                 linkRight = new LinkLabel();
                 linkRight.Text = " ▷";
                 int NextPage = FirstPage + pageSetPageCount;//다음 페이지셋의 첫번째 페이지
+                if (NextPage > TotalPage)
+                {
+                    NextPage = TotalPage;
+                }
                 linkRight.MouseClick += delegate 
                 {
+                    lvList.Clear();
                     this.PageRowsData = GetData(NextPage, rowCount);
                     SetListView(this.PageRowsData);
                     SetPageLink(TotalPage, NextPage, pageSetPageCount, rowCount);
@@ -164,13 +193,14 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
         /// 조건에 맞게 데이터를 구하는것 자체는 여기가 아니고 GetData메서드에서 정의
         /// </summary>
         /// <param name="RowCount">한 페이지에 들어갈 로우의 수</param>
-        protected void Search(int RowCount) 
+        protected void Search() 
         {
-            this.TotalPageCount = GetTotalPageCount(RowCount);
-            this.PageRowsData = GetData(1, RowCount);
+            lvList.Clear();
+            this.PageRowsData = (IList<object>)GetData(1, this.RowCountPerPage);
+            this.TotalPageCount = GetTotalPageCount(this.RowCountPerPage);
             SetListView(this.PageRowsData);
             this.drDetail= GetDetail();
-            SetPageLink(this.TotalPageCount, 1, this.pageSetPageCount, RowCount);
+            SetPageLink(this.TotalPageCount, 1, this.pageSetPageCount, this.RowCountPerPage);
         }
 
         /// <summary>
@@ -178,21 +208,21 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
         /// 리스트뷰 선택이벤트핸들러에서 이미 사용
         /// </summary>
         /// <returns></returns>
-        private DataRow GetDetail() 
+        private object GetDetail() 
         {
             //리스트뷰에서 선택한 항목의 idx값은 DataTable의 동일한 내용에 해당하는 로우의idx값과 같다
 
             //선택한 항목의 idx 가져오기
-            int idx= lvList.SelectedIndices[0];
-            DataRow dr = this.PageRowsData.Rows[idx];
+            int idx = 0;//lvList.SelectedItems[0].Index;
+            object dr = this.PageRowsData[idx];
             return dr;
         }
-        private DataRow GetDetail(int idx)
+        private object GetDetail(int idx)
         {
             //리스트뷰에서 선택한 항목의 idx값은 DataTable의 동일한 내용에 해당하는 로우의idx값과 같다
 
             //첫번째 항목의 idx 가져오기
-            DataRow dr = this.PageRowsData.Rows[idx];
+            object dr = this.PageRowsData[idx];
             return dr;
         }
         #endregion

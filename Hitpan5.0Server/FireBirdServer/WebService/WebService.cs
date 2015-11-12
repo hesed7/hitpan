@@ -13,8 +13,9 @@ using WebServiceServer.WebServiceSQL.Users;
 using WebServiceServer.WebServiceVO.Settings;
 using WebServiceServer.webService.WebServiceSQL.Settings;
 using WebServiceServer.Enums;
-using WebServiceServer.webService.WebServiceVO.Goods;
-using WebServiceServer.webService.WebServiceSQL.Goods;
+using WebServiceServer.WebServiceVO.Goods;
+using WebServiceServer.WebServiceSQL.Goods;
+using WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub;
 namespace WebServiceServer.webService
 {
     
@@ -319,7 +320,7 @@ namespace WebServiceServer.webService
                 GoodsListVO goodsVO = new GoodsListVO();
                 foreach (var prop in typeof(GoodsListVO).GetProperties())
                 {
-                    if (prop.Name=="item")
+                    if (prop.Name=="Item")
                     {
                         continue;
                     }
@@ -340,6 +341,12 @@ namespace WebServiceServer.webService
             //데이터 구하기
             DataTable dt =  DBController.getInstance().GetData(serviceURL,Query);
             //데이터 가공
+            GoodsDetail  detailMaster =          new GoodsDetail();
+            detailMaster .unitcostList =         new List<unitcost>();
+            detailMaster .good_unit_infoList =   new List<good_unit_info>();
+            detailMaster .goodpartList =         new List<goodpart>();
+            detailMaster .goodsellerList =       new List<goodseller>();
+
             foreach (DataRow dr in dt.Rows)
             {
                 foreach (var prop in typeof(GoodsDetail).GetProperties())
@@ -348,10 +355,39 @@ namespace WebServiceServer.webService
                     {
                         continue;
                     }
+                    if (prop.Name.Contains("List"))
+                    {
+                        continue;
+                    }
+                    detailMaster[prop.Name] = dr[prop.Name];
+                }//End of Foreach
+                unitcost unitcost = new unitcost();
+                good_unit_info good_unit_info = new good_unit_info();
+                goodpart goodpart = new goodpart();
+                goodseller goodseller = new goodseller();
+                foreach (var prop in typeof(unitcost).GetProperties())
+                {
+                    unitcost[prop.Name] = dr[prop.Name];
                 }
-            }
-            //클라이언트콜백함수 가져오기
-            return null;
+                foreach (var prop in typeof(good_unit_info).GetProperties())
+                {
+                    good_unit_info[prop.Name] = dr[prop.Name];
+                }
+                foreach (var prop in typeof(goodpart).GetProperties())
+                {
+                    goodpart[prop.Name] = dr[prop.Name];
+                }
+                foreach (var prop in typeof(goodseller).GetProperties())
+                {
+                    goodseller[prop.Name] = dr[prop.Name];
+                }
+                detailMaster.unitcostList.Add(unitcost);
+                detailMaster.good_unit_infoList.Add(good_unit_info);
+                detailMaster.goodpartList.Add(goodpart);
+                detailMaster.goodsellerList.Add(goodseller);
+            }//End of Outer Foreach
+
+            return detailMaster;
         }
         //R
         public int InsertGood(string AuthKey, string serviceURL,GoodsDetail goodInfo)

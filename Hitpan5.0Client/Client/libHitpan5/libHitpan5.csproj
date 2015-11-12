@@ -160,8 +160,8 @@
     <Compile Include="VO\CommonVO\DocumentInfo\RDLC.cs" />
     <Compile Include="VO\CommonVO\DocumentInfo\DocumentVO.cs" />
     <Compile Include="VO\CommonVO\DocumentInfo\견적서\QuotationVO.cs" />
-    <Compile Include="VO\CommonVO\GoodInfo\GoodInfo.cs" />
-    <Compile Include="VO\CommonVO\GoodInfo\GoodsList.cs" />
+    <Compile Include="VO\CommonVO\GoodInfo\GoodDetailProxyVO.cs" />
+    <Compile Include="VO\CommonVO\GoodInfo\GoodsListProxyVO.cs" />
     <Compile Include="VO\CommonVO\UserInfo\UserAuthProxyVO.cs" />
     <Compile Include="VO\DBTableVO\CompanyInfo\Companies.cs" />
     <Compile Include="VO\DBTableVO\GoodsInfo\Goods.cs" />

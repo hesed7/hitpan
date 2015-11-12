@@ -91,6 +91,10 @@
     <Compile Include="webService\WebServiceSQL\Settings\CommonSettingsQuery.cs" />
     <Compile Include="webService\WebServiceSQL\Settings\MyCompanyQuery.cs" />
     <Compile Include="webService\WebServiceSQL\Users\UserQuery.cs" />
+    <Compile Include="webService\WebServiceVO\Goods\GoodDetail_Sub\goodpart.cs" />
+    <Compile Include="webService\WebServiceVO\Goods\GoodDetail_Sub\goodseller.cs" />
+    <Compile Include="webService\WebServiceVO\Goods\GoodDetail_Sub\good_unit_info.cs" />
+    <Compile Include="webService\WebServiceVO\Goods\GoodDetail_Sub\unitcost.cs" />
     <Compile Include="webService\WebServiceVO\Goods\GoodsDetail.cs" />
     <Compile Include="webService\WebServiceVO\Goods\GoodsListVO.cs" />
     <Compile Include="webService\WebServiceVO\Settings\CommonSettings.cs" />

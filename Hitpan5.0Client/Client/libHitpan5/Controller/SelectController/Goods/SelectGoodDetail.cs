@@ -15,9 +15,9 @@ namespace libHitpan5.Controller.SelectController.Goods
     public class SelectGoodDetail : abSelect
     {
         public SQLDataServiceModel dbModel { get; set; }
-        public GoodInfo param { get; set; }
+        public GoodDetailProxyVO param { get; set; }
 
-        public SelectGoodDetail(GoodInfo param)
+        public SelectGoodDetail(GoodDetailProxyVO param)
             : base("상품정보 검색", Hitpan5ClientLibrary.SQLDataServiceModel)
         {
             this.dbModel = Hitpan5ClientLibrary.SQLDataServiceModel;
@@ -33,7 +33,7 @@ namespace libHitpan5.Controller.SelectController.Goods
         public override object GetData()
         {
             GoodsListener goodsListener = new GoodsListener(this.dbModel);
-            GoodInfo Goodinfo = goodsListener.GetGoodDetail(param);
+            GoodDetailProxyVO Goodinfo = goodsListener.GetGoodDetail(this.param.GoodsDetail.good_pk.ToString());
             base.DocumentData = goodsListener.DocumentData; //문서작성용 데이터
             return Goodinfo;
         }

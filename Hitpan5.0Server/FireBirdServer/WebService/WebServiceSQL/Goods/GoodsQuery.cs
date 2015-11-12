@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WebServiceServer.webService.WebServiceVO.Goods;
+using WebServiceServer.WebServiceVO.Goods;
 
-namespace WebServiceServer.webService.WebServiceSQL.Goods
+namespace WebServiceServer.WebServiceSQL.Goods
 {
     class GoodsQuery
     {
@@ -49,7 +49,7 @@ namespace WebServiceServer.webService.WebServiceSQL.Goods
         {
             string where = " where " + GetWhereClause(good_name, good_subName, good_nickname, good_maker);
             string query = string.Format("select count(good_pk) from goods");
-            if (where.Length > 0)
+            if ((where.Replace(" where ",string.Empty)).Length > 0)
             {
                 query += where;
             }
@@ -338,11 +338,19 @@ namespace WebServiceServer.webService.WebServiceSQL.Goods
             {
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
+                sbCheck.Append(" >= ");
+                sbCheck.AppendFormat("'{0}' ", good_name);
+                sbCheck.Append(" and ");
+                sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");
                 sbCheck.AppendFormat("'%{0}%' ", good_name);
             }
-            else
+            else if (good_name != null)
             {
+                sbCheck.Append(" good_name ");
+                sbCheck.Append(" >= ");
+                sbCheck.AppendFormat("'%{0}%' ", good_name);
+                sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");
                 sbCheck.AppendFormat("'%{0}%' ", good_name);
@@ -351,11 +359,19 @@ namespace WebServiceServer.webService.WebServiceSQL.Goods
             {
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_subName ");
+                sbCheck.Append(" >= ");
+                sbCheck.AppendFormat("'%{0}%' ", good_subName);
+                sbCheck.Append(" and ");
+                sbCheck.Append(" good_subName ");
                 sbCheck.Append(" like ");
                 sbCheck.AppendFormat("'%{0}%' ", good_subName);
             }
-            else
+            else if (good_subName != null)
             {
+                sbCheck.Append(" good_name ");
+                sbCheck.Append(" >= ");
+                sbCheck.AppendFormat("'%{0}%' ", good_name);
+                sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");
                 sbCheck.AppendFormat("'%{0}%' ", good_name);
@@ -364,11 +380,19 @@ namespace WebServiceServer.webService.WebServiceSQL.Goods
             {
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_nickname ");
+                sbCheck.Append(" >= ");
+                sbCheck.AppendFormat("'%{0}%' ", good_nickname);
+                sbCheck.Append(" and ");
+                sbCheck.Append(" good_nickname ");
                 sbCheck.Append(" like ");
                 sbCheck.AppendFormat("'%{0}%' ", good_nickname);
             }
-            else
+            else if (good_nickname != null)
             {
+                sbCheck.Append(" good_name ");
+                sbCheck.Append(" >= ");
+                sbCheck.AppendFormat("'%{0}%' ", good_name);
+                sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");
                 sbCheck.AppendFormat("'%{0}%' ", good_name);
@@ -377,11 +401,19 @@ namespace WebServiceServer.webService.WebServiceSQL.Goods
             {
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_maker ");
+                sbCheck.Append(" >= ");
+                sbCheck.AppendFormat("'%{0}%' ", good_maker);
+                sbCheck.Append(" and ");
+                sbCheck.Append(" good_maker ");
                 sbCheck.Append(" like ");
                 sbCheck.AppendFormat("'%{0}%' ", good_maker);
             }
-            else
+            else if (good_maker != null)
             {
+                sbCheck.Append(" good_name ");
+                sbCheck.Append(" >= ");
+                sbCheck.AppendFormat("'%{0}%' ", good_name);
+                sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");
                 sbCheck.AppendFormat("'%{0}%' ", good_name);

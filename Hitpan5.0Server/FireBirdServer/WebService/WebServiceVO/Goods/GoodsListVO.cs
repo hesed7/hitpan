@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-namespace WebServiceServer.webService.WebServiceVO.Goods
+namespace WebServiceServer.WebServiceVO.Goods
 {
     [DataContract]
     public class GoodsListVO
@@ -47,13 +47,13 @@ namespace WebServiceServer.webService.WebServiceVO.Goods
 
                 switch (param)
                 {
-                    case "good_pk": {this.good_pk = (long)value; break; }
-                    case "good_image": {this.good_image = (string)value; break; }
-                    case "good_name": { this.good_name = (string)value; break; }
-                    case "good_subname": { this.good_subname = (string)value; break; }
-                    case "good_nickname": {this.good_nickname = (string)value; break; }
-                    case "good_maker": { this.good_maker = (string)value; break; }
-                    case "status": { this.status = (string)value; break; }
+                    case "good_pk": {this.good_pk = Convert.ToInt64(value); break; }
+                    case "good_image": {this.good_image = Convert.ToString(value); break; }
+                    case "good_name": { this.good_name = value.ToString(); break; }
+                    case "good_subname": { this.good_subname = value.ToString(); break; }
+                    case "good_nickname": {this.good_nickname = value.ToString(); break; }
+                    case "good_maker": { this.good_maker = value.ToString(); break; }
+                    case "status": { this.status = value.ToString(); break; }
                 }
             
             }

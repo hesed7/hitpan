@@ -20,31 +20,39 @@ namespace libHitpan5.Controller.CommandListener
             // TODO: Complete member initialization
             this.dataModel = dataModel;
         }
-        internal void Insert(VO.CommonVO.GoodInfo.GoodInfo goodInfo)
+        internal void Insert(GoodDetailProxyVO goodInfo)
         {
             throw new NotImplementedException();
         }
 
-        internal void Delete()
+        internal void Delete(Int64 pk)
         {
             throw new NotImplementedException();
         }
 
-        internal void Update(VO.CommonVO.GoodInfo.GoodInfo userinfo)
+        internal void Update(GoodDetailProxyVO goodInfo)
         {
             throw new NotImplementedException();
         }
 
-        internal GoodsList GetGoodsList(VO.CommonVO.GoodInfo.GoodsList param)
+        internal IList<GoodsListProxyVO> GetGoodsList(int page,int rowCount,GoodsListProxyVO param)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return this.dataModel.GetGoodList(page, rowCount, param.GoodsListVO.good_name, param.GoodsListVO.good_subname, param.GoodsListVO.good_nickname, param.GoodsListVO.good_maker);
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
         }
 
-        
 
-        internal GoodInfo GetGoodDetail(GoodInfo param)
+
+        internal GoodDetailProxyVO GetGoodDetail(string  goodPK)
         {
-            throw new NotImplementedException();
+            return this.dataModel.GetGoodDetail(goodPK);
         }
     }
 }

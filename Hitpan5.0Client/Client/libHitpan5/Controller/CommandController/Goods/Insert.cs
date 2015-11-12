@@ -13,10 +13,10 @@ namespace libHitpan5.Controller.CommandController.Goods
 {
     class Insert : abCMD
     {
-        private GoodInfo GoodInfo { get; set; }
+        private GoodDetailProxyVO GoodInfo { get; set; }
         public SQLDataServiceModel dbModel { get; set; }
-        public Insert(GoodInfo GoodInfo)
-            : base(string.Format("이름:{0} 규격{1}인 상품 정보 입력", GoodInfo.goodInfo.GoodName, GoodInfo.goodInfo.GoodSubName), Hitpan5ClientLibrary.SQLDataServiceModel)
+        public Insert(GoodDetailProxyVO GoodInfo)
+            : base(string.Format("이름:{0} 규격{1}인 상품 정보 입력", GoodInfo.GoodsDetail.good_name, GoodInfo.GoodsDetail.good_subname), Hitpan5ClientLibrary.SQLDataServiceModel)
         {
             this.GoodInfo = GoodInfo;
             this.dbModel = Hitpan5ClientLibrary.SQLDataServiceModel;
@@ -46,7 +46,7 @@ namespace libHitpan5.Controller.CommandController.Goods
             try
             {
                 base.WriteUnDoLog();
-                new GoodsListener(this.dbModel).Delete();
+                new GoodsListener(this.dbModel).Delete(GoodInfo.GoodsDetail.good_pk);
                 base.WriteDoSuccLog();
             }
             catch (Exception e)
