@@ -349,7 +349,7 @@ namespace WebServiceServer.WebServiceSQL.Goods
             {
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" >= ");
-                sbCheck.AppendFormat("'%{0}%' ", good_name);
+                sbCheck.AppendFormat("'{0}' ", good_name);
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");
@@ -360,7 +360,7 @@ namespace WebServiceServer.WebServiceSQL.Goods
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_subName ");
                 sbCheck.Append(" >= ");
-                sbCheck.AppendFormat("'%{0}%' ", good_subName);
+                sbCheck.AppendFormat("'{0}' ", good_subName);
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_subName ");
                 sbCheck.Append(" like ");
@@ -370,7 +370,7 @@ namespace WebServiceServer.WebServiceSQL.Goods
             {
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" >= ");
-                sbCheck.AppendFormat("'%{0}%' ", good_name);
+                sbCheck.AppendFormat("'{0}' ", good_name);
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");
@@ -381,7 +381,7 @@ namespace WebServiceServer.WebServiceSQL.Goods
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_nickname ");
                 sbCheck.Append(" >= ");
-                sbCheck.AppendFormat("'%{0}%' ", good_nickname);
+                sbCheck.AppendFormat("'{0}' ", good_nickname);
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_nickname ");
                 sbCheck.Append(" like ");
@@ -391,7 +391,7 @@ namespace WebServiceServer.WebServiceSQL.Goods
             {
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" >= ");
-                sbCheck.AppendFormat("'%{0}%' ", good_name);
+                sbCheck.AppendFormat("'{0}' ", good_name);
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");
@@ -402,7 +402,7 @@ namespace WebServiceServer.WebServiceSQL.Goods
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_maker ");
                 sbCheck.Append(" >= ");
-                sbCheck.AppendFormat("'%{0}%' ", good_maker);
+                sbCheck.AppendFormat("'{0}' ", good_maker);
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_maker ");
                 sbCheck.Append(" like ");
@@ -412,7 +412,7 @@ namespace WebServiceServer.WebServiceSQL.Goods
             {
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" >= ");
-                sbCheck.AppendFormat("'%{0}%' ", good_name);
+                sbCheck.AppendFormat("'{0}' ", good_name);
                 sbCheck.Append(" and ");
                 sbCheck.Append(" good_name ");
                 sbCheck.Append(" like ");

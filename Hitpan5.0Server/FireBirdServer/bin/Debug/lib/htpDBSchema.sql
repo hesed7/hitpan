@@ -67,235 +67,180 @@ SET default_with_oids = false;
 -- Name: COMMONSETTING; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-CREATE TABLE "COMMONSETTING" (
-    "JSONMYINFO" text,
-    "JSONSETTINGINFODATA" text
+CREATE TABLE users
+(
+  userid character varying NOT NULL,
+  userpassword character varying,
+  userauth text,
+  usertype character varying,
+  CONSTRAINT pk_user PRIMARY KEY (userid)
+)
+WITH (
+  OIDS=FALSE
 );
+ALTER TABLE users
+  OWNER TO postgres;
 
-
-ALTER TABLE "COMMONSETTING" OWNER TO postgres;
-
---
--- TOC entry 2054 (class 0 OID 0)
--- Dependencies: 172
--- Name: TABLE "COMMONSETTING"; Type: COMMENT; Schema: public; Owner: postgres
---
-
-COMMENT ON TABLE "COMMONSETTING" IS '설정정보 및 자신의 회사정보 저장';
-
-
---
--- TOC entry 2055 (class 0 OID 0)
--- Dependencies: 172
--- Name: COLUMN "COMMONSETTING"."JSONMYINFO"; Type: COMMENT; Schema: public; Owner: postgres
---
-
-COMMENT ON COLUMN "COMMONSETTING"."JSONMYINFO" IS '나의 회사 정보';
-
-
---
--- TOC entry 173 (class 1259 OID 32774)
--- Name: COMPANIES; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE "COMPANIES" (
-    "COMPANYPK" character varying(20)[] NOT NULL,
-    "COMPANYNAME" character varying(150)[]
+  CREATE TABLE unitcost
+(
+  cost money NOT NULL,
+  cost_type character varying NOT NULL,
+  good_idx bigint NOT NULL,
+  company_idx bigint NOT NULL,
+  is_free_tax boolean,
+  contain_vat boolean,
+  unit character varying,
+  CONSTRAINT pk_unitcost PRIMARY KEY (cost, cost_type, good_idx, company_idx)
+)
+WITH (
+  OIDS=FALSE
 );
+ALTER TABLE unitcost
+  OWNER TO postgres;
 
-
-ALTER TABLE "COMPANIES" OWNER TO postgres;
-
---
--- TOC entry 174 (class 1259 OID 32784)
--- Name: GOODS; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE "GOODS" (
-    "GoodPK" character varying(20)[] NOT NULL,
-    "GOODNAME" character varying(150)[],
-    "GOODSUBNAME" character varying(150)[],
-    "GOODMAKER" character varying(150)[],
-    "GOODNICKNAME" character varying(150)[],
-    "GOODUNIT" character varying(150)[],
-    "PROPERSTOCK" character varying(15)[],
-    "ETCINFO" text,
-    "STATUS" character varying(10)[]
+CREATE TABLE goodseller
+(
+  goods_idx bigint NOT NULL,
+  seller_idx bigint NOT NULL,
+  CONSTRAINT pk_goodseller PRIMARY KEY (goods_idx, seller_idx)
+)
+WITH (
+  OIDS=FALSE
 );
+ALTER TABLE goodseller
+  OWNER TO postgres;
 
 
-ALTER TABLE "GOODS" OWNER TO postgres;
-
---
--- TOC entry 175 (class 1259 OID 32794)
--- Name: GOODSELLER; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE "GOODSELLER" (
-    "SELLERIDX" character varying(20)[] NOT NULL,
-    "GOODIDX" character varying(20)[] NOT NULL
+CREATE TABLE goods
+(
+  good_pk integer NOT NULL DEFAULT nextval('goods_goodpk_seq'::regclass),
+  good_name character varying(150),
+  good_subname character varying,
+  good_maker character varying,
+  good_nickname character varying,
+  properstock int8range,
+  status character varying,
+  good_image text,
+  etc_info tsvector,
+  CONSTRAINT pk_goods PRIMARY KEY (good_pk)
+)
+WITH (
+  OIDS=FALSE
 );
+ALTER TABLE goods
+  OWNER TO postgres;
 
 
-ALTER TABLE "GOODSELLER" OWNER TO postgres;
+CREATE INDEX fidx_etc_info
+  ON goods
+  USING gin
+  (etc_info);
 
---
--- TOC entry 176 (class 1259 OID 32804)
--- Name: Log; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
 
-CREATE TABLE "Log" (
-    "TIMELINE" timestamp with time zone NOT NULL,
-    "TYPE" integer,
-    "USER" character varying(50)[],
-    "LOG" text
+CREATE UNIQUE INDEX idx_good
+  ON goods
+  USING btree
+  (good_name COLLATE pg_catalog."default", good_subname COLLATE pg_catalog."default", good_maker COLLATE pg_catalog."default");
+
+
+CREATE INDEX idx_good_nickname
+  ON goods
+  USING btree
+  (good_nickname COLLATE pg_catalog."default");
+
+
+CREATE TABLE goodparts
+(
+  final_good_idx bigint NOT NULL,
+  required_amount bigint,
+  required_good bigint NOT NULL,
+  CONSTRAINT pk_good_parts PRIMARY KEY (final_good_idx, required_good)
+)
+WITH (
+  OIDS=FALSE
 );
+ALTER TABLE goodparts
+  OWNER TO postgres;
 
-
-ALTER TABLE "Log" OWNER TO postgres;
-
---
--- TOC entry 177 (class 1259 OID 32813)
--- Name: PARTS; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE "PARTS" (
-    "FINISHEDGOODIDX" character varying(20)[] NOT NULL,
-    "PARTIDX" character varying(20)[] NOT NULL,
-    "AMOUNT" bigint
+CREATE TABLE good_unit_info
+(
+  unit character varying NOT NULL,
+  flag_unit character varying, -- 이 단위의 가장 기본이 되는 단위
+  good_idx bigint NOT NULL,
+  amount bigint, -- 기본단위의 상품이 몇개 있어야 지금단위의 하나의 물량이 될수 있는지
+  CONSTRAINT pk_good_unit_info PRIMARY KEY (unit, good_idx)
+)
+WITH (
+  OIDS=FALSE
 );
+ALTER TABLE good_unit_info
+  OWNER TO postgres;
+COMMENT ON COLUMN good_unit_info.flag_unit IS '이 단위의 가장 기본이 되는 단위';
+COMMENT ON COLUMN good_unit_info.amount IS '기본단위의 상품이 몇개 있어야 지금단위의 하나의 물량이 될수 있는지';
 
 
-ALTER TABLE "PARTS" OWNER TO postgres;
 
---
--- TOC entry 178 (class 1259 OID 32821)
--- Name: UNITCOST; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE "UNITCOST" (
-    "COSTTYPE" integer NOT NULL,
-    "GOODIDX" character varying(20)[] NOT NULL,
-    "COMPANYIDX" character varying(20)[] NOT NULL,
-    "COST" money,
-    "ISFREETAX" boolean,
-    "CONTAINVAT" boolean
+CREATE TABLE companies
+(
+  company_pk integer NOT NULL DEFAULT nextval('"COMPANIES_company_pk_seq"'::regclass),
+  company_name character varying,
+  "company_Business_Number" character(10),
+  company_phone character varying,
+  company_fax character varying,
+  company_addr tsvector,
+  company_worktime integer,
+  company_etc tsvector,
+  CONSTRAINT pk_companies PRIMARY KEY (company_pk)
+)
+WITH (
+  OIDS=FALSE
 );
+ALTER TABLE companies
+  OWNER TO postgres;
 
+CREATE INDEX fidx_company
+  ON companies
+  USING gin
+  (company_addr, company_etc);
 
-ALTER TABLE "UNITCOST" OWNER TO postgres;
+CREATE INDEX idx_company
+  ON companies
+  USING btree
+  (company_name COLLATE pg_catalog."default", "company_Business_Number" COLLATE pg_catalog."default", company_phone COLLATE pg_catalog."default", company_fax COLLATE pg_catalog."default");
 
---
--- TOC entry 179 (class 1259 OID 32829)
--- Name: USERS; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE "USERS" (
-    "USERID" character varying(50)[] NOT NULL,
-    "USERPASSWORD" character varying(50)[],
-    "USERAUTH" text,
-    "USERTYPE" integer
+CREATE TABLE commonsetting
+(
+  jsonmyinfo text, -- 나의 회사 정보
+  jsonsettinginfodata text
+)
+WITH (
+  OIDS=FALSE
 );
+ALTER TABLE commonsetting
+  OWNER TO postgres;
+COMMENT ON TABLE commonsetting
+  IS '설정정보 및 자신의 회사정보 저장';
+COMMENT ON COLUMN commonsetting.jsonmyinfo IS '나의 회사 정보';
+
+CREATE TABLE log
+(
+  timeline timestamp with time zone NOT NULL,
+  type character varying,
+  "user" character varying,
+  log text,
+  CONSTRAINT pk_log PRIMARY KEY (timeline)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE log
+  OWNER TO postgres;
 
 
-ALTER TABLE "USERS" OWNER TO postgres;
-
---
--- TOC entry 1917 (class 2606 OID 32783)
--- Name: COMPANIES_COMPANYNAME_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY "COMPANIES"
-    ADD CONSTRAINT "COMPANIES_COMPANYNAME_key" UNIQUE ("COMPANYNAME");
-
-
---
--- TOC entry 1919 (class 2606 OID 32781)
--- Name: COMPANIES_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY "COMPANIES"
-    ADD CONSTRAINT "COMPANIES_pkey" PRIMARY KEY ("COMPANYPK");
-
-
---
--- TOC entry 1925 (class 2606 OID 32803)
--- Name: pidx_GoodSeller; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY "GOODSELLER"
-    ADD CONSTRAINT "pidx_GoodSeller" PRIMARY KEY ("SELLERIDX", "GOODIDX");
-
-
---
--- TOC entry 1922 (class 2606 OID 32793)
--- Name: pidx_Goods; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY "GOODS"
-    ADD CONSTRAINT "pidx_Goods" PRIMARY KEY ("GoodPK");
-
-
---
--- TOC entry 1930 (class 2606 OID 32820)
--- Name: pidx_Parts; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY "PARTS"
-    ADD CONSTRAINT "pidx_Parts" PRIMARY KEY ("FINISHEDGOODIDX", "PARTIDX");
-
-
---
--- TOC entry 1932 (class 2606 OID 32828)
--- Name: pidx_UnitCost; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY "UNITCOST"
-    ADD CONSTRAINT "pidx_UnitCost" PRIMARY KEY ("COSTTYPE", "GOODIDX", "COMPANYIDX");
-
-
---
--- TOC entry 1934 (class 2606 OID 32836)
--- Name: pidx_Users; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY "USERS"
-    ADD CONSTRAINT "pidx_Users" PRIMARY KEY ("USERID");
-
-
---
--- TOC entry 1928 (class 2606 OID 32811)
--- Name: pidx_log; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY "Log"
-    ADD CONSTRAINT pidx_log PRIMARY KEY ("TIMELINE");
-
-
---
--- TOC entry 1920 (class 1259 OID 32790)
--- Name: idx_GoodName; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE UNIQUE INDEX "idx_GoodName" ON "GOODS" USING btree ("GOODNAME", "GOODSUBNAME", "GOODMAKER");
-
-ALTER TABLE "GOODS" CLUSTER ON "idx_GoodName";
-
-
---
--- TOC entry 1926 (class 1259 OID 32812)
--- Name: idx_log; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE INDEX idx_log ON "Log" USING btree ("TYPE", "USER");
-
-
---
--- TOC entry 1923 (class 1259 OID 32791)
--- Name: uidx_GoodNickName; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE UNIQUE INDEX "uidx_GoodNickName" ON "GOODS" USING btree ("GOODNICKNAME");
+CREATE UNIQUE INDEX idx_log
+  ON log
+  USING btree
+  (timeline, type COLLATE pg_catalog."default", "user" COLLATE pg_catalog."default");
 
 
 --
