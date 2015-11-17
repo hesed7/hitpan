@@ -47,13 +47,13 @@ namespace WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub
             {
                 switch (param)
                 {
-                    case "goods_idx": {this.goods_idx = (Int64)value ;break; }
-                    case "seller_idx": {this.seller_idx = (Int64)value ;break; }
-                    case "company_name": {this.company_name = (string)value ;break; }
-                    case "company_worktime": {this.company_worktime = (int)value ;break; }
-                    case "company_phone": {this.company_phone = (string)value ;break; }
-                    case "company_fax": {this.company_fax = (string)value ;break; }
-                    case "company_addr": {this.company_addr = (string)value ;break; }
+                    case "goods_idx": {this.goods_idx = Convert.ToInt64(value) ;break; }
+                    case "seller_idx": {this.seller_idx = Convert.ToInt64(value) ;break; }
+                    case "company_name": {this.company_name = value.ToString() ;break; }
+                    case "company_worktime": {this.company_worktime = Convert.ToInt32(value) ;break; }
+                    case "company_phone": {this.company_phone = value.ToString() ;break; }
+                    case "company_fax": {this.company_fax   = value.ToString() ;break; }
+                    case "company_addr": {this.company_addr = value.ToString() ;break; }
                     default:
                         break;
                 }            

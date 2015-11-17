@@ -36,10 +36,10 @@ namespace WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub
             {
                 switch (param)
                 {
-                    case "good_idx": {this.good_idx = (Int64)value ; break; }
-                    case "unit": { this.unit = (string)value; break; }
-                    case "flag_unit": {this.flag_unit = (string)value ; break; }
-                    case "amount": {this.amount = (Int64)value ; break; }
+                    case "good_idx": {this.good_idx =   Convert.ToInt64     (value) ; break; }
+                    case "unit": { this.unit =          Convert.ToString    (value); break; }
+                    case "flag_unit": {this.flag_unit = Convert.ToString    (value) ; break; }
+                    case "amount": {this.amount =       Convert.ToInt64     (value) ; break; }
                 }            
             }
         }

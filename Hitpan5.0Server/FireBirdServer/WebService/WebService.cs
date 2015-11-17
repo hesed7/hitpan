@@ -351,11 +351,15 @@ namespace WebServiceServer.webService
             {
                 foreach (var prop in typeof(GoodsDetail).GetProperties())
                 {
-                    if (prop.Name=="item")
+                    if (prop.Name=="Item")
                     {
                         continue;
                     }
                     if (prop.Name.Contains("List"))
+                    {
+                        continue;
+                    }
+                    if (dr[prop.Name].GetType()==typeof(DBNull))
                     {
                         continue;
                     }
@@ -367,18 +371,50 @@ namespace WebServiceServer.webService
                 goodseller goodseller = new goodseller();
                 foreach (var prop in typeof(unitcost).GetProperties())
                 {
+                    if (prop.Name == "Item")
+                    {
+                        continue;
+                    }
+                    if (dr[prop.Name].GetType() == typeof(DBNull))
+                    {
+                        continue;
+                    }
                     unitcost[prop.Name] = dr[prop.Name];
                 }
                 foreach (var prop in typeof(good_unit_info).GetProperties())
                 {
+                    if (prop.Name == "Item")
+                    {
+                        continue;
+                    }
+                    if (dr[prop.Name].GetType() == typeof(DBNull))
+                    {
+                        continue;
+                    }
                     good_unit_info[prop.Name] = dr[prop.Name];
                 }
                 foreach (var prop in typeof(goodpart).GetProperties())
                 {
+                    if (prop.Name == "Item")
+                    {
+                        continue;
+                    }
+                    if (dr[prop.Name].GetType() == typeof(DBNull))
+                    {
+                        continue;
+                    }
                     goodpart[prop.Name] = dr[prop.Name];
                 }
                 foreach (var prop in typeof(goodseller).GetProperties())
                 {
+                    if (prop.Name == "Item")
+                    {
+                        continue;
+                    }
+                    if (dr[prop.Name].GetType() == typeof(DBNull))
+                    {
+                        continue;
+                    }
                     goodseller[prop.Name] = dr[prop.Name];
                 }
                 detailMaster.unitcostList.Add(unitcost);

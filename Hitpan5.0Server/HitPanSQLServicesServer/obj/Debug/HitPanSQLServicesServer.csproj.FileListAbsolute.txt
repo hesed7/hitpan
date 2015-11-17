@@ -286,6 +286,5 @@ C:\Users\so\Documents\hitpan\Hitpan5.0Server\HitPanSQLServicesServer\bin\Debug\j
 C:\Users\so\Documents\hitpan\Hitpan5.0Server\HitPanSQLServicesServer\bin\Debug\zh-CN\Npgsql.resources.dll
 C:\Users\so\Documents\hitpan\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.csprojResolveAssemblyReference.cache
 C:\Users\so\Documents\hitpan\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.frmMain.resources
-C:\Users\so\Documents\hitpan\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.frmViewQuery.resources
 C:\Users\so\Documents\hitpan\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.Properties.Resources.resources
 C:\Users\so\Documents\hitpan\Hitpan5.0Server\HitPanSQLServicesServer\obj\Debug\HitPanSQLServicesServer.csproj.GenerateResource.Cache

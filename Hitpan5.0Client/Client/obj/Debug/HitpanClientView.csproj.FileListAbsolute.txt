@@ -1,0 +1,89 @@
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\HitpanClientView.exe.config
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\HitpanClientView.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\HitpanClientView.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\libHitpan5.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\Newtonsoft.Json.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\libHitpan5.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\Newtonsoft.Json.xml
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.csprojResolveAssemblyReference.cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.Properties.Resources.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.csproj.GenerateResource.Cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.frmMain.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.frmLogin.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.View.Users.frmUserAdd.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.일반정보설정.frm일반정보설정.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.양식정보설정.frm관리정보설정.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\SqlServerTypes\x64\msvcr100.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\SqlServerTypes\x64\SqlServerSpatial110.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\SqlServerTypes\x86\msvcr100.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\bin\Debug\SqlServerTypes\x86\SqlServerSpatial110.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.양식정보설정.frm양식정보설정.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\RdlCompile.cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\RdlCompile.compiled
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.전자세금계산서.frm전자세금계산서환경설정.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0\HitpanClientView\obj\Debug\HitpanClientView.View.설정.상품관리.상품관리.frm상품리스트.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.exe.config
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.frmLogin.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.frmMain.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.Properties.Resources.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.양식정보설정.frm양식정보설정.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.일반정보설정.frm일반정보설정.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.전자세금계산서.frm전자세금계산서환경설정.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csproj.GenerateResource.Cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\RdlCompile.cache
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\RdlCompile.compiled
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.exe
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Newtonsoft.Json.dll
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.pdb
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Newtonsoft.Json.xml
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.관리정보설정.frm관리정보설정.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.일반정보설정.계정설정.frmUserAdd.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.상품관리.상품관리.frmAb리스트뷰.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.상품관리.상품관리.frmGoods.resources
+F:\프로그래밍관련\프로젝트\차세대 히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csprojResolveAssemblyReference.cache
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.exe.config
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.exe
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Newtonsoft.Json.dll
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.pdb
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Newtonsoft.Json.xml
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csprojResolveAssemblyReference.cache
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.frmLogin.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.frmMain.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.Properties.Resources.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.관리정보설정.frm관리정보설정.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.일반정보설정.계정설정.frmUserAdd.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.일반정보설정.frm일반정보설정.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.전자세금계산서.frm전자세금계산서환경설정.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.상품관리.상품관리.frmAb리스트뷰.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.상품관리.상품관리.frmGoods.resources
+F:\프로그래밍관련\프로젝트\차세대히트판\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csproj.GenerateResource.Cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.exe.config
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.exe
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.pdb
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.exe
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\HitpanClientView.pdb
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Newtonsoft.Json.dll
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.pdb
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Newtonsoft.Json.xml
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.frmLogin.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.frmMain.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.Properties.Resources.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.관리정보설정.frm관리정보설정.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.일반정보설정.계정설정.frmUserAdd.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.일반정보설정.frm일반정보설정.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.사용자설정.전자세금계산서.frm전자세금계산서환경설정.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.상품관리.상품관리.frmAb리스트뷰.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.View.설정.상품관리.상품관리.frmGoods.resources
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csproj.GenerateResource.Cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.dll
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csprojResolveAssemblyReference.cache

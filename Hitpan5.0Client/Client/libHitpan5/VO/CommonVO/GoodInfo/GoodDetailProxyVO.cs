@@ -45,18 +45,18 @@ namespace libHitpan5.VO.CommonVO.GoodInfo
             {
                 switch (param)
                 {
-                    case "etc_info": {this.GoodsDetail.etc_info  =(string) value ;break; }          
-                    case "good_image":{this.GoodsDetail.good_image =(string) value ;break; }
-                    case "good_maker":{this.GoodsDetail.good_maker =(string) value ;break; }
-                    case "good_name":{this.GoodsDetail.good_name = (string)value ;break; }
-                    case "good_nickname":{this.GoodsDetail.good_nickname = (string)value ;break; }
-                    case "good_pk":{this.GoodsDetail.good_pk = (Int64)value ;break; }
-                    case "good_subname":{this.GoodsDetail.good_subname = (string)value ;break; }
+                    case "etc_info": {this.GoodsDetail.etc_info  = value.ToString() ;break; }
+                    case "good_image": { this.GoodsDetail.good_image = value.ToString(); break; }
+                    case "good_maker": { this.GoodsDetail.good_maker = value.ToString(); break; }
+                    case "good_name": { this.GoodsDetail.good_name = value.ToString(); break; }
+                    case "good_nickname": { this.GoodsDetail.good_nickname = value.ToString(); break; }
+                    case "good_pk":{this.GoodsDetail.good_pk = Convert.ToInt64(value) ;break; }
+                    case "good_subname":{this.GoodsDetail.good_subname = value.ToString() ;break; }
                     case "good_unit_infoList":{this.GoodsDetail.good_unit_infoList = (good_unit_info[])value ;break; }
                     case "goodpartList":{this.GoodsDetail.goodpartList =(goodpart[]) value ;break; }
                     case "goodsellerList":{ this.GoodsDetail.goodsellerList=(goodseller[]) value ;break; }
-                    case "properstock":{this.GoodsDetail.properstock = (long)value ;break; }
-                    case "status":{ this.GoodsDetail.status= (string)value ;break; }
+                    case "properstock":{this.GoodsDetail.properstock = Convert.ToInt64(value) ;break; }
+                    case "status":{ this.GoodsDetail.status= value.ToString() ;break; }
                     case "unitcostList": { this.GoodsDetail.unitcostList =(unitcost[]) value; break; }
                 }            
             }

@@ -42,3 +42,4 @@ C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\bin\Debug\Newtons
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\bin\Debug\Newtonsoft.Json.xml
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\obj\Debug\libHitpan5.dll
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\obj\Debug\libHitpan5.pdb
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\libHitpan5\obj\Debug\libHitpan5.csprojResolveAssemblyReference.cache

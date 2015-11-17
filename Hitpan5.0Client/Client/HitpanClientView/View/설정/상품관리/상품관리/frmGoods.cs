@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using libHitpan5.VO.CommonVO.GoodInfo;
 using libHitpan5.Controller.SelectController.Goods;
 using libHitpan5.Controller.SelectController;
+using Newtonsoft.Json;
+using System.IO;
 namespace HitpanClientView.View.설정.상품관리.상품관리
 {
     public partial class frmGoods : frmAb리스트뷰
@@ -31,7 +33,8 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
             base.GetData = new deleGetData(GetData);
             base.SetListView = new deleSetListView(SetListView);
             base.GetTotalPageCount = new deleGetTotalPageCount(GetTotalPageCount);
-            base.pageSetPageCount = 1;
+            base.SetDetailView = new deleSetDetailView(SetGoodDetailView);
+            base.pageSetPageCount = 10;
             Search();
         }
 
@@ -84,6 +87,102 @@ namespace HitpanClientView.View.설정.상품관리.상품관리
                 lvList.Items.Add(new ListViewItem(arrData));
             }
         }
+        private void SetGoodDetailView(object data) 
+        {
+            // 리스트뷰 등 초기화
+            lstbSeller.Items.Clear();
+            lstbUnitCost.Items.Clear();
+            lstbParts.Items.Clear();
+            lstbUnitsPolicy.Items.Clear();
+
+            //[1] 데이터 구하기
+            GoodsListProxyVO GoodData = (GoodsListProxyVO)data;
+            GoodDetailProxyVO vo = new GoodDetailProxyVO();
+            vo.GoodsDetail.good_pk = GoodData.GoodsListVO.good_pk;
+            ISelect selectDetail = new SelectGoodDetail(vo);
+            GoodDetailProxyVO DetailData = (GoodDetailProxyVO)frmMain.htpClientLib.Select(selectDetail);
+
+            //[2] 뷰 세팅           
+            if (DetailData.GoodsDetail.good_image!=null)
+            {
+                byte[] image = JsonConvert.DeserializeObject<byte[]>(DetailData.GoodsDetail.good_image);
+                Image img = (Image)new ImageConverter().ConvertFrom(image);
+                picGood.Image = img;
+            }
+            txtGoodName.Text = DetailData.GoodsDetail.good_name;
+            txtSubname.Text = DetailData.GoodsDetail.good_subname;
+            txtNickName.Text = DetailData.GoodsDetail.good_nickname;
+            txtMaker.Text = DetailData.GoodsDetail.good_maker;
+            ddlStatus.Text = DetailData.GoodsDetail.status;
+            txtETC.Text = DetailData.GoodsDetail.etc_info;
+            txtProperStock.Text = DetailData.GoodsDetail.properstock.ToString();
+            foreach (var SellerData in DetailData.GoodsDetail.goodsellerList)
+            {
+                string strSellerData = string.Format("업체번호: {0} || 상호: {1} || 전화번호: {2} || 업무시간: {3} ", SellerData.seller_idx, SellerData.company_name, SellerData.company_phone,SellerData.company_worktime);
+                lstbSeller.Items.Add(strSellerData);
+            }
+            foreach (var unitCostData in DetailData.GoodsDetail.unitcostList)
+            {
+                string strUnitCostData = string.Format
+                    (
+                    "적용업체 업체번호 :{0} || 적용업체 상호 :{1} || 구분: {2} || 단위 :{3} || 단가 :{4} || 면세여부 {5} 부과세 포함여부 {6}",
+                    unitCostData.company_idx,
+                    "상호",
+                    unitCostData.cost_type,
+                    unitCostData.unit,
+                    unitCostData.cost,
+                    unitCostData.is_free_tax,
+                    unitCostData.contain_tax
+                    );
+                lstbUnitCost.Items.Add(strUnitCostData);
+            }
+        }
         #endregion
+
+        private void btnOut_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void ddlDetailViewMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlDetailViewMode.Text=="입력")
+            {
+                btnInput.Text = "입력하기";
+                picGood.ImageLocation = string.Format("{0}\\Images\\NoImage.png", Environment.CurrentDirectory);
+                lstbParts.Items.Clear();
+            }
+            else if (ddlDetailViewMode.Text=="수정")
+            {               
+                btnInput.Text = "수정하기";
+            }
+            else if (ddlDetailViewMode.Text=="조회")
+            {
+                linkImagePath.Visible = false;
+                btnInput.Visible = false;
+                foreach (Control c in gboxBasicInfo.Controls)
+                {
+                    if (c.GetType() == typeof(LinkLabel))
+                    {
+                        c.Visible = false;
+                    }
+                }
+                return;
+            }
+
+            linkImagePath.Visible = true;
+            btnInput.Visible = true;
+            foreach (Control c in gboxBasicInfo.Controls)
+            {
+                if (c.GetType() == typeof(TextBox))
+                {
+                    c.Text = "";
+                }
+                if (c.GetType() == typeof(LinkLabel))
+                {
+                    c.Visible = true;
+                }
+            }
+        }
     }
 }

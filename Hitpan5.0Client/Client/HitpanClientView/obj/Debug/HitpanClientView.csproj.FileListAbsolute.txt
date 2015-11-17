@@ -87,3 +87,4 @@ C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\H
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csproj.GenerateResource.Cache
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\libHitpan5.dll
 C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\obj\Debug\HitpanClientView.csprojResolveAssemblyReference.cache
+C:\Users\so\Documents\hitpan\Hitpan5.0Client\Client\HitpanClientView\bin\Debug\Images\NoImage.png

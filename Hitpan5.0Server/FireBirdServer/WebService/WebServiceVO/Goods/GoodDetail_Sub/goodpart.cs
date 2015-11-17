@@ -35,9 +35,9 @@ namespace WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub
             {
                 switch (param)
                 {
-                    case "final_good_idx": {this.final_good_idx = (Int64)value ;break; }
-                    case "required_good": { this.required_good = (Int64)value; break; }
-                    case "required_amount": {this.required_amount = (Int64)value ;break; }
+                    case "final_good_idx": {this.final_good_idx     = Convert.ToInt64(value) ;break; }
+                    case "required_good": { this.required_good      = Convert.ToInt64(value) ; break; }
+                    case "required_amount": {this.required_amount   = Convert.ToInt64(value) ;break; }
                     default:
                         break;
                 }            

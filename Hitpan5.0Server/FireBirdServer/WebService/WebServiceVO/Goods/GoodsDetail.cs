@@ -61,15 +61,15 @@ namespace WebServiceServer.WebServiceVO.Goods
             {
                 switch (param)
                 {
-                    case "good_pk":         { this.good_pk = (Int64)value; break; }
-                    case "good_name":       { this.good_name = (string)value; break; }
-                    case "good_subname":    { this.good_subname = (string)value; break; }
-                    case "good_maker":      { this.good_maker = (string)value; break; }
-                    case "good_nickname":   { this.good_nickname = (string)value; break; }
-                    case "properstock":     { this.properstock = (Int64)value; break; }
-                    case "status":          { this.status = (string)value; break; }
-                    case "good_image":      { this.good_image = (string)value; break; }
-                    case "etc_info":        { this.etc_info = (string)value; break; }
+                    case "good_pk":         { this.good_pk = Convert.ToInt64(value); break; }
+                    case "good_name":       { this.good_name = value.ToString(); break; }
+                    case "good_subname":    { this.good_subname = value.ToString(); break; }
+                    case "good_maker":      { this.good_maker = value.ToString(); break; }
+                    case "good_nickname":   { this.good_nickname = value.ToString(); break; }
+                    case "properstock":     { this.properstock = Convert.ToInt64(value); break; }
+                    case "status":          { this.status = value.ToString(); break; }
+                    case "good_image":      { this.good_image = value.ToString(); break; }
+                    case "etc_info":        { this.etc_info = value.ToString(); break; }
                 }            
             }
         }

@@ -254,7 +254,6 @@ namespace HitPanSQLServicesServer
         private void DropServer()
         {
             WebServiceServer.ServerMain.getInstance().ServerOFF();
-            linkDeleteAllSettings.Visible = false;
 
             lvServiceList.Items.Clear();
             txtServiceURL.Enabled = false;
@@ -286,7 +285,7 @@ namespace HitPanSQLServicesServer
                 linkBackupPath.Enabled = true;
                 cbBackupSchedule.Enabled = true;
                 btnSetCommonSettings.Text = "세팅완료";
-                linkDeleteAllSettings.Visible = false;
+                btnSettingClear.Visible = false;
                 txtServiceURL.Enabled = false;
                 linkExternalIP.Enabled = false;
             }
@@ -299,7 +298,7 @@ namespace HitPanSQLServicesServer
                 linkBackupPath.Enabled = false;
                 cbBackupSchedule.Enabled = false;
                 btnSetCommonSettings.Text = "세팅시작하기";
-                linkDeleteAllSettings.Visible = true;
+                btnSettingClear.Visible = true;
                 txtServiceURL.Enabled = true;
                 linkExternalIP.Enabled = true;
 
@@ -321,7 +320,7 @@ namespace HitPanSQLServicesServer
                 linkBackupPath.Enabled = false;
                 cbBackupSchedule.Enabled = false;
                 btnSetCommonSettings.Text = "세팅시작하기";
-                linkDeleteAllSettings.Visible = true;
+                btnSettingClear.Visible = true;
                 txtServiceURL.Enabled = true;
                 linkExternalIP.Enabled = true;
 
@@ -418,13 +417,6 @@ namespace HitPanSQLServicesServer
         {
             this.ResetServer();
             linkWarning.Visible = false;
-        }
-
-        private void linkDeleteAllSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            new CommonSettingsController().DeleteSettings();
-            this.CommonSettingsVO = null;
-            linkWarning.Visible = true;
         }
 
         private void rdNotSecurityMode_CheckedChanged(object sender, EventArgs e)
@@ -635,8 +627,7 @@ namespace HitPanSQLServicesServer
 
         private void 쿼리실행ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string url = lvServiceList.SelectedItems[0].SubItems[0].Text;
-            new frmViewQuery(url).Show();
+
         }
 
         private void 즉시백업ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -813,6 +804,25 @@ namespace HitPanSQLServicesServer
             //백업파일 덤프 실행
             new DBManager().RestoreDB(url, lastestbackupFile, true);
         }
+
+        private void btnSettingClear_Click(object sender, EventArgs e)
+        {
+            new CommonSettingsController().DeleteSettings();
+            this.CommonSettingsVO = null;
+            linkWarning.Visible = true;
+        }
+
+        private void linkInstallMainDB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lblDBFolder.Visible = true;
+            txtDBFolderPath.Visible = true;
+            linkDBFolderPath.Visible = true;
+        }
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+
+        //}
 
         //private void btnRestore_Click(object sender, EventArgs e)
         //{

@@ -20,7 +20,7 @@ namespace WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub
         [DataMember]
         public bool is_free_tax { get; set; }
         [DataMember]
-        public bool contain_tax { get; set; }
+        public bool contain_vat { get; set; }
         [DataMember]
         public string unit { get; set; }
 
@@ -35,7 +35,7 @@ namespace WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub
                     case "cost_type": { val = this.cost_type; break; }
                     case "cost": { val = this.cost; break; }
                     case "is_free_tax": { val = this.is_free_tax; break; }
-                    case "contain_tax": {val = this.contain_tax; break; }
+                    case "contain_vat": { val = this.contain_vat; break; }
                     case "unit": { val = this.unit; break; }
 	            }
                 return val;
@@ -44,13 +44,13 @@ namespace WebServiceServer.WebServiceVO.Goods.GoodDetail_Sub
             {
                 switch (param)
                 {
-                    case "good_idx": {this.good_idx = (Int64)value; break; }
-                    case "company_idx": { this.company_idx = (Int64)value; break; }
+                    case "good_idx": {this.good_idx = Convert.ToInt64(value); break; }
+                    case "company_idx": { this.company_idx = Convert.ToInt64(value); break; }
                     case "cost_type": {this.cost_type = (UnitCostType)Enum.Parse(typeof(UnitCostType),value.ToString()); break; }
-                    case "cost": { this.cost = (Int64)value; break; }
-                    case "is_free_tax": { this.is_free_tax = (bool)value; break; }
-                    case "contain_tax": { this.contain_tax = (bool)value; break; }
-                    case "unit": { this.unit = (string)value; break; }
+                    case "cost": { this.cost = Convert.ToInt64(value); break; }
+                    case "is_free_tax": { this.is_free_tax = Convert.ToBoolean(value); break; }
+                    case "contain_vat": { this.contain_vat = Convert.ToBoolean(value); break; }
+                    case "unit": { this.unit = value.ToString(); break; }
                 }            
             }
         }
