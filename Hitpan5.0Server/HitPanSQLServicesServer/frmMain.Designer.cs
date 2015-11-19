@@ -31,13 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.panel2 = new System.Windows.Forms.Panel();
-            this.LinkBackupFile = new System.Windows.Forms.LinkLabel();
-            this.txtBackupFile = new System.Windows.Forms.TextBox();
-            this.rdCreateDB = new System.Windows.Forms.RadioButton();
-            this.rdRestoreDB = new System.Windows.Forms.RadioButton();
-            this.linkPortTest = new System.Windows.Forms.LinkLabel();
-            this.linkExternalIP = new System.Windows.Forms.LinkLabel();
+            this.tabCommonSetting = new System.Windows.Forms.TabControl();
+            this.tpageCommonSetting = new System.Windows.Forms.TabPage();
             this.pnCommonSettingView = new System.Windows.Forms.Panel();
+            this.gboxStandbyDBStatus = new System.Windows.Forms.GroupBox();
+            this.rbtnStandbyDBFault = new System.Windows.Forms.RadioButton();
+            this.rbtnStandbyDBInUse = new System.Windows.Forms.RadioButton();
+            this.rbtnStandbyDBOK = new System.Windows.Forms.RadioButton();
+            this.gboxMainDBStatus = new System.Windows.Forms.GroupBox();
+            this.rbtnMainDBFault = new System.Windows.Forms.RadioButton();
+            this.rbtnMainDBRecovery = new System.Windows.Forms.RadioButton();
+            this.rbtnMainDBOK = new System.Windows.Forms.RadioButton();
+            this.btnSettingClear = new System.Windows.Forms.Button();
             this.linkWarning = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
             this.linkBackupPath = new System.Windows.Forms.LinkLabel();
@@ -53,6 +58,37 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblExternalIP = new System.Windows.Forms.Label();
+            this.tpageDBServer = new System.Windows.Forms.TabPage();
+            this.btnSetDBServer = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkInstallStandbyDB = new System.Windows.Forms.LinkLabel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.gboxMainDB = new System.Windows.Forms.GroupBox();
+            this.linkDBFolderPath = new System.Windows.Forms.LinkLabel();
+            this.txtDBFolderPath = new System.Windows.Forms.TextBox();
+            this.lblDBFolder = new System.Windows.Forms.Label();
+            this.linkInstallMainDB = new System.Windows.Forms.LinkLabel();
+            this.txtMainDBPassword = new System.Windows.Forms.TextBox();
+            this.txtMainDBID = new System.Windows.Forms.TextBox();
+            this.txtMainDBPort = new System.Windows.Forms.TextBox();
+            this.txtMainDBURL = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LinkBackupFile = new System.Windows.Forms.LinkLabel();
+            this.txtBackupFile = new System.Windows.Forms.TextBox();
+            this.rdCreateDB = new System.Windows.Forms.RadioButton();
+            this.rdRestoreDB = new System.Windows.Forms.RadioButton();
+            this.linkPortTest = new System.Windows.Forms.LinkLabel();
+            this.linkExternalIP = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPort = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,54 +116,18 @@
             this.cmsNotifyIcon1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.서버콘솔보이기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.서버종료하기ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSettingClear = new System.Windows.Forms.Button();
-            this.tabCommonSetting = new System.Windows.Forms.TabControl();
-            this.tpageCommonSetting = new System.Windows.Forms.TabPage();
-            this.gboxMainDBStatus = new System.Windows.Forms.GroupBox();
-            this.rbtnMainDBOK = new System.Windows.Forms.RadioButton();
-            this.rbtnMainDBRecovery = new System.Windows.Forms.RadioButton();
-            this.rbtnMainDBFault = new System.Windows.Forms.RadioButton();
-            this.gboxStandbyDBStatus = new System.Windows.Forms.GroupBox();
-            this.rbtnStandbyDBFault = new System.Windows.Forms.RadioButton();
-            this.rbtnStandbyDBInUse = new System.Windows.Forms.RadioButton();
-            this.rbtnStandbyDBOK = new System.Windows.Forms.RadioButton();
-            this.tpageDBServer = new System.Windows.Forms.TabPage();
-            this.gboxMainDB = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtDBURL = new System.Windows.Forms.TextBox();
-            this.txtDBPort = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.linkInstallMainDB = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.lblDBFolder = new System.Windows.Forms.Label();
-            this.txtDBFolderPath = new System.Windows.Forms.TextBox();
-            this.linkDBFolderPath = new System.Windows.Forms.LinkLabel();
-            this.btnSetDBServer = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
+            this.tabCommonSetting.SuspendLayout();
+            this.tpageCommonSetting.SuspendLayout();
             this.pnCommonSettingView.SuspendLayout();
+            this.gboxStandbyDBStatus.SuspendLayout();
+            this.gboxMainDBStatus.SuspendLayout();
+            this.tpageDBServer.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.gboxMainDB.SuspendLayout();
             this.panel1.SuspendLayout();
             this.cmsServiceActive.SuspendLayout();
             this.cmsNotifyIcon1.SuspendLayout();
-            this.tabCommonSetting.SuspendLayout();
-            this.tpageCommonSetting.SuspendLayout();
-            this.gboxMainDBStatus.SuspendLayout();
-            this.gboxStandbyDBStatus.SuspendLayout();
-            this.tpageDBServer.SuspendLayout();
-            this.gboxMainDB.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -152,69 +152,26 @@
             this.panel2.Size = new System.Drawing.Size(678, 534);
             this.panel2.TabIndex = 3;
             // 
-            // LinkBackupFile
+            // tabCommonSetting
             // 
-            this.LinkBackupFile.AutoSize = true;
-            this.LinkBackupFile.Location = new System.Drawing.Point(584, 463);
-            this.LinkBackupFile.Name = "LinkBackupFile";
-            this.LinkBackupFile.Size = new System.Drawing.Size(77, 12);
-            this.LinkBackupFile.TabIndex = 19;
-            this.LinkBackupFile.TabStop = true;
-            this.LinkBackupFile.Text = "백업파일찾기";
-            this.LinkBackupFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkBackupFile_LinkClicked);
+            this.tabCommonSetting.Controls.Add(this.tpageCommonSetting);
+            this.tabCommonSetting.Controls.Add(this.tpageDBServer);
+            this.tabCommonSetting.Location = new System.Drawing.Point(8, 3);
+            this.tabCommonSetting.Name = "tabCommonSetting";
+            this.tabCommonSetting.SelectedIndex = 0;
+            this.tabCommonSetting.Size = new System.Drawing.Size(670, 341);
+            this.tabCommonSetting.TabIndex = 1;
             // 
-            // txtBackupFile
+            // tpageCommonSetting
             // 
-            this.txtBackupFile.Enabled = false;
-            this.txtBackupFile.Location = new System.Drawing.Point(160, 454);
-            this.txtBackupFile.Name = "txtBackupFile";
-            this.txtBackupFile.Size = new System.Drawing.Size(418, 21);
-            this.txtBackupFile.TabIndex = 18;
-            // 
-            // rdCreateDB
-            // 
-            this.rdCreateDB.AutoSize = true;
-            this.rdCreateDB.Location = new System.Drawing.Point(319, 432);
-            this.rdCreateDB.Name = "rdCreateDB";
-            this.rdCreateDB.Size = new System.Drawing.Size(119, 16);
-            this.rdCreateDB.TabIndex = 17;
-            this.rdCreateDB.TabStop = true;
-            this.rdCreateDB.Text = "비어있는 DB 생성";
-            this.rdCreateDB.UseVisualStyleBackColor = true;
-            this.rdCreateDB.CheckedChanged += new System.EventHandler(this.rdCreateDB_CheckedChanged);
-            // 
-            // rdRestoreDB
-            // 
-            this.rdRestoreDB.AutoSize = true;
-            this.rdRestoreDB.Location = new System.Drawing.Point(160, 432);
-            this.rdRestoreDB.Name = "rdRestoreDB";
-            this.rdRestoreDB.Size = new System.Drawing.Size(143, 16);
-            this.rdRestoreDB.TabIndex = 16;
-            this.rdRestoreDB.TabStop = true;
-            this.rdRestoreDB.Text = "백업파일 에서 DB생성";
-            this.rdRestoreDB.UseVisualStyleBackColor = true;
-            this.rdRestoreDB.CheckedChanged += new System.EventHandler(this.rdRestoreDB_CheckedChanged);
-            // 
-            // linkPortTest
-            // 
-            this.linkPortTest.AutoSize = true;
-            this.linkPortTest.Location = new System.Drawing.Point(247, 396);
-            this.linkPortTest.Name = "linkPortTest";
-            this.linkPortTest.Size = new System.Drawing.Size(65, 12);
-            this.linkPortTest.TabIndex = 14;
-            this.linkPortTest.TabStop = true;
-            this.linkPortTest.Text = "포트테스트";
-            // 
-            // linkExternalIP
-            // 
-            this.linkExternalIP.AutoSize = true;
-            this.linkExternalIP.Location = new System.Drawing.Point(587, 370);
-            this.linkExternalIP.Name = "linkExternalIP";
-            this.linkExternalIP.Size = new System.Drawing.Size(64, 12);
-            this.linkExternalIP.TabIndex = 12;
-            this.linkExternalIP.TabStop = true;
-            this.linkExternalIP.Text = "외부IP사용";
-            this.linkExternalIP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkExternalIP_LinkClicked);
+            this.tpageCommonSetting.Controls.Add(this.pnCommonSettingView);
+            this.tpageCommonSetting.Location = new System.Drawing.Point(4, 22);
+            this.tpageCommonSetting.Name = "tpageCommonSetting";
+            this.tpageCommonSetting.Padding = new System.Windows.Forms.Padding(3);
+            this.tpageCommonSetting.Size = new System.Drawing.Size(662, 315);
+            this.tpageCommonSetting.TabIndex = 1;
+            this.tpageCommonSetting.Text = "공통 설정사항";
+            this.tpageCommonSetting.UseVisualStyleBackColor = true;
             // 
             // pnCommonSettingView
             // 
@@ -242,6 +199,112 @@
             this.pnCommonSettingView.Name = "pnCommonSettingView";
             this.pnCommonSettingView.Size = new System.Drawing.Size(656, 309);
             this.pnCommonSettingView.TabIndex = 11;
+            // 
+            // gboxStandbyDBStatus
+            // 
+            this.gboxStandbyDBStatus.Controls.Add(this.rbtnStandbyDBFault);
+            this.gboxStandbyDBStatus.Controls.Add(this.rbtnStandbyDBInUse);
+            this.gboxStandbyDBStatus.Controls.Add(this.rbtnStandbyDBOK);
+            this.gboxStandbyDBStatus.Location = new System.Drawing.Point(23, 248);
+            this.gboxStandbyDBStatus.Name = "gboxStandbyDBStatus";
+            this.gboxStandbyDBStatus.Size = new System.Drawing.Size(606, 32);
+            this.gboxStandbyDBStatus.TabIndex = 27;
+            this.gboxStandbyDBStatus.TabStop = false;
+            this.gboxStandbyDBStatus.Text = "대기DB서버  상태";
+            // 
+            // rbtnStandbyDBFault
+            // 
+            this.rbtnStandbyDBFault.AutoSize = true;
+            this.rbtnStandbyDBFault.Enabled = false;
+            this.rbtnStandbyDBFault.Location = new System.Drawing.Point(426, 10);
+            this.rbtnStandbyDBFault.Name = "rbtnStandbyDBFault";
+            this.rbtnStandbyDBFault.Size = new System.Drawing.Size(71, 16);
+            this.rbtnStandbyDBFault.TabIndex = 2;
+            this.rbtnStandbyDBFault.TabStop = true;
+            this.rbtnStandbyDBFault.Text = "사용불가";
+            this.rbtnStandbyDBFault.UseVisualStyleBackColor = true;
+            // 
+            // rbtnStandbyDBInUse
+            // 
+            this.rbtnStandbyDBInUse.AutoSize = true;
+            this.rbtnStandbyDBInUse.Enabled = false;
+            this.rbtnStandbyDBInUse.Location = new System.Drawing.Point(281, 10);
+            this.rbtnStandbyDBInUse.Name = "rbtnStandbyDBInUse";
+            this.rbtnStandbyDBInUse.Size = new System.Drawing.Size(47, 16);
+            this.rbtnStandbyDBInUse.TabIndex = 1;
+            this.rbtnStandbyDBInUse.TabStop = true;
+            this.rbtnStandbyDBInUse.Text = "활성";
+            this.rbtnStandbyDBInUse.UseVisualStyleBackColor = true;
+            // 
+            // rbtnStandbyDBOK
+            // 
+            this.rbtnStandbyDBOK.AutoSize = true;
+            this.rbtnStandbyDBOK.Enabled = false;
+            this.rbtnStandbyDBOK.Location = new System.Drawing.Point(137, 10);
+            this.rbtnStandbyDBOK.Name = "rbtnStandbyDBOK";
+            this.rbtnStandbyDBOK.Size = new System.Drawing.Size(59, 16);
+            this.rbtnStandbyDBOK.TabIndex = 0;
+            this.rbtnStandbyDBOK.TabStop = true;
+            this.rbtnStandbyDBOK.Text = "대기중";
+            this.rbtnStandbyDBOK.UseVisualStyleBackColor = true;
+            // 
+            // gboxMainDBStatus
+            // 
+            this.gboxMainDBStatus.Controls.Add(this.rbtnMainDBFault);
+            this.gboxMainDBStatus.Controls.Add(this.rbtnMainDBRecovery);
+            this.gboxMainDBStatus.Controls.Add(this.rbtnMainDBOK);
+            this.gboxMainDBStatus.Location = new System.Drawing.Point(23, 216);
+            this.gboxMainDBStatus.Name = "gboxMainDBStatus";
+            this.gboxMainDBStatus.Size = new System.Drawing.Size(606, 32);
+            this.gboxMainDBStatus.TabIndex = 26;
+            this.gboxMainDBStatus.TabStop = false;
+            this.gboxMainDBStatus.Text = "메인DB서버  상태";
+            // 
+            // rbtnMainDBFault
+            // 
+            this.rbtnMainDBFault.AutoSize = true;
+            this.rbtnMainDBFault.Enabled = false;
+            this.rbtnMainDBFault.Location = new System.Drawing.Point(426, 10);
+            this.rbtnMainDBFault.Name = "rbtnMainDBFault";
+            this.rbtnMainDBFault.Size = new System.Drawing.Size(71, 16);
+            this.rbtnMainDBFault.TabIndex = 2;
+            this.rbtnMainDBFault.TabStop = true;
+            this.rbtnMainDBFault.Text = "사용불가";
+            this.rbtnMainDBFault.UseVisualStyleBackColor = true;
+            // 
+            // rbtnMainDBRecovery
+            // 
+            this.rbtnMainDBRecovery.AutoSize = true;
+            this.rbtnMainDBRecovery.Enabled = false;
+            this.rbtnMainDBRecovery.Location = new System.Drawing.Point(281, 10);
+            this.rbtnMainDBRecovery.Name = "rbtnMainDBRecovery";
+            this.rbtnMainDBRecovery.Size = new System.Drawing.Size(59, 16);
+            this.rbtnMainDBRecovery.TabIndex = 1;
+            this.rbtnMainDBRecovery.TabStop = true;
+            this.rbtnMainDBRecovery.Text = "복구중";
+            this.rbtnMainDBRecovery.UseVisualStyleBackColor = true;
+            // 
+            // rbtnMainDBOK
+            // 
+            this.rbtnMainDBOK.AutoSize = true;
+            this.rbtnMainDBOK.Enabled = false;
+            this.rbtnMainDBOK.Location = new System.Drawing.Point(137, 10);
+            this.rbtnMainDBOK.Name = "rbtnMainDBOK";
+            this.rbtnMainDBOK.Size = new System.Drawing.Size(47, 16);
+            this.rbtnMainDBOK.TabIndex = 0;
+            this.rbtnMainDBOK.TabStop = true;
+            this.rbtnMainDBOK.Text = "정상";
+            this.rbtnMainDBOK.UseVisualStyleBackColor = true;
+            // 
+            // btnSettingClear
+            // 
+            this.btnSettingClear.Location = new System.Drawing.Point(520, 283);
+            this.btnSettingClear.Name = "btnSettingClear";
+            this.btnSettingClear.Size = new System.Drawing.Size(109, 23);
+            this.btnSettingClear.TabIndex = 20;
+            this.btnSettingClear.Text = "설정정보 초기화";
+            this.btnSettingClear.UseVisualStyleBackColor = true;
+            this.btnSettingClear.Click += new System.EventHandler(this.btnSettingClear_Click);
             // 
             // linkWarning
             // 
@@ -394,6 +457,312 @@
             this.lblExternalIP.Size = new System.Drawing.Size(52, 12);
             this.lblExternalIP.TabIndex = 0;
             this.lblExternalIP.Text = "외부IP : ";
+            // 
+            // tpageDBServer
+            // 
+            this.tpageDBServer.Controls.Add(this.btnSetDBServer);
+            this.tpageDBServer.Controls.Add(this.groupBox1);
+            this.tpageDBServer.Controls.Add(this.gboxMainDB);
+            this.tpageDBServer.Location = new System.Drawing.Point(4, 22);
+            this.tpageDBServer.Name = "tpageDBServer";
+            this.tpageDBServer.Size = new System.Drawing.Size(662, 315);
+            this.tpageDBServer.TabIndex = 2;
+            this.tpageDBServer.Text = "DB서버 설정";
+            this.tpageDBServer.UseVisualStyleBackColor = true;
+            // 
+            // btnSetDBServer
+            // 
+            this.btnSetDBServer.Location = new System.Drawing.Point(478, 278);
+            this.btnSetDBServer.Name = "btnSetDBServer";
+            this.btnSetDBServer.Size = new System.Drawing.Size(111, 23);
+            this.btnSetDBServer.TabIndex = 11;
+            this.btnSetDBServer.Text = "DB서버 설정 끝";
+            this.btnSetDBServer.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.linkInstallStandbyDB);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Location = new System.Drawing.Point(4, 161);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(649, 111);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "대기 DB서버";
+            // 
+            // linkInstallStandbyDB
+            // 
+            this.linkInstallStandbyDB.AutoSize = true;
+            this.linkInstallStandbyDB.Location = new System.Drawing.Point(443, 79);
+            this.linkInstallStandbyDB.Name = "linkInstallStandbyDB";
+            this.linkInstallStandbyDB.Size = new System.Drawing.Size(141, 12);
+            this.linkInstallStandbyDB.TabIndex = 10;
+            this.linkInstallStandbyDB.TabStop = true;
+            this.linkInstallStandbyDB.Text = "이 컴퓨터에 DB서버 설치";
+            this.linkInstallStandbyDB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkInstallStandbyDB_LinkClicked);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(261, 70);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
+            this.textBox3.Size = new System.Drawing.Size(165, 21);
+            this.textBox3.TabIndex = 8;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(68, 70);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(111, 21);
+            this.textBox4.TabIndex = 7;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(485, 22);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(51, 21);
+            this.textBox5.TabIndex = 6;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(69, 22);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(358, 21);
+            this.textBox6.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(185, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 12);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Password :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(38, 79);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(24, 12);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "ID :";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(444, 29);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 12);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "Port :";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(27, 31);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 12);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "URL :";
+            // 
+            // gboxMainDB
+            // 
+            this.gboxMainDB.Controls.Add(this.linkDBFolderPath);
+            this.gboxMainDB.Controls.Add(this.txtDBFolderPath);
+            this.gboxMainDB.Controls.Add(this.lblDBFolder);
+            this.gboxMainDB.Controls.Add(this.linkInstallMainDB);
+            this.gboxMainDB.Controls.Add(this.txtMainDBPassword);
+            this.gboxMainDB.Controls.Add(this.txtMainDBID);
+            this.gboxMainDB.Controls.Add(this.txtMainDBPort);
+            this.gboxMainDB.Controls.Add(this.txtMainDBURL);
+            this.gboxMainDB.Controls.Add(this.label11);
+            this.gboxMainDB.Controls.Add(this.label10);
+            this.gboxMainDB.Controls.Add(this.label9);
+            this.gboxMainDB.Controls.Add(this.label4);
+            this.gboxMainDB.Location = new System.Drawing.Point(3, 16);
+            this.gboxMainDB.Name = "gboxMainDB";
+            this.gboxMainDB.Size = new System.Drawing.Size(649, 118);
+            this.gboxMainDB.TabIndex = 0;
+            this.gboxMainDB.TabStop = false;
+            this.gboxMainDB.Text = "메인DB서버";
+            // 
+            // linkDBFolderPath
+            // 
+            this.linkDBFolderPath.AutoSize = true;
+            this.linkDBFolderPath.Location = new System.Drawing.Point(433, 88);
+            this.linkDBFolderPath.Name = "linkDBFolderPath";
+            this.linkDBFolderPath.Size = new System.Drawing.Size(29, 12);
+            this.linkDBFolderPath.TabIndex = 12;
+            this.linkDBFolderPath.TabStop = true;
+            this.linkDBFolderPath.Text = "설정";
+            this.linkDBFolderPath.Visible = false;
+            this.linkDBFolderPath.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDBFolderPath_LinkClicked);
+            // 
+            // txtDBFolderPath
+            // 
+            this.txtDBFolderPath.Location = new System.Drawing.Point(69, 79);
+            this.txtDBFolderPath.Name = "txtDBFolderPath";
+            this.txtDBFolderPath.Size = new System.Drawing.Size(358, 21);
+            this.txtDBFolderPath.TabIndex = 11;
+            this.txtDBFolderPath.Visible = false;
+            // 
+            // lblDBFolder
+            // 
+            this.lblDBFolder.AutoSize = true;
+            this.lblDBFolder.Location = new System.Drawing.Point(10, 88);
+            this.lblDBFolder.Name = "lblDBFolder";
+            this.lblDBFolder.Size = new System.Drawing.Size(53, 12);
+            this.lblDBFolder.TabIndex = 10;
+            this.lblDBFolder.Text = "DB폴더 :";
+            this.lblDBFolder.Visible = false;
+            // 
+            // linkInstallMainDB
+            // 
+            this.linkInstallMainDB.AutoSize = true;
+            this.linkInstallMainDB.Location = new System.Drawing.Point(446, 56);
+            this.linkInstallMainDB.Name = "linkInstallMainDB";
+            this.linkInstallMainDB.Size = new System.Drawing.Size(141, 12);
+            this.linkInstallMainDB.TabIndex = 9;
+            this.linkInstallMainDB.TabStop = true;
+            this.linkInstallMainDB.Text = "이 컴퓨터에 DB서버 설치";
+            this.linkInstallMainDB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkInstallMainDB_LinkClicked);
+            // 
+            // txtMainDBPassword
+            // 
+            this.txtMainDBPassword.Location = new System.Drawing.Point(262, 49);
+            this.txtMainDBPassword.Name = "txtMainDBPassword";
+            this.txtMainDBPassword.PasswordChar = '*';
+            this.txtMainDBPassword.Size = new System.Drawing.Size(165, 21);
+            this.txtMainDBPassword.TabIndex = 8;
+            // 
+            // txtMainDBID
+            // 
+            this.txtMainDBID.Location = new System.Drawing.Point(69, 49);
+            this.txtMainDBID.Name = "txtMainDBID";
+            this.txtMainDBID.Size = new System.Drawing.Size(111, 21);
+            this.txtMainDBID.TabIndex = 7;
+            // 
+            // txtMainDBPort
+            // 
+            this.txtMainDBPort.Location = new System.Drawing.Point(485, 22);
+            this.txtMainDBPort.Name = "txtMainDBPort";
+            this.txtMainDBPort.Size = new System.Drawing.Size(51, 21);
+            this.txtMainDBPort.TabIndex = 6;
+            // 
+            // txtMainDBURL
+            // 
+            this.txtMainDBURL.Location = new System.Drawing.Point(69, 22);
+            this.txtMainDBURL.Name = "txtMainDBURL";
+            this.txtMainDBURL.Size = new System.Drawing.Size(358, 21);
+            this.txtMainDBURL.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(186, 54);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 12);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Password :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(39, 56);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 12);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "ID :";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(444, 29);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 12);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Port :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "URL :";
+            // 
+            // LinkBackupFile
+            // 
+            this.LinkBackupFile.AutoSize = true;
+            this.LinkBackupFile.Location = new System.Drawing.Point(584, 463);
+            this.LinkBackupFile.Name = "LinkBackupFile";
+            this.LinkBackupFile.Size = new System.Drawing.Size(77, 12);
+            this.LinkBackupFile.TabIndex = 19;
+            this.LinkBackupFile.TabStop = true;
+            this.LinkBackupFile.Text = "백업파일찾기";
+            this.LinkBackupFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkBackupFile_LinkClicked);
+            // 
+            // txtBackupFile
+            // 
+            this.txtBackupFile.Enabled = false;
+            this.txtBackupFile.Location = new System.Drawing.Point(160, 454);
+            this.txtBackupFile.Name = "txtBackupFile";
+            this.txtBackupFile.Size = new System.Drawing.Size(418, 21);
+            this.txtBackupFile.TabIndex = 18;
+            // 
+            // rdCreateDB
+            // 
+            this.rdCreateDB.AutoSize = true;
+            this.rdCreateDB.Location = new System.Drawing.Point(319, 432);
+            this.rdCreateDB.Name = "rdCreateDB";
+            this.rdCreateDB.Size = new System.Drawing.Size(119, 16);
+            this.rdCreateDB.TabIndex = 17;
+            this.rdCreateDB.TabStop = true;
+            this.rdCreateDB.Text = "비어있는 DB 생성";
+            this.rdCreateDB.UseVisualStyleBackColor = true;
+            this.rdCreateDB.CheckedChanged += new System.EventHandler(this.rdCreateDB_CheckedChanged);
+            // 
+            // rdRestoreDB
+            // 
+            this.rdRestoreDB.AutoSize = true;
+            this.rdRestoreDB.Location = new System.Drawing.Point(160, 432);
+            this.rdRestoreDB.Name = "rdRestoreDB";
+            this.rdRestoreDB.Size = new System.Drawing.Size(143, 16);
+            this.rdRestoreDB.TabIndex = 16;
+            this.rdRestoreDB.TabStop = true;
+            this.rdRestoreDB.Text = "백업파일 에서 DB생성";
+            this.rdRestoreDB.UseVisualStyleBackColor = true;
+            this.rdRestoreDB.CheckedChanged += new System.EventHandler(this.rdRestoreDB_CheckedChanged);
+            // 
+            // linkPortTest
+            // 
+            this.linkPortTest.AutoSize = true;
+            this.linkPortTest.Location = new System.Drawing.Point(247, 396);
+            this.linkPortTest.Name = "linkPortTest";
+            this.linkPortTest.Size = new System.Drawing.Size(65, 12);
+            this.linkPortTest.TabIndex = 14;
+            this.linkPortTest.TabStop = true;
+            this.linkPortTest.Text = "포트테스트";
+            // 
+            // linkExternalIP
+            // 
+            this.linkExternalIP.AutoSize = true;
+            this.linkExternalIP.Location = new System.Drawing.Point(587, 370);
+            this.linkExternalIP.Name = "linkExternalIP";
+            this.linkExternalIP.Size = new System.Drawing.Size(64, 12);
+            this.linkExternalIP.TabIndex = 12;
+            this.linkExternalIP.TabStop = true;
+            this.linkExternalIP.Text = "외부IP사용";
+            this.linkExternalIP.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkExternalIP_LinkClicked);
             // 
             // label2
             // 
@@ -619,373 +988,6 @@
             this.서버종료하기ToolStripMenuItem.Text = "서버 종료하기";
             this.서버종료하기ToolStripMenuItem.Click += new System.EventHandler(this.서버종료하기ToolStripMenuItem_Click);
             // 
-            // btnSettingClear
-            // 
-            this.btnSettingClear.Location = new System.Drawing.Point(520, 283);
-            this.btnSettingClear.Name = "btnSettingClear";
-            this.btnSettingClear.Size = new System.Drawing.Size(109, 23);
-            this.btnSettingClear.TabIndex = 20;
-            this.btnSettingClear.Text = "설정정보 초기화";
-            this.btnSettingClear.UseVisualStyleBackColor = true;
-            this.btnSettingClear.Click += new System.EventHandler(this.btnSettingClear_Click);
-            // 
-            // tabCommonSetting
-            // 
-            this.tabCommonSetting.Controls.Add(this.tpageCommonSetting);
-            this.tabCommonSetting.Controls.Add(this.tpageDBServer);
-            this.tabCommonSetting.Location = new System.Drawing.Point(8, 3);
-            this.tabCommonSetting.Name = "tabCommonSetting";
-            this.tabCommonSetting.SelectedIndex = 0;
-            this.tabCommonSetting.Size = new System.Drawing.Size(670, 341);
-            this.tabCommonSetting.TabIndex = 1;
-            // 
-            // tpageCommonSetting
-            // 
-            this.tpageCommonSetting.Controls.Add(this.pnCommonSettingView);
-            this.tpageCommonSetting.Location = new System.Drawing.Point(4, 22);
-            this.tpageCommonSetting.Name = "tpageCommonSetting";
-            this.tpageCommonSetting.Padding = new System.Windows.Forms.Padding(3);
-            this.tpageCommonSetting.Size = new System.Drawing.Size(662, 315);
-            this.tpageCommonSetting.TabIndex = 1;
-            this.tpageCommonSetting.Text = "공통 설정사항";
-            this.tpageCommonSetting.UseVisualStyleBackColor = true;
-            // 
-            // gboxMainDBStatus
-            // 
-            this.gboxMainDBStatus.Controls.Add(this.rbtnMainDBFault);
-            this.gboxMainDBStatus.Controls.Add(this.rbtnMainDBRecovery);
-            this.gboxMainDBStatus.Controls.Add(this.rbtnMainDBOK);
-            this.gboxMainDBStatus.Location = new System.Drawing.Point(23, 216);
-            this.gboxMainDBStatus.Name = "gboxMainDBStatus";
-            this.gboxMainDBStatus.Size = new System.Drawing.Size(606, 32);
-            this.gboxMainDBStatus.TabIndex = 26;
-            this.gboxMainDBStatus.TabStop = false;
-            this.gboxMainDBStatus.Text = "메인DB서버  상태";
-            // 
-            // rbtnMainDBOK
-            // 
-            this.rbtnMainDBOK.AutoSize = true;
-            this.rbtnMainDBOK.Enabled = false;
-            this.rbtnMainDBOK.Location = new System.Drawing.Point(137, 10);
-            this.rbtnMainDBOK.Name = "rbtnMainDBOK";
-            this.rbtnMainDBOK.Size = new System.Drawing.Size(47, 16);
-            this.rbtnMainDBOK.TabIndex = 0;
-            this.rbtnMainDBOK.TabStop = true;
-            this.rbtnMainDBOK.Text = "정상";
-            this.rbtnMainDBOK.UseVisualStyleBackColor = true;
-            // 
-            // rbtnMainDBRecovery
-            // 
-            this.rbtnMainDBRecovery.AutoSize = true;
-            this.rbtnMainDBRecovery.Enabled = false;
-            this.rbtnMainDBRecovery.Location = new System.Drawing.Point(281, 10);
-            this.rbtnMainDBRecovery.Name = "rbtnMainDBRecovery";
-            this.rbtnMainDBRecovery.Size = new System.Drawing.Size(59, 16);
-            this.rbtnMainDBRecovery.TabIndex = 1;
-            this.rbtnMainDBRecovery.TabStop = true;
-            this.rbtnMainDBRecovery.Text = "복구중";
-            this.rbtnMainDBRecovery.UseVisualStyleBackColor = true;
-            // 
-            // rbtnMainDBFault
-            // 
-            this.rbtnMainDBFault.AutoSize = true;
-            this.rbtnMainDBFault.Enabled = false;
-            this.rbtnMainDBFault.Location = new System.Drawing.Point(426, 10);
-            this.rbtnMainDBFault.Name = "rbtnMainDBFault";
-            this.rbtnMainDBFault.Size = new System.Drawing.Size(71, 16);
-            this.rbtnMainDBFault.TabIndex = 2;
-            this.rbtnMainDBFault.TabStop = true;
-            this.rbtnMainDBFault.Text = "사용불가";
-            this.rbtnMainDBFault.UseVisualStyleBackColor = true;
-            // 
-            // gboxStandbyDBStatus
-            // 
-            this.gboxStandbyDBStatus.Controls.Add(this.rbtnStandbyDBFault);
-            this.gboxStandbyDBStatus.Controls.Add(this.rbtnStandbyDBInUse);
-            this.gboxStandbyDBStatus.Controls.Add(this.rbtnStandbyDBOK);
-            this.gboxStandbyDBStatus.Location = new System.Drawing.Point(23, 248);
-            this.gboxStandbyDBStatus.Name = "gboxStandbyDBStatus";
-            this.gboxStandbyDBStatus.Size = new System.Drawing.Size(606, 32);
-            this.gboxStandbyDBStatus.TabIndex = 27;
-            this.gboxStandbyDBStatus.TabStop = false;
-            this.gboxStandbyDBStatus.Text = "대기DB서버  상태";
-            // 
-            // rbtnStandbyDBFault
-            // 
-            this.rbtnStandbyDBFault.AutoSize = true;
-            this.rbtnStandbyDBFault.Enabled = false;
-            this.rbtnStandbyDBFault.Location = new System.Drawing.Point(426, 10);
-            this.rbtnStandbyDBFault.Name = "rbtnStandbyDBFault";
-            this.rbtnStandbyDBFault.Size = new System.Drawing.Size(71, 16);
-            this.rbtnStandbyDBFault.TabIndex = 2;
-            this.rbtnStandbyDBFault.TabStop = true;
-            this.rbtnStandbyDBFault.Text = "사용불가";
-            this.rbtnStandbyDBFault.UseVisualStyleBackColor = true;
-            // 
-            // rbtnStandbyDBInUse
-            // 
-            this.rbtnStandbyDBInUse.AutoSize = true;
-            this.rbtnStandbyDBInUse.Enabled = false;
-            this.rbtnStandbyDBInUse.Location = new System.Drawing.Point(281, 10);
-            this.rbtnStandbyDBInUse.Name = "rbtnStandbyDBInUse";
-            this.rbtnStandbyDBInUse.Size = new System.Drawing.Size(47, 16);
-            this.rbtnStandbyDBInUse.TabIndex = 1;
-            this.rbtnStandbyDBInUse.TabStop = true;
-            this.rbtnStandbyDBInUse.Text = "활성";
-            this.rbtnStandbyDBInUse.UseVisualStyleBackColor = true;
-            // 
-            // rbtnStandbyDBOK
-            // 
-            this.rbtnStandbyDBOK.AutoSize = true;
-            this.rbtnStandbyDBOK.Enabled = false;
-            this.rbtnStandbyDBOK.Location = new System.Drawing.Point(137, 10);
-            this.rbtnStandbyDBOK.Name = "rbtnStandbyDBOK";
-            this.rbtnStandbyDBOK.Size = new System.Drawing.Size(59, 16);
-            this.rbtnStandbyDBOK.TabIndex = 0;
-            this.rbtnStandbyDBOK.TabStop = true;
-            this.rbtnStandbyDBOK.Text = "대기중";
-            this.rbtnStandbyDBOK.UseVisualStyleBackColor = true;
-            // 
-            // tpageDBServer
-            // 
-            this.tpageDBServer.Controls.Add(this.btnSetDBServer);
-            this.tpageDBServer.Controls.Add(this.groupBox1);
-            this.tpageDBServer.Controls.Add(this.gboxMainDB);
-            this.tpageDBServer.Location = new System.Drawing.Point(4, 22);
-            this.tpageDBServer.Name = "tpageDBServer";
-            this.tpageDBServer.Size = new System.Drawing.Size(662, 315);
-            this.tpageDBServer.TabIndex = 2;
-            this.tpageDBServer.Text = "DB서버 설정";
-            this.tpageDBServer.UseVisualStyleBackColor = true;
-            // 
-            // gboxMainDB
-            // 
-            this.gboxMainDB.Controls.Add(this.linkDBFolderPath);
-            this.gboxMainDB.Controls.Add(this.txtDBFolderPath);
-            this.gboxMainDB.Controls.Add(this.lblDBFolder);
-            this.gboxMainDB.Controls.Add(this.linkInstallMainDB);
-            this.gboxMainDB.Controls.Add(this.textBox2);
-            this.gboxMainDB.Controls.Add(this.textBox1);
-            this.gboxMainDB.Controls.Add(this.txtDBPort);
-            this.gboxMainDB.Controls.Add(this.txtDBURL);
-            this.gboxMainDB.Controls.Add(this.label11);
-            this.gboxMainDB.Controls.Add(this.label10);
-            this.gboxMainDB.Controls.Add(this.label9);
-            this.gboxMainDB.Controls.Add(this.label4);
-            this.gboxMainDB.Location = new System.Drawing.Point(3, 16);
-            this.gboxMainDB.Name = "gboxMainDB";
-            this.gboxMainDB.Size = new System.Drawing.Size(649, 118);
-            this.gboxMainDB.TabIndex = 0;
-            this.gboxMainDB.TabStop = false;
-            this.gboxMainDB.Text = "메인DB서버";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "URL :";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(444, 29);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 12);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Port :";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(39, 56);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(24, 12);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "ID :";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(186, 54);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 12);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Password :";
-            // 
-            // txtDBURL
-            // 
-            this.txtDBURL.Location = new System.Drawing.Point(69, 22);
-            this.txtDBURL.Name = "txtDBURL";
-            this.txtDBURL.Size = new System.Drawing.Size(358, 21);
-            this.txtDBURL.TabIndex = 5;
-            // 
-            // txtDBPort
-            // 
-            this.txtDBPort.Location = new System.Drawing.Point(485, 22);
-            this.txtDBPort.Name = "txtDBPort";
-            this.txtDBPort.Size = new System.Drawing.Size(51, 21);
-            this.txtDBPort.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(69, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(111, 21);
-            this.textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(262, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(165, 21);
-            this.textBox2.TabIndex = 8;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.linkLabel2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Location = new System.Drawing.Point(4, 161);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(649, 111);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "대기 DB서버";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(261, 70);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(165, 21);
-            this.textBox3.TabIndex = 8;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(68, 70);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(111, 21);
-            this.textBox4.TabIndex = 7;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(485, 22);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(51, 21);
-            this.textBox5.TabIndex = 6;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(69, 22);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(358, 21);
-            this.textBox6.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(185, 75);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 12);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Password :";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(38, 79);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(24, 12);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "ID :";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(444, 29);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 12);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Port :";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(27, 31);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 12);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "URL :";
-            // 
-            // linkInstallMainDB
-            // 
-            this.linkInstallMainDB.AutoSize = true;
-            this.linkInstallMainDB.Location = new System.Drawing.Point(446, 56);
-            this.linkInstallMainDB.Name = "linkInstallMainDB";
-            this.linkInstallMainDB.Size = new System.Drawing.Size(141, 12);
-            this.linkInstallMainDB.TabIndex = 9;
-            this.linkInstallMainDB.TabStop = true;
-            this.linkInstallMainDB.Text = "이 컴퓨터에 DB서버 설치";
-            this.linkInstallMainDB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkInstallMainDB_LinkClicked);
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(443, 79);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(141, 12);
-            this.linkLabel2.TabIndex = 10;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "이 컴퓨터에 DB서버 설치";
-            // 
-            // lblDBFolder
-            // 
-            this.lblDBFolder.AutoSize = true;
-            this.lblDBFolder.Location = new System.Drawing.Point(10, 88);
-            this.lblDBFolder.Name = "lblDBFolder";
-            this.lblDBFolder.Size = new System.Drawing.Size(53, 12);
-            this.lblDBFolder.TabIndex = 10;
-            this.lblDBFolder.Text = "DB폴더 :";
-            this.lblDBFolder.Visible = false;
-            // 
-            // txtDBFolderPath
-            // 
-            this.txtDBFolderPath.Location = new System.Drawing.Point(69, 79);
-            this.txtDBFolderPath.Name = "txtDBFolderPath";
-            this.txtDBFolderPath.Size = new System.Drawing.Size(358, 21);
-            this.txtDBFolderPath.TabIndex = 11;
-            this.txtDBFolderPath.Visible = false;
-            // 
-            // linkDBFolderPath
-            // 
-            this.linkDBFolderPath.AutoSize = true;
-            this.linkDBFolderPath.Location = new System.Drawing.Point(433, 88);
-            this.linkDBFolderPath.Name = "linkDBFolderPath";
-            this.linkDBFolderPath.Size = new System.Drawing.Size(29, 12);
-            this.linkDBFolderPath.TabIndex = 12;
-            this.linkDBFolderPath.TabStop = true;
-            this.linkDBFolderPath.Text = "설정";
-            this.linkDBFolderPath.Visible = false;
-            // 
-            // btnSetDBServer
-            // 
-            this.btnSetDBServer.Location = new System.Drawing.Point(478, 278);
-            this.btnSetDBServer.Name = "btnSetDBServer";
-            this.btnSetDBServer.Size = new System.Drawing.Size(111, 23);
-            this.btnSetDBServer.TabIndex = 11;
-            this.btnSetDBServer.Text = "DB서버 설정 끝";
-            this.btnSetDBServer.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -999,22 +1001,22 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabCommonSetting.ResumeLayout(false);
+            this.tpageCommonSetting.ResumeLayout(false);
             this.pnCommonSettingView.ResumeLayout(false);
             this.pnCommonSettingView.PerformLayout();
+            this.gboxStandbyDBStatus.ResumeLayout(false);
+            this.gboxStandbyDBStatus.PerformLayout();
+            this.gboxMainDBStatus.ResumeLayout(false);
+            this.gboxMainDBStatus.PerformLayout();
+            this.tpageDBServer.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.gboxMainDB.ResumeLayout(false);
+            this.gboxMainDB.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.cmsServiceActive.ResumeLayout(false);
             this.cmsNotifyIcon1.ResumeLayout(false);
-            this.tabCommonSetting.ResumeLayout(false);
-            this.tpageCommonSetting.ResumeLayout(false);
-            this.gboxMainDBStatus.ResumeLayout(false);
-            this.gboxMainDBStatus.PerformLayout();
-            this.gboxStandbyDBStatus.ResumeLayout(false);
-            this.gboxStandbyDBStatus.PerformLayout();
-            this.tpageDBServer.ResumeLayout(false);
-            this.gboxMainDB.ResumeLayout(false);
-            this.gboxMainDB.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1084,7 +1086,7 @@
         private System.Windows.Forms.RadioButton rbtnMainDBOK;
         private System.Windows.Forms.TabPage tpageDBServer;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkInstallStandbyDB;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
@@ -1098,10 +1100,10 @@
         private System.Windows.Forms.TextBox txtDBFolderPath;
         private System.Windows.Forms.Label lblDBFolder;
         private System.Windows.Forms.LinkLabel linkInstallMainDB;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtDBPort;
-        private System.Windows.Forms.TextBox txtDBURL;
+        private System.Windows.Forms.TextBox txtMainDBPassword;
+        private System.Windows.Forms.TextBox txtMainDBID;
+        private System.Windows.Forms.TextBox txtMainDBPort;
+        private System.Windows.Forms.TextBox txtMainDBURL;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;

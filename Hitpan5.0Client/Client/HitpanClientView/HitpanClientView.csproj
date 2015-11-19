@@ -59,11 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="View\Login\frmLogin.cs">
+    <Compile Include="View\설정\네트워크\frmNetwork.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Login\frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="View\설정\네트워크\frmNetwork.Designer.cs">
+      <DependentUpon>frmNetwork.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -109,8 +109,8 @@
     <Compile Include="View\설정\상품관리\상품관리\frmGoods.Designer.cs">
       <DependentUpon>frmGoods.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Login\frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="View\설정\네트워크\frmNetwork.resx">
+      <DependentUpon>frmNetwork.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -123,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\설정\사용자설정\관리정보설정\frm관리정보설정.resx">
       <DependentUpon>frm관리정보설정.cs</DependentUpon>
@@ -167,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\NoImage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\툴바세팅.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -817,6 +817,51 @@ namespace HitPanSQLServicesServer
             lblDBFolder.Visible = true;
             txtDBFolderPath.Visible = true;
             linkDBFolderPath.Visible = true;
+            linkInstallMainDB.Visible = false;
+        }
+
+        private void linkInstallStandbyDB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lblDBFolder.Visible = false;
+            txtDBFolderPath.Visible = false;
+            linkDBFolderPath.Visible = false;
+            linkInstallMainDB.Visible = false;
+            linkInstallStandbyDB.Visible = false;
+        }
+
+        private void linkDBFolderPath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (txtDBFolderPath.Text.Replace(" ",string.Empty)==string.Empty)
+            {
+                FolderBrowserDialog fdb = new FolderBrowserDialog();
+                if (fdb.ShowDialog() == DialogResult.OK)
+                {
+                    txtDBFolderPath.Text = fdb.SelectedPath;
+                    linkDBFolderPath.Text = "이 피시에 메인DB서버 설치";
+                }
+                else
+                {
+                    txtDBFolderPath.Text = "";
+                    lblDBFolder.Visible = false;
+                    txtDBFolderPath.Visible = false;
+                    linkDBFolderPath.Visible = false;
+                    linkInstallMainDB.Visible = true;
+                    linkInstallStandbyDB.Visible = true;
+                } 
+            }
+            else
+            {
+                lblDBFolder.Visible = false;
+                txtDBFolderPath.Visible = false;
+                linkDBFolderPath.Visible = false;
+                linkInstallMainDB.Visible = false;
+                linkInstallStandbyDB.Visible = false;
+                txtMainDBURL.Text = "127.0.0.1";
+                txtMainDBPort.Text = "5432";
+                txtMainDBID.Text = "postgres";
+                txtMainDBPassword.Text = "postgres";
+                //설치
+            }
         }
 
         //private void button1_Click(object sender, EventArgs e)

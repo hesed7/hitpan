@@ -26,12 +26,12 @@ namespace HitpanClientView.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string authSeed {
+        public string SecurityTokenSeed {
             get {
-                return ((string)(this["authSeed"]));
+                return ((string)(this["SecurityTokenSeed"]));
             }
             set {
-                this["authSeed"] = value;
+                this["SecurityTokenSeed"] = value;
             }
         }
         

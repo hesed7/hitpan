@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 namespace HitpanClientView
 {
-    public partial class frmLogin : Form
+    public partial class frmNetwork : Form
     {
         #region 마으스 드래그로 컨트롤 이동하기
         //마우스 드래그로 이동의 선언부
@@ -49,7 +49,7 @@ namespace HitpanClientView
         }
 
 
-        public frmLogin()
+        public frmNetwork()
         {
             // TODO: Complete member initialization
             InitializeComponent();
@@ -69,35 +69,14 @@ namespace HitpanClientView
                 MessageBox.Show("접속을 인증할 보안키가 입력되지 않았습니다");
                 return;
             }
-            if (txtUserID.Text==string.Empty)
-            {
-                MessageBox.Show("로그인할 사용자의 ID가 입력되지 않았습니다");
-                return;
-            }
-            if (txtUserPassword.Text == string.Empty)
-            {
-                MessageBox.Show("로그인할 사용자의 패스워드가 입력되지 않았습니다");
-                return;
-            }
 
             //아이디,주소,보안키,보안타입 저장
-            if (chStoreServerInfo.Checked)
-            {
-                Settings.Default.serviceURL = txtURL.Text;
-                Settings.Default.authSeed = txtAuthKey.Text;
-                Settings.Default.UserID = txtUserID.Text;
-                Settings.Default.UseSecurityMode = chSecurityMode.Checked;
-                Settings.Default.Save();
-            }
-            try
-            {
-                frmMain.htpClientLib = Hitpan5ClientLibrary.getInstance(chSecurityMode.Checked, txtURL.Text, txtAuthKey.Text, txtUserID.Text, txtUserPassword.Text);
-                this.DialogResult = DialogResult.OK;
-            }
-            catch (Exception ex)
-            {
-                this.DialogResult = DialogResult.No;
-            }
+  
+            Settings.Default.serviceURL = txtURL.Text;
+            Settings.Default.SecurityTokenSeed = txtAuthKey.Text;
+            Settings.Default.UseSecurityMode = chSecurityMode.Checked;
+            Settings.Default.Save();
+            
             this.Dispose();
         }
 
@@ -109,24 +88,16 @@ namespace HitpanClientView
             //전부다 string.empty로 초기화
             txtAuthKey.Text = string.Empty;
             txtURL.Text = string.Empty;
-            txtUserID.Text = string.Empty;
-            txtUserPassword.Text=string.Empty;
 
-            if (Settings.Default.authSeed!=null && Settings.Default.authSeed!=string.Empty)
+            if (Settings.Default.SecurityTokenSeed!=null && Settings.Default.SecurityTokenSeed!=string.Empty)
             {
-                txtAuthKey.Text = Settings.Default.authSeed;
+                txtAuthKey.Text = Settings.Default.SecurityTokenSeed;
             }
             if (Settings.Default.serviceURL!=null && Settings.Default.serviceURL!=string.Empty)
             {
                 txtURL.Text = Settings.Default.serviceURL;
             }
-
-            if (Settings.Default.UserID!=null && Settings.Default.UserID!=string.Empty)
-            {
-                txtUserID.Text = Settings.Default.UserID;
-            }
-            string serviceURL=Settings.Default.serviceURL;;
-            string authKey= Settings.Default.authSeed;
+            chSecurityMode.Checked = Settings.Default.UseSecurityMode;
         }
 
 

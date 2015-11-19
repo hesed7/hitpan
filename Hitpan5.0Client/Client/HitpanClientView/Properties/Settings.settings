@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HitpanClientView.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="authSeed" Type="System.String" Scope="User">
+    <Setting Name="SecurityTokenSeed" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="serviceURL" Type="System.String" Scope="User">
